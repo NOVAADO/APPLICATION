@@ -295,9 +295,10 @@ describe("Preset A - Validation règles strictes", () => {
     });
   });
 
-  it("contient 12 techniques attendues (8 de base + 4 paroles adaptables)", () => {
+  it("contient 11 techniques attendues (7 de base + 4 paroles adaptables)", () => {
+    // Note: souffle-soupir a été déplacé vers Preset B car "soupirer fort" n'est pas discret en public
     const presetA = getPresetATechniques();
-    expect(presetA.length).toBe(12);
+    expect(presetA.length).toBe(11);
   });
 });
 
@@ -322,6 +323,7 @@ describe("Preset B - Validation règles strictes", () => {
   });
 
   it("contient 7 techniques attendues", () => {
+    // Note: souffle-soupir ajouté, étirements rapides retiré (lever les bras n'est pas discret)
     const presetB = getPresetBTechniques();
     expect(presetB.length).toBe(7);
   });

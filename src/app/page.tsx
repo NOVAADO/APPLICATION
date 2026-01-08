@@ -12,7 +12,7 @@ import type { Duration, Preset } from "@/lib/types";
  * Page d'accueil - Éclipse NOVA ADO
  *
  * Objectif : technique en < 10 secondes
- * Microcopy : "T'as besoin d'un break ?"
+ * Microcopy : "T'as besoin d'une pause ?"
  */
 export default function HomePage() {
   const router = useRouter();
@@ -57,7 +57,7 @@ export default function HomePage() {
     <div className="flex-1 flex flex-col items-center justify-center px-6 py-12">
       {/* Titre principal */}
       <h1 className="text-2xl sm:text-3xl font-bold text-center mb-2">
-        T&apos;as besoin d&apos;un break ?
+        T&apos;as besoin d&apos;une pause ?
       </h1>
 
       {/* Sous-titre */}

@@ -10,7 +10,7 @@ describe("ContextFilter", () => {
     // Les boutons affichent "Label (count)" - on utilise regex pour matcher
     expect(screen.getByText(/^Toutes/)).toBeInTheDocument();
     expect(screen.getByText(/^Public/)).toBeInTheDocument();
-    expect(screen.getByText(/^Discret/)).toBeInTheDocument();
+    expect(screen.getByText(/^Tranquille/)).toBeInTheDocument();
   });
 
   it("affiche le label 'Où es-tu ?'", () => {
@@ -38,7 +38,7 @@ describe("ContextFilter", () => {
     fireEvent.click(screen.getByText(/^Public/));
     expect(onChange).toHaveBeenCalledWith("A");
 
-    fireEvent.click(screen.getByText(/^Discret/));
+    fireEvent.click(screen.getByText(/^Tranquille/));
     expect(onChange).toHaveBeenCalledWith("B");
 
     fireEvent.click(screen.getByText(/^Toutes/));

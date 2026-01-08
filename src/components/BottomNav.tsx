@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
+import Image from "next/image";
 import { getSettings } from "@/lib/settings";
 
 interface NavItem {
@@ -12,10 +13,10 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { href: "/", label: "Accueil", icon: "🏠", ariaLabel: "Aller à l'accueil" },
-  { href: "/categories", label: "Catégories", icon: "📂", ariaLabel: "Voir les catégories" },
-  { href: "/favorites", label: "Favoris", icon: "★", ariaLabel: "Voir tes favoris" },
-  { href: "/parametres", label: "Réglages", icon: "⚙️", ariaLabel: "Ouvrir les réglages" },
+  { href: "/", label: "Accueil", icon: "/pictos/nav-accueil.svg", ariaLabel: "Aller à l'accueil" },
+  { href: "/categories", label: "Catégories", icon: "/pictos/nav-categories.svg", ariaLabel: "Voir les catégories" },
+  { href: "/favorites", label: "Favoris", icon: "/pictos/nav-favoris.svg", ariaLabel: "Voir tes favoris" },
+  { href: "/parametres", label: "Réglages", icon: "/pictos/nav-reglages.svg", ariaLabel: "Ouvrir les réglages" },
 ];
 
 /**
@@ -62,9 +63,21 @@ export function BottomNav() {
                 aria-label={item.ariaLabel}
                 aria-current={isActive ? "page" : undefined}
               >
-                <span className="text-xl mb-0.5" aria-hidden="true">
-                  {item.icon}
-                </span>
+                <Image
+                  src={item.icon}
+                  alt=""
+                  width={24}
+                  height={24}
+                  className={`w-6 h-6 mb-0.5 transition-all ${
+                    isActive ? "opacity-100" : "opacity-60"
+                  }`}
+                  style={{
+                    filter: isActive
+                      ? "invert(56%) sepia(95%) saturate(1000%) hue-rotate(166deg) brightness(100%)"
+                      : "invert(70%) sepia(0%) saturate(0%) brightness(100%)",
+                  }}
+                  aria-hidden="true"
+                />
                 <span className="text-xs font-medium">{item.label}</span>
               </button>
             </li>
