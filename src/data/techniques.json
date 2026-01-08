@@ -517,7 +517,7 @@
         "Pose ta main sur ton cœur",
         "Sens les battements",
         "Respire lentement",
-        "Dis-toi : \"Je suis là. Je suis en sécurité.\"",
+        "Dis-toi : \"Je suis là. Ce moment va passer.\"",
         "Reste comme ça 1 à 2 minutes"
       ],
       "note": null,
@@ -839,7 +839,7 @@
         "\"T'as le droit d'être fatigué.\"",
         "\"T'as le droit de pas être parfait.\"",
         "\"T'as le droit de prendre du temps pour toi.\"",
-        "Respire et laisse ces mots entrer."
+        "Respire. Prends le temps d'y penser."
       ],
       "note": null,
       "timer": false,
@@ -903,7 +903,7 @@
         "Imagine qu'un ami vit exactement ce que tu vis",
         "Qu'est-ce que tu lui dirais ?",
         "Maintenant, dis-le toi à toi-même",
-        "Avec la même douceur"
+        "Sans te juger"
       ],
       "note": "On est souvent plus durs avec nous-mêmes.",
       "timer": false,

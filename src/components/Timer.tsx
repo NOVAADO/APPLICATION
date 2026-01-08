@@ -310,12 +310,7 @@ export function Timer({
           </>
         )}
 
-        {/* Terminé : message de confirmation */}
-        {phase === "done" && (
-          <p className="text-ancrage font-medium text-lg">
-            Bien joué.
-          </p>
-        )}
+        {/* Terminé : le texte est déjà affiché par getPhaseText() */}
       </div>
 
       {/* Phases restantes (indicateur discret) */}
