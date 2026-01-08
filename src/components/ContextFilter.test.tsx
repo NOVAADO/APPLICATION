@@ -9,8 +9,8 @@ describe("ContextFilter", () => {
 
     // Les boutons affichent "Label (count)" - on utilise regex pour matcher
     expect(screen.getByText(/^Toutes/)).toBeInTheDocument();
-    expect(screen.getByText(/^Public/)).toBeInTheDocument();
-    expect(screen.getByText(/^Tranquille/)).toBeInTheDocument();
+    expect(screen.getByText(/^Discret/)).toBeInTheDocument();
+    expect(screen.getByText(/^Libre/)).toBeInTheDocument();
   });
 
   it("affiche le label 'Où es-tu ?'", () => {
@@ -24,10 +24,10 @@ describe("ContextFilter", () => {
     const onChange = vi.fn();
     render(<ContextFilter selected="A" onChange={onChange} />);
 
-    const publicButton = screen.getByText(/^Public/);
+    const discretButton = screen.getByText(/^Discret/);
     const allButton = screen.getByText(/^Toutes/);
 
-    expect(publicButton).toHaveAttribute("aria-pressed", "true");
+    expect(discretButton).toHaveAttribute("aria-pressed", "true");
     expect(allButton).toHaveAttribute("aria-pressed", "false");
   });
 
@@ -35,10 +35,10 @@ describe("ContextFilter", () => {
     const onChange = vi.fn();
     render(<ContextFilter selected="all" onChange={onChange} />);
 
-    fireEvent.click(screen.getByText(/^Public/));
+    fireEvent.click(screen.getByText(/^Discret/));
     expect(onChange).toHaveBeenCalledWith("A");
 
-    fireEvent.click(screen.getByText(/^Tranquille/));
+    fireEvent.click(screen.getByText(/^Libre/));
     expect(onChange).toHaveBeenCalledWith("B");
 
     fireEvent.click(screen.getByText(/^Toutes/));
