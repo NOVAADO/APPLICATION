@@ -14,7 +14,7 @@
 
 ## Bugs actifs
 
-### BUG-001 : Vercel 404 - Root Directory
+### APP-BUG-001 : Vercel 404 - Root Directory
 | Champ | Valeur |
 |-------|--------|
 | **Gravité** | P0 |
@@ -31,7 +31,7 @@
 
 ## Bugs corrigés
 
-### BUG-002 : Pictos catégories invisibles
+### APP-BUG-002 : Pictos catégories invisibles
 | Champ | Valeur |
 |-------|--------|
 | **Gravité** | P1 |

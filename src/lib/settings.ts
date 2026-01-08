@@ -10,6 +10,8 @@
  * - eclipse-settings: Settings (paramètres ci-dessous)
  */
 
+import { STORAGE_KEYS } from "./constants";
+
 export interface Settings {
   /** Mode immersif sur les fiches techniques (masque BottomNav) */
   immersiveMode: boolean;
@@ -19,9 +21,9 @@ export interface Settings {
   defaultFavoritesSort: "recent" | "az";
 }
 
-const SETTINGS_KEY = "eclipse-settings";
-const FAVORITES_KEY = "eclipse-favorites";
-const HISTORY_KEY = "eclipse-history";
+const SETTINGS_KEY = STORAGE_KEYS.SETTINGS;
+const FAVORITES_KEY = STORAGE_KEYS.FAVORITES;
+const HISTORY_KEY = STORAGE_KEYS.HISTORY;
 
 /**
  * Paramètres par défaut
