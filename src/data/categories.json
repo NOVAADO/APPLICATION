@@ -1,0 +1,50 @@
+{
+  "version": "1.0.0",
+  "categories": [
+    {
+      "id": "souffle",
+      "name": "Souffle",
+      "description": "Respire. Calme ton système.",
+      "icon": "souffle.png",
+      "color": "#7DD3FC",
+      "premium": false,
+      "order": 1
+    },
+    {
+      "id": "decharge",
+      "name": "Décharge",
+      "description": "Bouge. Évacue l'énergie.",
+      "icon": "decharge.png",
+      "color": "#FB923C",
+      "premium": false,
+      "order": 2
+    },
+    {
+      "id": "ancrage",
+      "name": "Ancrage",
+      "description": "Reviens au présent.",
+      "icon": "ancrage.png",
+      "color": "#4ADE80",
+      "premium": false,
+      "order": 3
+    },
+    {
+      "id": "faire-le-point",
+      "name": "Faire le point",
+      "description": "Casse la spirale.",
+      "icon": "faire-le-point.png",
+      "color": "#A78BFA",
+      "premium": true,
+      "order": 4
+    },
+    {
+      "id": "paroles-fortes",
+      "name": "Paroles fortes",
+      "description": "Ton boost.",
+      "icon": "paroles-fortes.png",
+      "color": "#EF4444",
+      "premium": true,
+      "order": 5
+    }
+  ]
+}

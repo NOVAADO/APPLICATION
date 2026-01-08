@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --eclipse-bg: #0F172A;
+  --eclipse-card: #1E293B;
+  --eclipse-text: #F8FAFC;
+  --eclipse-muted: #94A3B8;
+  --eclipse-accent: #7DD3FC;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--eclipse-bg);
+  color: var(--eclipse-text);
+  font-family: Inter, system-ui, sans-serif;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* Mobile first - safe areas for PWA */
+@supports (padding: env(safe-area-inset-bottom)) {
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* Focus visible for a11y */
+:focus-visible {
+  outline: 2px solid var(--eclipse-accent);
+  outline-offset: 2px;
+}
+
+/* Touch feedback */
+.touch-feedback {
+  transition: transform 0.1s ease-out, opacity 0.1s ease-out;
+}
+
+.touch-feedback:active {
+  transform: scale(0.97);
+  opacity: 0.9;
+}
