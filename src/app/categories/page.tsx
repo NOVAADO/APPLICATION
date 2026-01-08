@@ -63,7 +63,7 @@ export default function CategoriesPage() {
               </span>
             )}
 
-            {/* Picto SVG catégorie */}
+            {/* Picto catégorie - blanc pour contraste sur fond coloré */}
             <div
               className="w-12 h-12 mb-3 flex items-center justify-center"
               aria-hidden="true"
@@ -73,7 +73,7 @@ export default function CategoriesPage() {
                 alt=""
                 width={48}
                 height={48}
-                className="w-full h-full object-contain"
+                className="w-full h-full object-contain brightness-0 invert"
                 aria-hidden="true"
               />
             </div>
