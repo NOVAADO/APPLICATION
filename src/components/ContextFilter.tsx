@@ -17,7 +17,7 @@ interface ContextFilterProps {
 /**
  * Sélecteur de contexte — Presets Éclipse
  * - Public (école/bus) = Preset A
- * - Discret = Preset B
+ * - Tranquille = Preset B
  * - Toutes = comportement par défaut
  */
 export function ContextFilter({ selected, onChange }: ContextFilterProps) {
@@ -31,7 +31,7 @@ export function ContextFilter({ selected, onChange }: ContextFilterProps) {
   const options: { value: ContextOption; label: string; description: string }[] = [
     { value: "all", label: "Toutes", description: "Toutes les techniques" },
     { value: "A", label: "Public", description: "École, bus, file d'attente" },
-    { value: "B", label: "Discret", description: "Pause, coin calme" },
+    { value: "B", label: "Tranquille", description: "Pause, coin tranquille" },
   ];
 
   return (

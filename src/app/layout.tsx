@@ -4,7 +4,7 @@ import { BottomNav } from "@/components/BottomNav";
 
 export const metadata: Metadata = {
   title: "Éclipse - NOVA ADO",
-  description: "T'as besoin d'un break ? Une technique. 2 à 5 minutes. Pas de blabla.",
+  description: "T'as besoin d'une pause ? Une technique. 2 à 5 minutes. Pas de blabla.",
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,

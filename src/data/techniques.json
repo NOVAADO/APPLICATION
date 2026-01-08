@@ -191,8 +191,8 @@
       "tags": ["tension", "relâcher", "rapide", "stress"],
       "premium": false,
       "durationSeconds": 30,
-      "discretionLevel": "public_ok",
-      "presets": ["A"],
+      "discretionLevel": "discret",
+      "presets": ["B"],
       "evidence": {
         "isCanadaValidated": true,
         "level": "A",
@@ -290,13 +290,13 @@
     },
     {
       "id": "decharge-jumping",
-      "title": "Jumping jacks express",
+      "title": "Sauts étoiles express",
       "category": "decharge",
       "duration": 3,
       "intensity": "intense",
       "instructions": [
         "Debout, bras le long du corps",
-        "Saute en écartant les jambes et les bras",
+        "Fais des sauts étoiles : saute en écartant jambes et bras",
         "Reviens à la position de départ",
         "Continue pendant 1 minute",
         "Pause 30 secondes",
@@ -306,7 +306,7 @@
       "timer": true,
       "timerConfig": {
         "phases": [
-          { "name": "Saute", "duration": 60 },
+          { "name": "Sauts étoiles", "duration": 60 },
           { "name": "Pause", "duration": 30 }
         ],
         "cycles": 2,
@@ -345,15 +345,15 @@
         "Tourne la tête à gauche, puis à droite",
         "Secoue les bras et les jambes"
       ],
-      "note": null,
+      "note": "Trouve un coin tranquille, ces mouvements sont visibles.",
       "timer": false,
       "timerConfig": null,
       "material": null,
       "tags": ["tension", "corps", "détente", "doux"],
       "premium": false,
       "durationSeconds": 180,
-      "discretionLevel": "discret",
-      "presets": ["B"],
+      "discretionLevel": "prive",
+      "presets": [],
       "evidence": {
         "isCanadaValidated": true,
         "level": "A",
@@ -517,7 +517,7 @@
         "Pose ta main sur ton cœur",
         "Sens les battements",
         "Respire lentement",
-        "Dis-toi : \"Je suis là. Je suis en sécurité.\"",
+        "Dis-toi : \"Je suis là. Ce moment va passer.\"",
         "Reste comme ça 1 à 2 minutes"
       ],
       "note": null,
@@ -589,9 +589,9 @@
       "intensity": "soft",
       "instructions": [
         "S - Stop. Arrête ce que tu fais.",
-        "T - Take a breath. Prends une respiration.",
+        "T - Tranquille. Prends une grande respiration.",
         "O - Observe. Qu'est-ce qui se passe en toi ?",
-        "P - Proceed. Continue avec conscience."
+        "P - Poursuis. Continue avec conscience."
       ],
       "note": "Acronyme simple pour casser le pilote automatique.",
       "timer": false,
@@ -839,7 +839,7 @@
         "\"T'as le droit d'être fatigué.\"",
         "\"T'as le droit de pas être parfait.\"",
         "\"T'as le droit de prendre du temps pour toi.\"",
-        "Respire et laisse ces mots entrer."
+        "Respire. Prends le temps d'y penser."
       ],
       "note": null,
       "timer": false,
@@ -903,7 +903,7 @@
         "Imagine qu'un ami vit exactement ce que tu vis",
         "Qu'est-ce que tu lui dirais ?",
         "Maintenant, dis-le toi à toi-même",
-        "Avec la même douceur"
+        "Sans te juger"
       ],
       "note": "On est souvent plus durs avec nous-mêmes.",
       "timer": false,

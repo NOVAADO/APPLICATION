@@ -140,7 +140,7 @@ describe("Timer", () => {
   });
 
   describe("Phase Done", () => {
-    it("affiche 'Bien joué.'", () => {
+    it("affiche 'C'est fait.'", () => {
       render(<Timer duration={1} />);
 
       fireEvent.click(screen.getByRole("button", { name: /démarrer/i }));
@@ -152,7 +152,7 @@ describe("Timer", () => {
         });
       }
 
-      expect(screen.getByText("Bien joué.")).toBeInTheDocument();
+      expect(screen.getByText("C'est fait.")).toBeInTheDocument();
     });
 
     it("appelle onComplete quand terminé", () => {

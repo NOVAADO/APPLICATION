@@ -47,7 +47,7 @@ export default function TechniquePage({ params }: TechniquePageProps) {
   if (!technique) {
     return (
       <div className="flex-1 flex flex-col items-center justify-center px-6 py-12">
-        <p className="text-xl mb-4">Oups. Cette technique n&apos;existe plus.</p>
+        <p className="text-xl mb-4">Cette technique n&apos;existe plus.</p>
         <button
           onClick={() => router.push("/")}
           className="text-eclipse-accent hover:underline"
@@ -225,7 +225,7 @@ export default function TechniquePage({ params }: TechniquePageProps) {
             <p className="text-eclipse-muted/60 text-xs text-center">
               Ceci est un outil de soutien, pas un service de santé.
               <br />
-              En cas de détresse, parle à un adulte de confiance.
+              Si ça va vraiment pas, parles-en. Tel-Aide : 514-935-1101
             </p>
           </footer>
         </>
