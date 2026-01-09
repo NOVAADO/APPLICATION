@@ -6,13 +6,14 @@
  * - eclipse-history: HistoryEntry[] (historique des consultations)
  */
 
-export interface HistoryEntry {
-  techniqueId: string;
-  timestamp: number;
-}
+import { STORAGE_KEYS } from "./constants";
+import type { HistoryEntry } from "./types";
 
-const FAVORITES_KEY = "eclipse-favorites";
-const HISTORY_KEY = "eclipse-history";
+// Ré-exporter pour les imports existants
+export type { HistoryEntry } from "./types";
+
+const FAVORITES_KEY = STORAGE_KEYS.FAVORITES;
+const HISTORY_KEY = STORAGE_KEYS.HISTORY;
 
 /**
  * Récupère les favoris depuis localStorage
