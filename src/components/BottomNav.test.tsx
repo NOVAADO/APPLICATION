@@ -133,9 +133,10 @@ describe("BottomNav", () => {
       mockUsePathname.mockReturnValue("/categories/souffle");
       render(<BottomNav />);
 
-      const buttons = screen.getAllByRole("button");
-      buttons.forEach((button) => {
-        expect(button).not.toHaveAttribute("aria-current", "page");
+      // Les items de nav sont des liens, pas des boutons
+      const links = screen.getAllByRole("link");
+      links.forEach((link) => {
+        expect(link).not.toHaveAttribute("aria-current", "page");
       });
     });
   });
