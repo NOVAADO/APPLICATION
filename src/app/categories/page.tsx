@@ -65,63 +65,94 @@ export default function CategoriesPage() {
 
       {/* Grille des catégories */}
       <div className="grid grid-cols-2 gap-4" role="list">
-        {categories.map((category) => (
-          <button
-            key={category.id}
-            onClick={() => router.push(`/categories/${category.id}`)}
-            className="relative p-5 rounded-2xl text-left touch-feedback transition-all hover:scale-[1.02]"
-            style={{
-              backgroundColor: `${category.color}15`,
-              borderColor: `${category.color}30`,
-              borderWidth: "1px",
-            }}
-            role="listitem"
-          >
-            {/* Badge : compteur en mode DÉMO, sinon Premium si applicable */}
-            {isDemo ? (
-              <span className="absolute top-2 right-2 text-xs px-2 py-0.5 rounded-full bg-eclipse-card text-eclipse-muted">
-                {countByCategory(category.id)} carte{countByCategory(category.id) > 1 ? "s" : ""}
-              </span>
-            ) : (
-              category.premium && (
-                <span className="absolute top-2 right-2 text-xs px-2 py-0.5 rounded-full bg-eclipse-card text-eclipse-muted">
+        {categories.map((category) => {
+          // Carte blanche est toujours verrouillée (pas de cartes dans la PWA)
+          const isCarteBlanche = category.id === "carte-blanche";
+          const cardCount = countByCategory(category.id);
+
+          return (
+            <button
+              key={category.id}
+              onClick={() => !isCarteBlanche && router.push(`/categories/${category.id}`)}
+              className={`relative p-5 rounded-2xl text-left transition-all ${
+                isCarteBlanche
+                  ? "opacity-60 cursor-default"
+                  : "touch-feedback hover:scale-[1.02]"
+              }`}
+              style={{
+                backgroundColor: `${category.color}15`,
+                borderColor: `${category.color}30`,
+                borderWidth: "1px",
+              }}
+              role="listitem"
+              aria-disabled={isCarteBlanche}
+            >
+              {/* Badge Carte blanche : "Dans le jeu complet" avec cadenas */}
+              {isCarteBlanche ? (
+                <span className="absolute top-2 right-2 text-xs px-2 py-0.5 rounded-full bg-eclipse-card text-eclipse-muted flex items-center gap-1">
+                  <svg
+                    className="w-3 h-3"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                    />
+                  </svg>
                   {DEMO_MICROCOPY.cardLocked}
                 </span>
-              )
-            )}
+              ) : isDemo ? (
+                <span className="absolute top-2 right-2 text-xs px-2 py-0.5 rounded-full bg-eclipse-card text-eclipse-muted">
+                  {cardCount} carte{cardCount > 1 ? "s" : ""}
+                </span>
+              ) : (
+                category.premium && (
+                  <span className="absolute top-2 right-2 text-xs px-2 py-0.5 rounded-full bg-eclipse-card text-eclipse-muted">
+                    {DEMO_MICROCOPY.cardLocked}
+                  </span>
+                )
+              )}
 
-            {/* Picto catégorie - teinté avec la couleur de la catégorie */}
-            <div
-              className="w-12 h-12 mb-3 flex items-center justify-center"
-              aria-hidden="true"
-            >
-              <Image
-                src={`/pictos/${category.icon}`}
-                alt=""
-                width={48}
-                height={48}
-                className="w-full h-full object-contain"
-                style={{
-                  filter: COLOR_FILTERS[category.color] || "none",
-                }}
+              {/* Picto catégorie - teinté avec la couleur de la catégorie */}
+              <div
+                className="w-12 h-12 mb-3 flex items-center justify-center"
                 aria-hidden="true"
-              />
-            </div>
+              >
+                <Image
+                  src={`/pictos/${category.icon}`}
+                  alt=""
+                  width={48}
+                  height={48}
+                  className="w-full h-full object-contain"
+                  style={{
+                    filter: COLOR_FILTERS[category.color] || "none",
+                  }}
+                  aria-hidden="true"
+                />
+              </div>
 
-            {/* Nom */}
-            <h2
-              className="font-semibold mb-1"
-              style={{ color: category.color }}
-            >
-              {category.name}
-            </h2>
+              {/* Nom */}
+              <h2
+                className="font-semibold mb-1"
+                style={{ color: category.color }}
+              >
+                {category.name}
+              </h2>
 
-            {/* Description */}
-            <p className="text-eclipse-muted text-sm">
-              {category.description}
-            </p>
-          </button>
-        ))}
+              {/* Description */}
+              <p className="text-eclipse-muted text-sm">
+                {isCarteBlanche
+                  ? "Disponible dans la boîte Éclipse"
+                  : category.description}
+              </p>
+            </button>
+          );
+        })}
       </div>
     </div>
   );
