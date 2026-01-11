@@ -225,7 +225,14 @@ export default function TechniquePage({ params }: TechniquePageProps) {
             <p className="text-eclipse-muted/60 text-xs text-center">
               Éclipse est là pour t&apos;accompagner, mais ce n&apos;est pas un service de santé.
               <br />
-              Si ça va vraiment pas, parles-en. Tel-Aide : 514-935-1101
+              Si ça va vraiment pas,{" "}
+              <a
+                href="/aide"
+                className="text-souffle hover:underline underline-offset-2"
+              >
+                parles-en
+              </a>
+              .
             </p>
           </footer>
         </>
