@@ -212,6 +212,40 @@ export default function ParametresPage() {
           </div>
         </section>
 
+        {/* Section À propos */}
+        <section>
+          <h2 className="text-sm font-semibold text-eclipse-muted uppercase tracking-wide mb-3">
+            À propos
+          </h2>
+          <div className="space-y-2">
+            <button
+              onClick={() => router.push("/jeu-physique")}
+              className="w-full flex items-center justify-between p-4 rounded-xl bg-eclipse-card border border-eclipse-muted/20 hover:border-eclipse-accent/50 transition-all touch-feedback text-left"
+            >
+              <div className="flex-1">
+                <p className="font-medium">Le jeu Éclipse</p>
+                <p className="text-sm text-eclipse-muted mt-0.5">
+                  52 cartes physiques pour les moments sans écran
+                </p>
+              </div>
+              <svg
+                className="w-5 h-5 text-eclipse-muted"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </button>
+          </div>
+        </section>
+
         {/* Section Données */}
         <section>
           <h2 className="text-sm font-semibold text-eclipse-muted uppercase tracking-wide mb-3">

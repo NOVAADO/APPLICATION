@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { DrawButton } from "@/components/DrawButton";
 import { DurationFilter } from "@/components/DurationFilter";
 import { ContextFilter, type ContextOption } from "@/components/ContextFilter";
+import { GamePromoCard } from "@/components/GamePromoCard";
 import { drawTechnique, countAvailableTechniques } from "@/lib/techniques";
 import type { Duration, Preset } from "@/lib/types";
 
@@ -144,6 +145,9 @@ export default function HomePage() {
           </a>
         </p>
       </footer>
+
+      {/* Carte promo jeu physique (affichée 1 seule fois après 5 techniques) */}
+      <GamePromoCard />
     </div>
   );
 }

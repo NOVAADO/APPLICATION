@@ -13,6 +13,7 @@ export const STORAGE_KEYS = {
   HISTORY: "eclipse-history",
   SETTINGS: "eclipse-settings",
   ONBOARDING: "eclipse-onboarding-done",
+  GAME_PROMO_SHOWN: "eclipse-game-promo-shown",
 } as const;
 
 /**
