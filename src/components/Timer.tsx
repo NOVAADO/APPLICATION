@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import { getSettings } from "@/lib/settings";
+import { playPhaseSound } from "@/lib/sounds";
 
 type TimerPhase = "idle" | "prepare" | "technique" | "cooldown" | "done";
 
@@ -42,13 +43,15 @@ export function Timer({
   const [isPaused, setIsPaused] = useState(false);
   const [phaseAnnouncement, setPhaseAnnouncement] = useState("");
   const [announcementsEnabled, setAnnouncementsEnabled] = useState(true);
+  const [soundsEnabled, setSoundsEnabled] = useState(false);
 
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Charger le réglage des annonces
+  // Charger les réglages
   useEffect(() => {
     const settings = getSettings();
     setAnnouncementsEnabled(settings.timerAnnouncements);
+    setSoundsEnabled(settings.timerSounds);
   }, []);
 
   // Durée totale de la phase technique
@@ -68,6 +71,11 @@ export function Timer({
     setTimeRemaining(phaseDuration);
     setIsPaused(false);
 
+    // Jouer le son de la phase (si activé)
+    if (soundsEnabled && newPhase !== "idle") {
+      playPhaseSound(newPhase);
+    }
+
     // Annonce pour lecteur d'écran (si activé dans les réglages)
     if (announcementsEnabled) {
       const announcements: Record<TimerPhase, string> = {
@@ -81,7 +89,7 @@ export function Timer({
     } else {
       setPhaseAnnouncement("");
     }
-  }, [techniqueName, announcementsEnabled]);
+  }, [techniqueName, announcementsEnabled, soundsEnabled]);
 
   // Gérer la transition entre phases
   const handlePhaseComplete = useCallback(() => {

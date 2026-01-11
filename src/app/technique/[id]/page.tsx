@@ -1,10 +1,12 @@
 "use client";
 
-import { use, useState, useEffect } from "react";
+import { use, useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { TechniqueCard } from "@/components/TechniqueCard";
 import { Timer } from "@/components/Timer";
+import { FeedbackPrompt } from "@/components/FeedbackPrompt";
+import type { Feedback } from "@/lib/types";
 import {
   getTechniqueById,
   getCategoryById,
@@ -28,6 +30,8 @@ export default function TechniquePage({ params }: TechniquePageProps) {
 
   const [favorites, setFavorites] = useState<string[]>([]);
   const [showTimer, setShowTimer] = useState(false);
+  const [showFeedback, setShowFeedback] = useState(false);
+  const feedbackCount = useRef(0);
 
   // Charger les favoris depuis localStorage
   useEffect(() => {
@@ -81,11 +85,12 @@ export default function TechniquePage({ params }: TechniquePageProps) {
     localStorage.setItem("eclipse-favorites", JSON.stringify(newFavorites));
   };
 
-  const handleDone = () => {
-    // Enregistrer dans l'historique (localStorage)
+  // Enregistrer dans l'historique avec feedback optionnel
+  const saveToHistory = (feedback?: Feedback) => {
     const historyEntry = {
       techniqueId: technique.id,
       timestamp: Date.now(),
+      feedback,
     };
 
     const storedHistory = localStorage.getItem("eclipse-history");
@@ -107,6 +112,26 @@ export default function TechniquePage({ params }: TechniquePageProps) {
 
     // Retour à l'accueil
     router.push("/");
+  };
+
+  const handleDone = () => {
+    // Demander feedback 1 fois sur 3 (pas intrusif)
+    feedbackCount.current += 1;
+    if (feedbackCount.current % 3 === 1) {
+      setShowFeedback(true);
+    } else {
+      saveToHistory();
+    }
+  };
+
+  const handleFeedback = (feedback: Feedback) => {
+    setShowFeedback(false);
+    saveToHistory(feedback);
+  };
+
+  const handleSkipFeedback = () => {
+    setShowFeedback(false);
+    saveToHistory();
   };
 
   const handleAnother = () => {
@@ -173,8 +198,17 @@ export default function TechniquePage({ params }: TechniquePageProps) {
         {showTimer ? "Fermer le timer" : "Retour"}
       </button>
 
-      {/* Mode Timer */}
-      {showTimer ? (
+      {/* Mode Feedback */}
+      {showFeedback ? (
+        <div className="flex-1 flex flex-col items-center justify-center">
+          <h2 className="text-xl font-bold mb-2">{technique.title}</h2>
+          <p className="text-ancrage font-medium mb-8">C&apos;est fait.</p>
+          <FeedbackPrompt
+            onFeedback={handleFeedback}
+            onSkip={handleSkipFeedback}
+          />
+        </div>
+      ) : showTimer ? (
         <div className="flex-1 flex flex-col">
           {/* Titre de la technique */}
           <h1 className="text-xl font-bold text-center mb-2">

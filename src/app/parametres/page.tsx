@@ -99,12 +99,29 @@ export default function ParametresPage() {
             Timer
           </h2>
           <div className="space-y-2">
+            {/* Sons timer */}
+            <div className="flex items-center justify-between p-4 rounded-xl bg-eclipse-card border border-eclipse-muted/20">
+              <div className="flex-1 pr-4">
+                <p className="font-medium">Sons des phases</p>
+                <p className="text-sm text-eclipse-muted mt-0.5">
+                  Sons doux à chaque changement de phase
+                </p>
+              </div>
+              <Toggle
+                checked={settings.timerSounds}
+                onChange={(checked) =>
+                  handleToggle("timerSounds", checked)
+                }
+                ariaLabel="Activer les sons du timer"
+              />
+            </div>
+
             {/* Annonces timer */}
             <div className="flex items-center justify-between p-4 rounded-xl bg-eclipse-card border border-eclipse-muted/20">
               <div className="flex-1 pr-4">
                 <p className="font-medium">Annonces des phases</p>
                 <p className="text-sm text-eclipse-muted mt-0.5">
-                  Lecture des changements de phase pour les lecteurs d'écran
+                  Lecture des changements de phase pour les lecteurs d&apos;écran
                 </p>
               </div>
               <Toggle

@@ -17,6 +17,8 @@ export interface Settings {
   immersiveMode: boolean;
   /** Annonces vocales du timer (changements de phase) */
   timerAnnouncements: boolean;
+  /** Sons du timer (changements de phase) */
+  timerSounds: boolean;
   /** Tri par défaut des favoris: "recent" ou "az" */
   defaultFavoritesSort: "recent" | "az";
 }
@@ -31,6 +33,7 @@ const HISTORY_KEY = STORAGE_KEYS.HISTORY;
 export const DEFAULT_SETTINGS: Settings = {
   immersiveMode: true,
   timerAnnouncements: true,
+  timerSounds: false, // OFF par défaut (contexte école/transport)
   defaultFavoritesSort: "recent",
 };
 
