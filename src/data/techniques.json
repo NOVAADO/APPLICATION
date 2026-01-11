@@ -1413,6 +1413,82 @@
         "notes": "Ancrage dans le présent via attention au mouvement.",
         "needsReview": false
       }
+    },
+    {
+      "id": "faire-le-point-ancres",
+      "title": "Tes ancres",
+      "category": "faire-le-point",
+      "duration": 3,
+      "intensity": "soft",
+      "instructions": [
+        "Quand tout bouge, certaines choses restent stables.",
+        "Pense à une personne avec qui tu te sens safe.",
+        "Un lieu où tu respires mieux.",
+        "Un moment où tu te sens connecté.",
+        "Garde-les en tête. C'est ta liste."
+      ],
+      "note": "Un seul élément, c'est déjà beaucoup.",
+      "timer": false,
+      "timerConfig": null,
+      "material": null,
+      "tags": ["ancrage", "sécurité", "repères", "stabilité"],
+      "premium": true,
+      "durationSeconds": 180,
+      "discretionLevel": "discret",
+      "presets": ["B"],
+      "evidence": {
+        "isCanadaValidated": true,
+        "level": "A",
+        "canadaSources": [
+          { "org": "Anxiety Canada", "title": "Techniques de grounding et sécurité", "url": "https://www.anxietycanada.com/" }
+        ],
+        "scientificSources": [
+          { "title": "Polyvagal Theory - Stephen Porges - Social engagement system" }
+        ],
+        "notes": "Identifier ses ressources renforce le sentiment de sécurité interne.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "faire-le-point-corps",
+      "title": "Écoute ton corps",
+      "category": "faire-le-point",
+      "duration": 2,
+      "intensity": "soft",
+      "instructions": [
+        "T'as le droit de lever le pied. Juste quelques secondes avec toi-même.",
+        "Pose une main sur ton ventre.",
+        "L'autre sur ton cœur.",
+        "Sens ce qui se passe sous chaque main.",
+        "Reste là un instant. Juste toi."
+      ],
+      "note": "Si ça devient weird, ouvre les yeux et regarde autour.",
+      "timer": true,
+      "timerConfig": {
+        "phases": [
+          { "name": "Écoute", "duration": 120 }
+        ],
+        "cycles": 1,
+        "totalDuration": 120
+      },
+      "material": null,
+      "tags": ["corps", "présence", "intérieur", "calme"],
+      "premium": true,
+      "durationSeconds": 120,
+      "discretionLevel": "discret",
+      "presets": ["B"],
+      "evidence": {
+        "isCanadaValidated": true,
+        "level": "A",
+        "canadaSources": [
+          { "org": "Centre RBC UdeS", "title": "Pleine conscience pour les jeunes", "url": "https://sante-mentale-jeunesse.usherbrooke.ca/je-suis-un-parent/pleine-conscience/" }
+        ],
+        "scientificSources": [
+          { "title": "Body awareness and interoception - Mindfulness research" }
+        ],
+        "notes": "L'attention au corps renforce la conscience de soi sans jugement.",
+        "needsReview": false
+      }
     }
   ]
 }
