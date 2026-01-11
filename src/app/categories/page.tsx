@@ -5,6 +5,20 @@ import { useRouter } from "next/navigation";
 import { getSortedCategories } from "@/lib/techniques";
 
 /**
+ * Filtres CSS pour teinter les SVG selon la couleur de catégorie
+ * Convertit un SVG noir en couleur cible
+ */
+const COLOR_FILTERS: Record<string, string> = {
+  "#7DD3FC": "brightness(0) saturate(100%) invert(79%) sepia(31%) saturate(593%) hue-rotate(166deg) brightness(102%) contrast(98%)", // Souffle - bleu clair
+  "#4ADE80": "brightness(0) saturate(100%) invert(76%) sepia(47%) saturate(459%) hue-rotate(83deg) brightness(93%) contrast(92%)", // Ancrage - vert
+  "#EF4444": "brightness(0) saturate(100%) invert(36%) sepia(95%) saturate(2754%) hue-rotate(339deg) brightness(98%) contrast(92%)", // Paroles fortes - rouge
+  "#F472B6": "brightness(0) saturate(100%) invert(59%) sepia(61%) saturate(591%) hue-rotate(294deg) brightness(101%) contrast(94%)", // Combinaison - rose
+  "#FB923C": "brightness(0) saturate(100%) invert(67%) sepia(53%) saturate(1226%) hue-rotate(334deg) brightness(101%) contrast(97%)", // Décharge - orange
+  "#A78BFA": "brightness(0) saturate(100%) invert(59%) sepia(76%) saturate(456%) hue-rotate(210deg) brightness(101%) contrast(96%)", // Faire le point - violet
+  "#FBBF24": "brightness(0) saturate(100%) invert(76%) sepia(67%) saturate(583%) hue-rotate(356deg) brightness(103%) contrast(97%)", // Chaos - jaune
+};
+
+/**
  * Page Catégories
  *
  * Grille des catégories avec pictos SVG et descriptions
@@ -63,7 +77,7 @@ export default function CategoriesPage() {
               </span>
             )}
 
-            {/* Picto catégorie - blanc pour contraste sur fond coloré */}
+            {/* Picto catégorie - teinté avec la couleur de la catégorie */}
             <div
               className="w-12 h-12 mb-3 flex items-center justify-center"
               aria-hidden="true"
@@ -73,7 +87,10 @@ export default function CategoriesPage() {
                 alt=""
                 width={48}
                 height={48}
-                className="w-full h-full object-contain brightness-0 invert"
+                className="w-full h-full object-contain"
+                style={{
+                  filter: COLOR_FILTERS[category.color] || "none",
+                }}
                 aria-hidden="true"
               />
             </div>

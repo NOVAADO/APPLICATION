@@ -30,8 +30,8 @@ export function ContextFilter({ selected, onChange }: ContextFilterProps) {
 
   const options: { value: ContextOption; label: string; description: string }[] = [
     { value: "all", label: "Toutes", description: "Toutes les techniques" },
-    { value: "A", label: "Public", description: "École, bus, file d'attente" },
-    { value: "B", label: "Tranquille", description: "Pause, coin tranquille" },
+    { value: "A", label: "Furtif", description: "Discret, faisable en public" },
+    { value: "B", label: "Libre", description: "À la maison, seul, mouvements OK" },
   ];
 
   return (
@@ -40,7 +40,7 @@ export function ContextFilter({ selected, onChange }: ContextFilterProps) {
       role="group"
       aria-label="Contexte"
     >
-      <span className="text-eclipse-muted text-sm">Où es-tu ?</span>
+      <span className="text-eclipse-muted text-sm">Tu es en mode :</span>
       <div className="flex gap-2">
         {options.map(({ value, label, description }) => {
           const isSelected = selected === value;
