@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 /**
@@ -47,10 +48,17 @@ export default function JeuPhysiquePage() {
           </p>
         </header>
 
-        {/* Illustration placeholder */}
+        {/* Illustration */}
         <div className="mx-auto mb-8 w-48 h-32 rounded-xl bg-gradient-to-br from-souffle/20 to-ancrage/20 border border-eclipse-muted/20 flex items-center justify-center">
           <div className="text-center">
-            <div className="text-4xl mb-1" aria-hidden="true">🃏</div>
+            <Image
+              src="/pictos/pige-carte.svg"
+              alt=""
+              width={48}
+              height={48}
+              className="mx-auto mb-1 brightness-0 invert"
+              aria-hidden="true"
+            />
             <p className="text-xs text-eclipse-muted">52 cartes</p>
           </div>
         </div>

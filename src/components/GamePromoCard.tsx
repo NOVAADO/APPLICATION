@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { STORAGE_KEYS } from "@/lib/constants";
 
@@ -89,7 +90,14 @@ export function GamePromoCard() {
         <div className="text-center">
           {/* Icône */}
           <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-souffle/20 to-ancrage/20 flex items-center justify-center">
-            <span className="text-3xl" aria-hidden="true">🃏</span>
+            <Image
+              src="/pictos/pige-carte.svg"
+              alt=""
+              width={32}
+              height={32}
+              className="brightness-0 invert"
+              aria-hidden="true"
+            />
           </div>
 
           {/* Titre */}
