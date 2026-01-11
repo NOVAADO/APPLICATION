@@ -1,5 +1,6 @@
 "use client";
 
+import { toast } from "sonner";
 import type { Technique, Category } from "@/lib/types";
 import { formatDuration, formatIntensity } from "@/lib/techniques";
 
@@ -27,6 +28,32 @@ export function TechniqueCard({
   onStartTimer,
 }: TechniqueCardProps) {
   const categoryColor = category?.color || "#7DD3FC";
+
+  const handleShare = async () => {
+    const shareText = `J'ai essayé "${technique.title}" avec Éclipse. Une technique rapide pour gérer le stress.`;
+    const shareUrl = "https://eclipse.novaado.ca";
+
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: "Éclipse - NOVA ADO",
+          text: shareText,
+          url: shareUrl,
+        });
+      } catch (err) {
+        // Utilisateur a annulé le partage
+        if ((err as Error).name !== "AbortError") {
+          // Fallback copie
+          await navigator.clipboard.writeText(`${shareText}\n${shareUrl}`);
+          toast("Lien copié");
+        }
+      }
+    } else {
+      // Fallback pour desktop
+      await navigator.clipboard.writeText(`${shareText}\n${shareUrl}`);
+      toast("Lien copié");
+    }
+  };
 
   return (
     <article className="flex flex-col h-full">
@@ -118,7 +145,7 @@ export function TechniqueCard({
         )}
 
         {/* Actions secondaires */}
-        <div className="flex gap-3">
+        <div className="flex gap-2">
           {onFavorite && (
             <button
               onClick={onFavorite}
@@ -140,9 +167,30 @@ export function TechniqueCard({
               className="flex-1 py-3 rounded-xl border border-eclipse-muted/30 text-eclipse-muted font-medium touch-feedback hover:border-eclipse-accent/50 hover:text-eclipse-accent transition-all"
               aria-label="Tirer une autre technique"
             >
-              Autre technique
+              Autre
             </button>
           )}
+
+          <button
+            onClick={handleShare}
+            className="px-4 py-3 rounded-xl border border-eclipse-muted/30 text-eclipse-muted font-medium touch-feedback hover:border-souffle/50 hover:text-souffle transition-all"
+            aria-label="Partager cette technique"
+          >
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"
+              />
+            </svg>
+          </button>
         </div>
       </div>
     </article>

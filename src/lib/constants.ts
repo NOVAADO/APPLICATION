@@ -12,6 +12,7 @@ export const STORAGE_KEYS = {
   FAVORITES: "eclipse-favorites",
   HISTORY: "eclipse-history",
   SETTINGS: "eclipse-settings",
+  ONBOARDING: "eclipse-onboarding-done",
 } as const;
 
 /**

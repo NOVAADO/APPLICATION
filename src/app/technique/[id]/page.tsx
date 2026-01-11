@@ -2,6 +2,7 @@
 
 import { use, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 import { TechniqueCard } from "@/components/TechniqueCard";
 import { Timer } from "@/components/Timer";
 import {
@@ -70,8 +71,10 @@ export default function TechniquePage({ params }: TechniquePageProps) {
 
     if (isFavorite) {
       newFavorites = favorites.filter((f) => f !== technique.id);
+      toast("Retiré des favoris");
     } else {
       newFavorites = [...favorites, technique.id];
+      toast("Ajouté aux favoris");
     }
 
     setFavorites(newFavorites);
