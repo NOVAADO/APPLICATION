@@ -167,7 +167,7 @@ export default function FavoritesPage() {
         <div className="flex-1 flex flex-col items-center justify-center text-center px-4">
           <p className="text-xl font-medium mb-2">Pas encore de favoris.</p>
           <p className="text-eclipse-muted mb-8">
-            Les techniques qui marchent pour toi, c'est ici.
+            Tes techniques préférées, c&apos;est ici.
           </p>
 
           <div className="flex flex-col gap-3 w-full max-w-xs">

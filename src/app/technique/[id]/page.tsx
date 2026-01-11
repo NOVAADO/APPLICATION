@@ -223,7 +223,7 @@ export default function TechniquePage({ params }: TechniquePageProps) {
           {/* Disclaimer légal discret */}
           <footer className="mt-8 pt-4 border-t border-eclipse-muted/20">
             <p className="text-eclipse-muted/60 text-xs text-center">
-              Ceci est un outil de soutien, pas un service de santé.
+              Éclipse est là pour t&apos;accompagner, mais ce n&apos;est pas un service de santé.
               <br />
               Si ça va vraiment pas, parles-en. Tel-Aide : 514-935-1101
             </p>

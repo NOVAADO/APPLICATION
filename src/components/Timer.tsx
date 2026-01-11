@@ -274,6 +274,7 @@ export function Timer({
           <button
             onClick={handleStart}
             className="px-8 py-3 rounded-xl bg-gradient-to-r from-souffle to-ancrage text-eclipse-bg font-semibold text-lg touch-feedback hover:opacity-90 transition-opacity"
+            aria-label="Démarrer le timer"
           >
             Démarrer
           </button>
@@ -288,7 +289,7 @@ export function Timer({
                 className="px-6 py-3 rounded-xl bg-souffle text-eclipse-bg font-medium touch-feedback hover:opacity-90 transition-opacity"
                 aria-label="Reprendre le timer"
               >
-                ▶ Reprendre
+                <span aria-hidden="true">▶</span> Reprendre
               </button>
             ) : (
               <button
@@ -296,7 +297,7 @@ export function Timer({
                 className="px-6 py-3 rounded-xl bg-eclipse-card border border-eclipse-muted/30 text-eclipse-text font-medium touch-feedback hover:border-eclipse-accent/50 transition-all"
                 aria-label="Mettre en pause"
               >
-                ⏸ Pause
+                <span aria-hidden="true">⏸</span> Pause
               </button>
             )}
 
@@ -305,7 +306,7 @@ export function Timer({
               className="px-6 py-3 rounded-xl border border-eclipse-muted/30 text-eclipse-muted font-medium touch-feedback hover:border-red-400/50 hover:text-red-400 transition-all"
               aria-label="Terminer et quitter le timer"
             >
-              ✕ Terminer
+              <span aria-hidden="true">✕</span> Terminer
             </button>
           </>
         )}

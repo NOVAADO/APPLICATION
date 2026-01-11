@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 import Image from "next/image";
 import { getSettings } from "@/lib/settings";
 
@@ -28,7 +29,6 @@ const navItems: NavItem[] = [
  */
 export function BottomNav() {
   const pathname = usePathname();
-  const router = useRouter();
   const [immersiveMode, setImmersiveMode] = useState(true);
 
   // Charger le réglage mode immersif
@@ -53,8 +53,8 @@ export function BottomNav() {
 
           return (
             <li key={item.href}>
-              <button
-                onClick={() => router.push(item.href)}
+              <Link
+                href={item.href}
                 className={`flex flex-col items-center justify-center w-16 h-14 rounded-lg transition-all touch-feedback ${
                   isActive
                     ? "text-eclipse-accent"
@@ -79,7 +79,7 @@ export function BottomNav() {
                   aria-hidden="true"
                 />
                 <span className="text-xs font-medium">{item.label}</span>
-              </button>
+              </Link>
             </li>
           );
         })}

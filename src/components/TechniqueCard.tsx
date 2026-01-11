@@ -111,6 +111,7 @@ export function TechniqueCard({
                 ? "bg-eclipse-card border border-eclipse-muted/30 text-eclipse-text"
                 : "bg-gradient-to-r from-ancrage to-souffle text-eclipse-bg"
             }`}
+            aria-label={`Marquer ${technique.title} comme fait`}
           >
             C&apos;est fait
           </button>
@@ -137,6 +138,7 @@ export function TechniqueCard({
             <button
               onClick={onAnother}
               className="flex-1 py-3 rounded-xl border border-eclipse-muted/30 text-eclipse-muted font-medium touch-feedback hover:border-eclipse-accent/50 hover:text-eclipse-accent transition-all"
+              aria-label="Tirer une autre technique"
             >
               Autre technique
             </button>
