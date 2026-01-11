@@ -207,6 +207,39 @@
       }
     },
     {
+      "id": "souffle-deblocage",
+      "title": "Déblocage respiration",
+      "category": "souffle",
+      "duration": 1,
+      "intensity": "soft",
+      "instructions": [
+        "Place tes doigts sous tes côtes, là où elles font un V.",
+        "Inspire lentement par le nez.",
+        "En expirant, appuie doucement vers l'intérieur.",
+        "Sens tes côtes bouger sous tes doigts.",
+        "Répète 5 fois."
+      ],
+      "note": "Utile quand t'as l'impression de pas respirer à fond.",
+      "timer": false,
+      "timerConfig": null,
+      "material": null,
+      "tags": ["respiration", "tension", "poitrine", "calme"],
+      "premium": false,
+      "durationSeconds": 60,
+      "discretionLevel": "discret",
+      "presets": ["B"],
+      "evidence": {
+        "isCanadaValidated": false,
+        "level": "B",
+        "canadaSources": [],
+        "scientificSources": [
+          { "title": "Massage zone thoracique et respiration profonde" }
+        ],
+        "notes": "Libère les tensions dans la zone de respiration.",
+        "needsReview": false
+      }
+    },
+    {
       "id": "decharge-secoue",
       "title": "Secoue tout",
       "category": "decharge",
@@ -405,6 +438,45 @@
       }
     },
     {
+      "id": "decharge-croises",
+      "title": "Mouvements croisés",
+      "category": "decharge",
+      "duration": 2,
+      "intensity": "normal",
+      "instructions": [
+        "Debout ou assis.",
+        "Main droite tape genou gauche.",
+        "Puis main gauche tape genou droit.",
+        "Alterne pendant 1 minute.",
+        "Pas besoin d'aller vite. Le rythme compte plus."
+      ],
+      "note": "Ça réveille le corps sans faire trop de bruit.",
+      "timer": true,
+      "timerConfig": {
+        "phases": [
+          { "name": "Croisés", "duration": 60 }
+        ],
+        "cycles": 1,
+        "totalDuration": 60
+      },
+      "material": null,
+      "tags": ["mouvement", "coordination", "énergie", "focus"],
+      "premium": false,
+      "durationSeconds": 60,
+      "discretionLevel": "discret",
+      "presets": ["B"],
+      "evidence": {
+        "isCanadaValidated": false,
+        "level": "B",
+        "canadaSources": [],
+        "scientificSources": [
+          { "title": "Mouvements bilatéraux et coordination inter-hémisphérique" }
+        ],
+        "notes": "Active les deux côtés du corps. Effet recentrant.",
+        "needsReview": false
+      }
+    },
+    {
       "id": "ancrage-54321",
       "title": "5-4-3-2-1",
       "category": "ancrage",
@@ -578,6 +650,45 @@
           { "title": "Pleine conscience - attention focalisée" }
         ],
         "notes": "Engagement sensoriel pour détourner ruminations.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "ancrage-reset-postural",
+      "title": "Reset postural",
+      "category": "ancrage",
+      "duration": 2,
+      "intensity": "soft",
+      "instructions": [
+        "Debout, pieds largeur épaules.",
+        "Laisse ton poids bouger doucement d'un pied à l'autre.",
+        "Comme un athlète qui se prépare.",
+        "Pas besoin de forcer. Juste sentir.",
+        "Continue 2 minutes."
+      ],
+      "note": "Fais-le en attendant quelque chose. Ça passe inaperçu.",
+      "timer": true,
+      "timerConfig": {
+        "phases": [
+          { "name": "Balance", "duration": 120 }
+        ],
+        "cycles": 1,
+        "totalDuration": 120
+      },
+      "material": null,
+      "tags": ["ancrage", "corps", "discret", "calme"],
+      "premium": false,
+      "durationSeconds": 120,
+      "discretionLevel": "public_ok",
+      "presets": ["A"],
+      "evidence": {
+        "isCanadaValidated": false,
+        "level": "B",
+        "canadaSources": [],
+        "scientificSources": [
+          { "title": "Proprioception et régulation du système nerveux" }
+        ],
+        "notes": "Stimulation vestibulaire légère. Effet calmant.",
         "needsReview": false
       }
     },
@@ -924,6 +1035,206 @@
           { "title": "Dr. Kristin Neff - Études 2011 et 2013 sur autocompassion" }
         ],
         "notes": "Moins anxiété/dépression, plus satisfaction de vie et résilience.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "paroles-encore-la",
+      "title": "Encore là",
+      "category": "paroles-fortes",
+      "duration": 2,
+      "intensity": "soft",
+      "instructions": [
+        "Lis cette phrase lentement :",
+        "\"T'es encore là.\"",
+        "\"Après tout ça, t'es encore là.\"",
+        "Pose une main sur ta poitrine.",
+        "C'est tout. Respire."
+      ],
+      "note": null,
+      "timer": false,
+      "timerConfig": null,
+      "material": null,
+      "tags": ["résilience", "force", "présent", "doux"],
+      "premium": true,
+      "durationSeconds": 60,
+      "discretionLevel": "public_ok",
+      "presets": ["A", "B"],
+      "evidence": {
+        "isCanadaValidated": false,
+        "level": "B",
+        "canadaSources": [],
+        "scientificSources": [
+          { "title": "Affirmations et auto-compassion" }
+        ],
+        "notes": "Reconnaissance de la présence et de la force.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "paroles-repos",
+      "title": "Repos mérité",
+      "category": "paroles-fortes",
+      "duration": 2,
+      "intensity": "soft",
+      "instructions": [
+        "Rappelle-toi :",
+        "\"Tu peux t'arrêter.\"",
+        "\"Là, maintenant.\"",
+        "\"Personne ne chronomètre.\"",
+        "5 minutes. Juste 5. Tu choisis comment."
+      ],
+      "note": "Le repos n'est pas de la paresse. C'est du soin.",
+      "timer": false,
+      "timerConfig": null,
+      "material": null,
+      "tags": ["repos", "permission", "bienveillance", "doux"],
+      "premium": true,
+      "durationSeconds": 60,
+      "discretionLevel": "public_ok",
+      "presets": ["A", "B"],
+      "evidence": {
+        "isCanadaValidated": false,
+        "level": "B",
+        "canadaSources": [],
+        "scientificSources": [
+          { "title": "Autorisation émotionnelle et réduction du stress" }
+        ],
+        "notes": "Accepter le repos diminue l'anxiété de performance.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "paroles-bordel",
+      "title": "Le bordel",
+      "category": "paroles-fortes",
+      "duration": 2,
+      "intensity": "normal",
+      "instructions": [
+        "Rappelle-toi :",
+        "\"C'est le bordel en ce moment.\"",
+        "\"OK.\"",
+        "\"C'est pas une raison pour te juger en plus.\"",
+        "Nomme le bordel. Juste le nommer, sans chercher à le résoudre."
+      ],
+      "note": null,
+      "timer": false,
+      "timerConfig": null,
+      "material": null,
+      "tags": ["acceptation", "non-jugement", "difficile", "présent"],
+      "premium": true,
+      "durationSeconds": 60,
+      "discretionLevel": "public_ok",
+      "presets": ["A", "B"],
+      "evidence": {
+        "isCanadaValidated": false,
+        "level": "B",
+        "canadaSources": [],
+        "scientificSources": [
+          { "title": "ACT - Acceptation sans jugement" }
+        ],
+        "notes": "Nommer réduit l'intensité émotionnelle.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "paroles-feu-vert",
+      "title": "Feu vert",
+      "category": "paroles-fortes",
+      "duration": 2,
+      "intensity": "normal",
+      "instructions": [
+        "Affirme :",
+        "\"Personne ne va me donner le feu vert.\"",
+        "\"Je peux me le donner moi-même.\"",
+        "Écris UN truc que tu repoussais.",
+        "Juste l'écrire. C'est déjà un pas."
+      ],
+      "note": null,
+      "timer": false,
+      "timerConfig": null,
+      "material": null,
+      "tags": ["action", "autonomie", "permission", "courage"],
+      "premium": true,
+      "durationSeconds": 60,
+      "discretionLevel": "public_ok",
+      "presets": ["A", "B"],
+      "evidence": {
+        "isCanadaValidated": false,
+        "level": "B",
+        "canadaSources": [],
+        "scientificSources": [
+          { "title": "Locus de contrôle interne" }
+        ],
+        "notes": "Renforcer le sentiment de contrôle augmente la motivation.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "paroles-lacher",
+      "title": "Lâcher",
+      "category": "paroles-fortes",
+      "duration": 2,
+      "intensity": "soft",
+      "instructions": [
+        "Rappelle-toi :",
+        "\"Lâcher, c'est pas perdre.\"",
+        "\"C'est choisir où je mets mon énergie.\"",
+        "Qu'est-ce que tu peux arrêter de nourrir?",
+        "Une dispute? Une justification? La perfection?"
+      ],
+      "note": null,
+      "timer": false,
+      "timerConfig": null,
+      "material": null,
+      "tags": ["lâcher-prise", "liberté", "énergie", "choix"],
+      "premium": true,
+      "durationSeconds": 60,
+      "discretionLevel": "public_ok",
+      "presets": ["A", "B"],
+      "evidence": {
+        "isCanadaValidated": true,
+        "level": "A",
+        "canadaSources": [
+          { "org": "Thérapies ACT Canada", "title": "Acceptation et engagement" }
+        ],
+        "scientificSources": [
+          { "title": "ACT - Défusion cognitive et acceptation" }
+        ],
+        "notes": "Lâcher prise sur l'incontrôlable réduit l'anxiété.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "paroles-maintenant",
+      "title": "Maintenant",
+      "category": "paroles-fortes",
+      "duration": 2,
+      "intensity": "normal",
+      "instructions": [
+        "Dis-toi :",
+        "\"Le bon moment, c'est celui que je décide.\"",
+        "\"Pas celui que j'attends.\"",
+        "Écris la plus petite version de ce que tu repousses.",
+        "Commence par ça."
+      ],
+      "note": null,
+      "timer": false,
+      "timerConfig": null,
+      "material": null,
+      "tags": ["présent", "action", "confiance", "décision"],
+      "premium": true,
+      "durationSeconds": 60,
+      "discretionLevel": "public_ok",
+      "presets": ["A", "B"],
+      "evidence": {
+        "isCanadaValidated": false,
+        "level": "B",
+        "canadaSources": [],
+        "scientificSources": [
+          { "title": "Paralysie par analyse et action présente" }
+        ],
+        "notes": "L'action présente crée du momentum.",
         "needsReview": false
       }
     },
