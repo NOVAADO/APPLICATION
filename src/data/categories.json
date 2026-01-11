@@ -60,9 +60,18 @@
       "name": "Combinaison",
       "description": "Plusieurs techniques. Un moment.",
       "icon": "combinaison.png",
-      "color": "#F472B6",
+      "color": "#2DD4BF",
       "premium": true,
       "order": 7
+    },
+    {
+      "id": "carte-blanche",
+      "name": "Carte blanche",
+      "description": "Crée ta propre technique.",
+      "icon": "carte-blanche.png",
+      "color": "#94A3B8",
+      "premium": true,
+      "order": 8
     }
   ]
 }

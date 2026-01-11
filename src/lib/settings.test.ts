@@ -20,6 +20,7 @@ describe("Settings", () => {
       expect(DEFAULT_SETTINGS).toEqual({
         immersiveMode: true,
         timerAnnouncements: true,
+        timerSounds: false,
         defaultFavoritesSort: "recent",
       });
     });
@@ -34,6 +35,7 @@ describe("Settings", () => {
       const customSettings: Settings = {
         immersiveMode: false,
         timerAnnouncements: false,
+        timerSounds: true,
         defaultFavoritesSort: "az",
       };
       localStorage.setItem("eclipse-settings", JSON.stringify(customSettings));
@@ -54,6 +56,7 @@ describe("Settings", () => {
       const settings = getSettings();
       expect(settings.immersiveMode).toBe(false);
       expect(settings.timerAnnouncements).toBe(true); // Valeur par défaut
+      expect(settings.timerSounds).toBe(false); // Valeur par défaut
       expect(settings.defaultFavoritesSort).toBe("recent"); // Valeur par défaut
     });
   });
@@ -63,6 +66,7 @@ describe("Settings", () => {
       const settings: Settings = {
         immersiveMode: false,
         timerAnnouncements: true,
+        timerSounds: false,
         defaultFavoritesSort: "az",
       };
       saveSettings(settings);
@@ -89,10 +93,12 @@ describe("Settings", () => {
       saveSettings({
         immersiveMode: false,
         timerAnnouncements: false,
+        timerSounds: true,
         defaultFavoritesSort: "az",
       });
       const result = updateSetting("immersiveMode", true);
       expect(result.timerAnnouncements).toBe(false);
+      expect(result.timerSounds).toBe(true);
       expect(result.defaultFavoritesSort).toBe("az");
     });
   });
@@ -102,6 +108,7 @@ describe("Settings", () => {
       saveSettings({
         immersiveMode: false,
         timerAnnouncements: false,
+        timerSounds: true,
         defaultFavoritesSort: "az",
       });
       const result = resetSettings();
@@ -112,6 +119,7 @@ describe("Settings", () => {
       saveSettings({
         immersiveMode: false,
         timerAnnouncements: false,
+        timerSounds: true,
         defaultFavoritesSort: "az",
       });
       resetSettings();

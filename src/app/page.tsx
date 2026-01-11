@@ -7,6 +7,7 @@ import { DurationFilter } from "@/components/DurationFilter";
 import { ContextFilter, type ContextOption } from "@/components/ContextFilter";
 import { GamePromoCard } from "@/components/GamePromoCard";
 import { drawTechnique, countAvailableTechniques } from "@/lib/techniques";
+import { isDemoMode, DEMO_MICROCOPY } from "@/lib/demo";
 import type { Duration, Preset } from "@/lib/types";
 
 /**
@@ -84,8 +85,15 @@ export default function HomePage() {
       {availableCount === 0 ? (
         <div className="text-center mb-4">
           <p className="text-eclipse-muted mb-4">
-            Aucune technique disponible avec ces filtres.
+            {isDemoMode()
+              ? DEMO_MICROCOPY.emptyStateDemo
+              : "Aucune technique disponible avec ces filtres."}
           </p>
+          {isDemoMode() && (
+            <p className="text-eclipse-muted/60 text-sm mb-4">
+              {DEMO_MICROCOPY.emptyStateHint}
+            </p>
+          )}
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <button
               onClick={() => {

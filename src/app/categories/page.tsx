@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { getSortedCategories } from "@/lib/techniques";
+import { getSortedCategories, techniques } from "@/lib/techniques";
+import { isDemoMode, DEMO_MICROCOPY } from "@/lib/demo";
 
 /**
  * Filtres CSS pour teinter les SVG selon la couleur de catégorie
@@ -12,10 +13,11 @@ const COLOR_FILTERS: Record<string, string> = {
   "#7DD3FC": "brightness(0) saturate(100%) invert(79%) sepia(31%) saturate(593%) hue-rotate(166deg) brightness(102%) contrast(98%)", // Souffle - bleu clair
   "#4ADE80": "brightness(0) saturate(100%) invert(76%) sepia(47%) saturate(459%) hue-rotate(83deg) brightness(93%) contrast(92%)", // Ancrage - vert
   "#EF4444": "brightness(0) saturate(100%) invert(36%) sepia(95%) saturate(2754%) hue-rotate(339deg) brightness(98%) contrast(92%)", // Paroles fortes - rouge
-  "#F472B6": "brightness(0) saturate(100%) invert(59%) sepia(61%) saturate(591%) hue-rotate(294deg) brightness(101%) contrast(94%)", // Combinaison - rose
+  "#2DD4BF": "brightness(0) saturate(100%) invert(76%) sepia(45%) saturate(482%) hue-rotate(118deg) brightness(93%) contrast(91%)", // Combinaison - turquoise
   "#FB923C": "brightness(0) saturate(100%) invert(67%) sepia(53%) saturate(1226%) hue-rotate(334deg) brightness(101%) contrast(97%)", // Décharge - orange
   "#A78BFA": "brightness(0) saturate(100%) invert(59%) sepia(76%) saturate(456%) hue-rotate(210deg) brightness(101%) contrast(96%)", // Faire le point - violet
   "#FBBF24": "brightness(0) saturate(100%) invert(76%) sepia(67%) saturate(583%) hue-rotate(356deg) brightness(103%) contrast(97%)", // Chaos - jaune
+  "#94A3B8": "brightness(0) saturate(100%) invert(68%) sepia(12%) saturate(419%) hue-rotate(176deg) brightness(95%) contrast(89%)", // Carte blanche - gris-bleu
 };
 
 /**
@@ -27,6 +29,11 @@ const COLOR_FILTERS: Record<string, string> = {
 export default function CategoriesPage() {
   const router = useRouter();
   const categories = getSortedCategories();
+  const isDemo = isDemoMode();
+
+  // Compter les techniques par catégorie
+  const countByCategory = (categoryId: string) =>
+    techniques.filter((t) => t.category === categoryId).length;
 
   return (
     <div className="flex-1 flex flex-col px-6 py-8 pb-safe">
@@ -70,11 +77,17 @@ export default function CategoriesPage() {
             }}
             role="listitem"
           >
-            {/* Badge Premium */}
-            {category.premium && (
+            {/* Badge : compteur en mode DÉMO, sinon Premium si applicable */}
+            {isDemo ? (
               <span className="absolute top-2 right-2 text-xs px-2 py-0.5 rounded-full bg-eclipse-card text-eclipse-muted">
-                Premium
+                {countByCategory(category.id)} carte{countByCategory(category.id) > 1 ? "s" : ""}
               </span>
+            ) : (
+              category.premium && (
+                <span className="absolute top-2 right-2 text-xs px-2 py-0.5 rounded-full bg-eclipse-card text-eclipse-muted">
+                  {DEMO_MICROCOPY.cardLocked}
+                </span>
+              )
             )}
 
             {/* Picto catégorie - teinté avec la couleur de la catégorie */}

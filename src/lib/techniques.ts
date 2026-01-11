@@ -1,14 +1,26 @@
 /**
  * Gestion des techniques - Application Éclipse
+ *
+ * Mode DÉMO : L'app peut fonctionner en mode aperçu (18 cartes sélectionnées)
+ * pour servir de tunnel de vente doux vers le jeu physique.
  */
 
 import type { Technique, Category, Duration, Intensity, Preset, DiscretionLevel } from "./types";
 import techniquesData from "@/data/techniques.json";
 import categoriesData from "@/data/categories.json";
+import { isDemoMode, DEMO_CARD_IDS } from "./demo";
 
 // Données typées
-export const techniques: Technique[] = techniquesData.techniques as Technique[];
+const allTechniques: Technique[] = techniquesData.techniques as Technique[];
 export const categories: Category[] = categoriesData.categories as Category[];
+
+/**
+ * Techniques disponibles selon le mode (DÉMO ou complet)
+ * En mode DÉMO : uniquement les cartes sélectionnées
+ */
+export const techniques: Technique[] = isDemoMode()
+  ? allTechniques.filter((t) => DEMO_CARD_IDS.includes(t.id))
+  : allTechniques;
 
 /**
  * Récupère toutes les techniques gratuites (non-premium)

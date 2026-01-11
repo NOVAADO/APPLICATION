@@ -8,10 +8,11 @@
       "duration": 2,
       "intensity": "soft",
       "instructions": [
-        "Inspire par le nez pendant 4 secondes",
-        "Retiens ton souffle pendant 7 secondes",
-        "Expire lentement par la bouche pendant 8 secondes",
-        "Répète 3 à 4 fois"
+        "Peut-être que ton corps a besoin d'un moment de calme.",
+        "Inspire par le nez pendant 4 secondes.",
+        "Retiens ton souffle pendant 7 secondes.",
+        "Expire lentement par la bouche pendant 8 secondes.",
+        "Répète 3 à 4 fois."
       ],
       "note": "C'est normal si t'as du mal au début.",
       "timer": true,
@@ -51,11 +52,12 @@
       "duration": 3,
       "intensity": "normal",
       "instructions": [
-        "Inspire pendant 4 secondes",
-        "Retiens pendant 4 secondes",
-        "Expire pendant 4 secondes",
-        "Retiens poumons vides pendant 4 secondes",
-        "Répète 5 fois"
+        "On dirait que ça tourbillonne. Tu peux poser un rythme, si ça te dit.",
+        "Inspire pendant 4 secondes.",
+        "Retiens pendant 4 secondes.",
+        "Expire pendant 4 secondes.",
+        "Retiens poumons vides pendant 4 secondes.",
+        "Répète 5 fois."
       ],
       "note": null,
       "timer": true,
@@ -95,10 +97,11 @@
       "duration": 5,
       "intensity": "soft",
       "instructions": [
-        "Inspire pendant 5 secondes",
-        "Expire pendant 5 secondes",
-        "Garde un rythme régulier",
-        "Continue pendant 5 minutes"
+        "Tu n'as rien à forcer. Juste un moment pour toi, si tu veux.",
+        "Inspire pendant 5 secondes.",
+        "Expire pendant 5 secondes.",
+        "Garde un rythme régulier.",
+        "Continue pendant 5 minutes."
       ],
       "note": "Idéal le matin ou avant un moment stressant.",
       "timer": true,
@@ -137,12 +140,13 @@
       "duration": 2,
       "intensity": "intense",
       "instructions": [
-        "Assis, dos droit",
-        "Inspire rapidement par le nez",
-        "Expire fort par le nez en contractant le ventre",
-        "Accélère le rythme pendant 30 secondes",
-        "Pause, respire normalement",
-        "Répète 2 fois"
+        "Parfois l'énergie est coincée. Tu peux la débloquer, si t'en as envie.",
+        "Assis, dos droit.",
+        "Inspire rapidement par le nez.",
+        "Expire fort par le nez en contractant le ventre.",
+        "Accélère le rythme pendant 30 secondes.",
+        "Pause, respire normalement.",
+        "Répète 2 fois."
       ],
       "note": "Pas recommandé si t'es étourdi ou enceinte.",
       "timer": true,
@@ -178,11 +182,12 @@
       "duration": 2,
       "intensity": "soft",
       "instructions": [
-        "Inspire profondément par le nez",
-        "Retiens 2 secondes",
-        "Expire en soupirant fort par la bouche",
-        "Laisse tes épaules tomber",
-        "Répète 5 fois"
+        "Des fois, on a juste besoin de souffler. Tu peux te le permettre.",
+        "Inspire profondément par le nez.",
+        "Retiens 2 secondes.",
+        "Expire en soupirant fort par la bouche.",
+        "Laisse tes épaules tomber.",
+        "Répète 5 fois."
       ],
       "note": "Simple mais efficace.",
       "timer": false,
@@ -213,6 +218,7 @@
       "duration": 1,
       "intensity": "soft",
       "instructions": [
+        "Ta respiration est peut-être coincée. Tu peux lui donner de l'espace, si t'en as envie.",
         "Place tes doigts sous tes côtes, là où elles font un V.",
         "Inspire lentement par le nez.",
         "En expirant, appuie doucement vers l'intérieur.",
@@ -246,11 +252,12 @@
       "duration": 2,
       "intensity": "intense",
       "instructions": [
-        "Debout, pieds écartés largeur hanches",
-        "Secoue tes mains comme si tu les séchais",
-        "Ajoute les bras, les épaules",
-        "Secoue tout le corps pendant 1 minute",
-        "Arrête et observe les sensations"
+        "On dirait que ton corps retient beaucoup. Tu as le droit de laisser sortir un peu de ça.",
+        "Debout, pieds écartés largeur hanches.",
+        "Secoue tes mains comme si tu les séchais.",
+        "Ajoute les bras, les épaules.",
+        "Secoue tout le corps pendant 1 minute.",
+        "Arrête et observe les sensations."
       ],
       "note": "Ça peut paraître bizarre. C'est normal.",
       "timer": true,
@@ -286,6 +293,7 @@
       "duration": 2,
       "intensity": "intense",
       "instructions": [
+        "Parfois la tension a besoin d'un endroit où aller. Tu peux lui donner une sortie, si tu veux.",
         "Trouve un mur solide",
         "Place tes mains à hauteur d'épaules",
         "Pousse de toutes tes forces pendant 10 secondes",
@@ -328,6 +336,7 @@
       "duration": 3,
       "intensity": "intense",
       "instructions": [
+        "L'énergie est peut-être coincée. Tu peux la faire bouger, si t'en as envie.",
         "Debout, bras le long du corps",
         "Fais des sauts étoiles : saute en écartant jambes et bras",
         "Reviens à la position de départ",
@@ -372,6 +381,7 @@
       "duration": 3,
       "intensity": "soft",
       "instructions": [
+        "Ton corps porte peut-être beaucoup en ce moment. Tu peux lui offrir un peu d'espace.",
         "Debout, lève les bras au ciel et étire-toi",
         "Penche-toi doucement vers l'avant",
         "Roule les épaules en arrière 5 fois",
@@ -405,6 +415,7 @@
       "duration": 5,
       "intensity": "normal",
       "instructions": [
+        "Peut-être que ton corps aimerait bouger un peu. Si ça te dit, juste quelques pas.",
         "Lève-toi",
         "Marche sur place en levant les genoux",
         "Balance les bras naturellement",
@@ -444,6 +455,7 @@
       "duration": 2,
       "intensity": "normal",
       "instructions": [
+        "Là, ça bouge peut-être beaucoup dans ta tête. Tu peux ralentir un peu, si tu veux.",
         "Debout ou assis.",
         "Main droite tape genou gauche.",
         "Puis main gauche tape genou droit.",
@@ -483,6 +495,7 @@
       "duration": 3,
       "intensity": "soft",
       "instructions": [
+        "Là, peut-être que tes pensées s'emballent. Tu peux te reconnecter à ce qui t'entoure, si tu veux.",
         "Nomme 5 choses que tu vois",
         "Nomme 4 choses que tu touches",
         "Nomme 3 choses que tu entends",
@@ -518,6 +531,7 @@
       "duration": 2,
       "intensity": "soft",
       "instructions": [
+        "On dirait que ça flotte un peu. Tu peux revenir au sol, si ça te dit.",
         "Assieds-toi, pieds bien à plat au sol",
         "Sens le contact avec le sol",
         "Appuie fort pendant 5 secondes",
@@ -553,6 +567,7 @@
       "duration": 2,
       "intensity": "intense",
       "instructions": [
+        "Des fois, on a besoin de quelque chose de fort pour se ramener. C'est correct.",
         "Prends un ou deux glaçons",
         "Tiens-les dans tes mains",
         "Concentre-toi sur la sensation de froid",
@@ -586,6 +601,7 @@
       "duration": 2,
       "intensity": "soft",
       "instructions": [
+        "Peut-être que t'as besoin d'un moment avec toi. Juste un moment.",
         "Pose ta main sur ton cœur",
         "Sens les battements",
         "Respire lentement",
@@ -627,6 +643,7 @@
       "duration": 3,
       "intensity": "soft",
       "instructions": [
+        "Ta tête tourne peut-être beaucoup. Tu peux poser ton attention quelque part, si tu veux.",
         "Choisis un petit objet près de toi",
         "Observe-le attentivement : couleur, forme, texture",
         "Touche-le, retourne-le dans tes mains",
@@ -660,6 +677,7 @@
       "duration": 2,
       "intensity": "soft",
       "instructions": [
+        "On dirait que le corps a besoin de bouger un peu. Tu peux lui offrir ça, si t'en as envie.",
         "Debout, pieds largeur épaules.",
         "Laisse ton poids bouger doucement d'un pied à l'autre.",
         "Comme un athlète qui se prépare.",
@@ -699,6 +717,7 @@
       "duration": 2,
       "intensity": "soft",
       "instructions": [
+        "Parfois le cerveau a juste besoin qu'on appuie sur pause. Tu peux t'offrir ça.",
         "S - Stop. Arrête ce que tu fais.",
         "T - Tranquille. Prends une grande respiration.",
         "O - Observe. Qu'est-ce qui se passe en toi ?",
@@ -733,6 +752,7 @@
       "duration": 3,
       "intensity": "normal",
       "instructions": [
+        "Des fois les pensées tournent en boucle. Tu peux juste les regarder passer, si t'en as envie.",
         "Ferme les yeux",
         "Imagine tes pensées comme des nuages qui passent",
         "Ne les retiens pas, ne les pousse pas",
@@ -774,6 +794,7 @@
       "duration": 3,
       "intensity": "normal",
       "instructions": [
+        "Peut-être que ça aiderait de mettre des mots sur ce qui se passe. Pas d'obligation.",
         "Demande-toi : \"Qu'est-ce que je ressens là ?\"",
         "Demande-toi : \"Qu'est-ce qui a déclenché ça ?\"",
         "Demande-toi : \"De quoi j'aurais besoin maintenant ?\"",
@@ -806,6 +827,7 @@
       "duration": 5,
       "intensity": "normal",
       "instructions": [
+        "Ta tête est peut-être pleine. Tu peux laisser sortir un peu de ça, si ça te dit.",
         "Prends un papier ou ouvre une note sur ton cell",
         "Écris tout ce qui te passe par la tête",
         "Pas de filtre, pas de structure",
@@ -848,6 +870,7 @@
       "duration": 2,
       "intensity": "soft",
       "instructions": [
+        "Des fois, ça aide de voir où t'en es. Juste pour toi.",
         "Évalue ton niveau de stress de 1 à 10",
         "Demande-toi : \"Qu'est-ce qui ferait baisser d'un point ?\"",
         "Fais cette petite chose",
