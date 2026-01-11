@@ -90,23 +90,59 @@ export function TechniqueCard({
         </div>
       )}
 
-      {/* Instructions numérotées */}
-      <ol className="space-y-4 mb-6 flex-1" aria-label="Instructions">
-        {technique.instructions.map((instruction, index) => (
-          <li key={index} className="flex gap-4">
-            <span
-              className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-sm font-medium"
-              style={{ backgroundColor: `${categoryColor}30`, color: categoryColor }}
-              aria-hidden="true"
-            >
-              {index + 1}
-            </span>
-            <span className="text-eclipse-text leading-relaxed pt-0.5">
-              {instruction}
-            </span>
-          </li>
-        ))}
-      </ol>
+      {/*
+        Phrase d'ouverture (première instruction, sans numéro)
+        - Catégories AVEC phrase d'ouverture : souffle, decharge, ancrage, faire-le-point, combinaison
+        - Catégories SANS phrase d'ouverture : chaos, paroles-fortes (toutes les instructions sont numérotées)
+      */}
+      {technique.instructions.length > 0 && (
+        <>
+          {/* Catégories avec phrase d'ouverture séparée */}
+          {!["chaos", "paroles-fortes"].includes(technique.category) ? (
+            <>
+              <p className="text-eclipse-muted text-lg leading-relaxed mb-6 px-1">
+                {technique.instructions[0]}
+              </p>
+              {technique.instructions.length > 1 && (
+                <ol className="space-y-4 mb-6 flex-1" aria-label="Instructions">
+                  {technique.instructions.slice(1).map((instruction, index) => (
+                    <li key={index} className="flex gap-4">
+                      <span
+                        className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-sm font-medium"
+                        style={{ backgroundColor: `${categoryColor}30`, color: categoryColor }}
+                        aria-hidden="true"
+                      >
+                        {index + 1}
+                      </span>
+                      <span className="text-eclipse-text leading-relaxed pt-0.5">
+                        {instruction}
+                      </span>
+                    </li>
+                  ))}
+                </ol>
+              )}
+            </>
+          ) : (
+            /* Catégories Chaos et Paroles fortes : toutes les instructions numérotées */
+            <ol className="space-y-4 mb-6 flex-1" aria-label="Instructions">
+              {technique.instructions.map((instruction, index) => (
+                <li key={index} className="flex gap-4">
+                  <span
+                    className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-sm font-medium"
+                    style={{ backgroundColor: `${categoryColor}30`, color: categoryColor }}
+                    aria-hidden="true"
+                  >
+                    {index + 1}
+                  </span>
+                  <span className="text-eclipse-text leading-relaxed pt-0.5">
+                    {instruction}
+                  </span>
+                </li>
+              ))}
+            </ol>
+          )}
+        </>
+      )}
 
       {/* Note contextuelle */}
       {technique.note && (

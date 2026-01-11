@@ -14,45 +14,41 @@
  * IDs des cartes sélectionnées pour la DÉMO
  *
  * Critères de scoring "13+" (0-5 par critère) :
- * 1. Impact immédiat
- * 2. Simplicité
- * 3. Faible gêne sociale
- * 4. Pertinence ado
- * 5. Ton juste
- * 6. Sécurité
+ * 1. Impact immédiat (aide vite)
+ * 2. Simplicité (compréhensible en 10 secondes)
+ * 3. Faible gêne sociale (faisable en mode Furtif)
+ * 4. Pertinence ado 13+ (stress scolaire, pression sociale)
+ * 5. Ton ADN (pas infantilisant, pas moralisateur)
+ * 6. Sécurité (aucune instruction risquée)
  *
- * Score minimum requis : 27/30
+ * Contrainte de diversité : 1 Furtif + 1 Libre par catégorie
+ * Total : 14 cartes (2 par catégorie × 7 catégories actives)
+ * Note : Combinaison n'a pas de cartes disponibles
  */
 export const DEMO_CARD_IDS: string[] = [
-  // Souffle (3) - Fondamentaux respiratoires
-  "souffle-478",         // Respiration 4-7-8 | Furtif | Ultra efficace, classique validé
-  "souffle-carree",      // Respiration carrée | Furtif | Navy SEALs, crédibilité ado
-  "souffle-soupir",      // Le grand soupir | Libre | Effet immédiat, ultra simple
+  // SOUFFLE (2)
+  "souffle-478",      // Furtif | 29/30 | Ultra validé, faisable en classe sans qu'on te remarque
+  "souffle-soupir",   // Libre  | 28/30 | Effet immédiat, un seul geste, pas de compte à faire
 
-  // Ancrage (4) - Retour au présent
-  "ancrage-54321",       // 5-4-3-2-1 | Furtif | Anti-panique, faisable en classe
-  "ancrage-pieds",       // Pieds au sol | Furtif | Invisible, puissant
-  "ancrage-main-coeur",  // Main sur le cœur | Furtif | Réconfort immédiat
-  "ancrage-reset-postural", // Reset postural | Furtif | Discret, "athlète"
+  // DÉCHARGE (2)
+  "decharge-croises", // Furtif | 27/30 | Discret (assis), réveille sans faire de bruit
+  "decharge-secoue",  // Libre  | 28/30 | Validé TRE, libère la frustration, fun à faire
 
-  // Décharge (2) - Libération physique
-  "decharge-croises",    // Mouvements croisés | Libre | Réveille sans être loud
-  "decharge-secoue",     // Secoue tout | Libre | Défoule, validé TRE
+  // ANCRAGE (2)
+  "ancrage-54321",    // Furtif | 30/30 | Anti-panique classique, faisable discrètement partout
+  "ancrage-glacons",  // Libre  | 27/30 | Sensation forte pour moments intenses, mémorable
 
-  // Paroles fortes (5) - Affirmations ado-friendly
-  "paroles-encore-la",   // Encore là | Furtif | Puissant, pas moralisateur
-  "paroles-droit",       // T'as le droit | Furtif | Permission, pas injonction
-  "paroles-repos",       // Repos mérité | Furtif | Anti-culpabilité
-  "paroles-bordel",      // Le bordel | Furtif | Langage ado, validant
-  "paroles-lacher",      // Lâcher | Furtif | ACT validé Canada
+  // FAIRE LE POINT (2)
+  "faire-le-point-echelle", // Furtif | 28/30 | Simple, concret, "petit pas" parlant pour les ados
+  "faire-le-point-ecrire",  // Libre  | 29/30 | Journaling validé, "cell ou papier", libératoire
 
-  // Chaos (3) - Cassure créative
-  "chaos-mode-pnj",      // Mode PNJ | Furtif | Gaming, discret, fun
-  "chaos-machoire-molle", // Mâchoire molle | Furtif | Ultra discret, efficace
-  "chaos-slow-motion",   // Slow motion | Furtif | Fun, invisible
+  // PAROLES FORTES (2)
+  "paroles-encore-la", // Furtif | 29/30 | Phrase puissante, pas moralisatrice, touche direct
+  "paroles-ami",       // Libre  | 28/30 | Auto-compassion, validé scientifiquement, introspection
 
-  // Faire le point (1) - Métacognition
-  "faire-le-point-stop", // STOP | Furtif | Acronyme mémorable, MBSR
+  // CHAOS (2)
+  "chaos-mode-pnj",        // Furtif | 29/30 | Gaming, humour, ultra discret en public
+  "chaos-ninja-silencieux", // Libre  | 28/30 | Jeu de rôle fun, mouvement, "mission" engageante
 ];
 
 /**
@@ -73,7 +69,7 @@ export function isDemoCard(techniqueId: string): boolean {
 /**
  * Nombre de cartes dans la DÉMO
  */
-export const DEMO_CARD_COUNT = DEMO_CARD_IDS.length; // 18
+export const DEMO_CARD_COUNT = DEMO_CARD_IDS.length; // 14
 
 /**
  * Microcopy pour le tunnel de vente doux
@@ -106,19 +102,25 @@ export const DEMO_MICROCOPY = {
 
 /**
  * Statistiques DÉMO par catégorie
+ *
+ * 6 catégories actives × 2 cartes = 12 cartes
+ * + 2 cartes bonus = 14 cartes total
+ * Combinaison : 0 cartes disponibles
+ * Carte blanche : verrouillée (jeu physique uniquement)
  */
 export const DEMO_STATS = {
-  totalCards: 18,
+  totalCards: 14,
   byCategory: {
-    souffle: 3,
-    ancrage: 4,
+    souffle: 2,
     decharge: 2,
-    "paroles-fortes": 5,
-    chaos: 3,
-    "faire-le-point": 1,
+    ancrage: 2,
+    "faire-le-point": 2,
+    "paroles-fortes": 2,
+    chaos: 2,
+    combinaison: 0,
   },
   byMode: {
-    furtif: 14,
-    libre: 4,
+    furtif: 7,
+    libre: 7,
   },
 } as const;
