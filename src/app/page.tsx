@@ -62,7 +62,7 @@ export default function HomePage() {
 
       {/* Sous-titre */}
       <p className="text-eclipse-muted text-center mb-10">
-        Une technique. 2 à 5 minutes. Pas de blabla.
+        Une technique. 2 à 5 minutes. Direct.
       </p>
 
       {/* Sélecteur de contexte */}
@@ -126,7 +126,22 @@ export default function HomePage() {
       {/* Footer discret */}
       <footer className="mt-auto pt-12 text-center">
         <p className="text-eclipse-muted/60 text-xs">
-          Conçu au Québec • novaado.ca
+          Conçu au Québec •{" "}
+          <a
+            href="https://novaado.ca"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-eclipse-muted transition-colors"
+          >
+            novaado.ca
+          </a>
+          {" "}•{" "}
+          <a
+            href="/mentions-legales"
+            className="hover:text-eclipse-muted transition-colors"
+          >
+            Mentions légales
+          </a>
         </p>
       </footer>
     </div>

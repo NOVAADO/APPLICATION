@@ -926,6 +926,182 @@
         "notes": "Moins anxiété/dépression, plus satisfaction de vie et résilience.",
         "needsReview": false
       }
+    },
+    {
+      "id": "chaos-mode-pnj",
+      "title": "Mode PNJ",
+      "category": "chaos",
+      "duration": 2,
+      "intensity": "soft",
+      "instructions": [
+        "Pendant 30 secondes, t'es un PNJ de jeu vidéo.",
+        "Regarde droit devant, visage neutre.",
+        "Répète mentalement une phrase random : « Belle journée pour se promener. »",
+        "Ignore tout ce qui se passe autour.",
+        "Quand c'est fini, reprends ta vie."
+      ],
+      "note": "Personne va remarquer. Promis.",
+      "timer": true,
+      "timerConfig": {
+        "phases": [
+          { "name": "Mode PNJ", "duration": 30 }
+        ],
+        "cycles": 1,
+        "totalDuration": 30
+      },
+      "material": null,
+      "tags": ["chaos", "absurde", "décrochage", "jeu de rôle"],
+      "premium": true,
+      "durationSeconds": 30,
+      "discretionLevel": "public_ok",
+      "presets": ["A"],
+      "evidence": {
+        "isCanadaValidated": false,
+        "level": "C",
+        "canadaSources": [],
+        "scientificSources": [
+          { "title": "Distraction cognitive - interruption des ruminations" }
+        ],
+        "notes": "Cassure de la boucle mentale par le jeu de rôle discret.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "chaos-machoire-molle",
+      "title": "Mâchoire molle",
+      "category": "chaos",
+      "duration": 2,
+      "intensity": "soft",
+      "instructions": [
+        "Ta mission : avoir la mâchoire la plus molle possible.",
+        "Laisse ta bouche s'entrouvrir légèrement.",
+        "Détends ta langue. Elle touche rien.",
+        "Garde ça 20 secondes.",
+        "Bonus : fais un micro-soupir à la fin."
+      ],
+      "note": "Ton visage va détester être tendu après ça.",
+      "timer": true,
+      "timerConfig": {
+        "phases": [
+          { "name": "Mâchoire molle", "duration": 20 }
+        ],
+        "cycles": 1,
+        "totalDuration": 20
+      },
+      "material": null,
+      "tags": ["chaos", "corps", "détente", "discret"],
+      "premium": true,
+      "durationSeconds": 20,
+      "discretionLevel": "public_ok",
+      "presets": ["A"],
+      "evidence": {
+        "isCanadaValidated": false,
+        "level": "B",
+        "canadaSources": [],
+        "scientificSources": [
+          { "title": "Relaxation musculaire progressive - zone faciale" }
+        ],
+        "notes": "Détente rapide via relâchement de la mâchoire (zone de tension commune).",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "chaos-ninja-silencieux",
+      "title": "Ninja silencieux",
+      "category": "chaos",
+      "duration": 2,
+      "intensity": "normal",
+      "instructions": [
+        "Tu dois te déplacer sans faire aucun bruit.",
+        "Marche au ralenti. Pieds légers.",
+        "Respire par le nez. Silencieux.",
+        "Atteins un point (porte, fenêtre, casier) sans te faire repérer.",
+        "Mission accomplie ? Tu peux reprendre ta vie normale."
+      ],
+      "note": "Mode furtif activé.",
+      "timer": false,
+      "timerConfig": null,
+      "material": null,
+      "tags": ["chaos", "mouvement", "jeu", "focus"],
+      "premium": true,
+      "durationSeconds": 45,
+      "discretionLevel": "public_ok",
+      "presets": ["A"],
+      "evidence": {
+        "isCanadaValidated": false,
+        "level": "C",
+        "canadaSources": [],
+        "scientificSources": [
+          { "title": "Attention focalisée et régulation par le mouvement contrôlé" }
+        ],
+        "notes": "Redirection de l'attention vers une tâche physique simple.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "chaos-compliment-objet",
+      "title": "Compliment à un objet",
+      "category": "chaos",
+      "duration": 2,
+      "intensity": "soft",
+      "instructions": [
+        "Choisis un objet près de toi.",
+        "Fais-lui un compliment sincère. Dans ta tête.",
+        "« T'es un bon stylo. Tu m'as jamais lâché. »",
+        "Bonus maison : dis-le à voix haute avec conviction."
+      ],
+      "note": "C'est ridicule. C'est le but.",
+      "timer": false,
+      "timerConfig": null,
+      "material": null,
+      "tags": ["chaos", "absurde", "humour", "décrochage"],
+      "premium": true,
+      "durationSeconds": 30,
+      "discretionLevel": "public_ok",
+      "presets": ["A"],
+      "evidence": {
+        "isCanadaValidated": false,
+        "level": "C",
+        "canadaSources": [],
+        "scientificSources": [
+          { "title": "Humour et régulation émotionnelle" }
+        ],
+        "notes": "L'absurde crée une distance avec le stress.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "chaos-slow-motion",
+      "title": "Slow motion",
+      "category": "chaos",
+      "duration": 2,
+      "intensity": "soft",
+      "instructions": [
+        "Fais ton prochain geste au ralenti extrême.",
+        "Prendre ton crayon. Tourner une page. Boire de l'eau.",
+        "Genre vraiment lent. Film d'action au ralenti.",
+        "Observe chaque micro-mouvement.",
+        "Reprends la vitesse normale quand t'as fini."
+      ],
+      "note": "Personne va s'en rendre compte. Sauf toi.",
+      "timer": false,
+      "timerConfig": null,
+      "material": null,
+      "tags": ["chaos", "présent", "mouvement", "discret"],
+      "premium": true,
+      "durationSeconds": 30,
+      "discretionLevel": "public_ok",
+      "presets": ["A"],
+      "evidence": {
+        "isCanadaValidated": false,
+        "level": "B",
+        "canadaSources": [],
+        "scientificSources": [
+          { "title": "Pleine conscience et ralentissement intentionnel" }
+        ],
+        "notes": "Ancrage dans le présent via attention au mouvement.",
+        "needsReview": false
+      }
     }
   ]
 }
