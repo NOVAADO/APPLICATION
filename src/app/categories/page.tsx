@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { getSortedCategories, techniques } from "@/lib/techniques";
-import { isDemoMode, DEMO_MICROCOPY } from "@/lib/demo";
+import { DEMO_MICROCOPY } from "@/lib/demo";
 
 /**
  * Filtres CSS pour teinter les SVG selon la couleur de catégorie
@@ -29,7 +29,6 @@ const COLOR_FILTERS: Record<string, string> = {
 export default function CategoriesPage() {
   const router = useRouter();
   const categories = getSortedCategories();
-  const isDemo = isDemoMode();
 
   // Compter les techniques par catégorie
   const countByCategory = (categoryId: string) =>
@@ -87,7 +86,7 @@ export default function CategoriesPage() {
               role="listitem"
               aria-disabled={isCarteBlanche}
             >
-              {/* Badge Carte blanche : "Dans le jeu complet" avec cadenas */}
+              {/* Badge : Carte blanche verrouillée avec cadenas, autres catégories affichent le nombre de cartes */}
               {isCarteBlanche ? (
                 <span className="absolute top-2 right-2 text-xs px-2 py-0.5 rounded-full bg-eclipse-card text-eclipse-muted flex items-center gap-1">
                   <svg
@@ -106,17 +105,11 @@ export default function CategoriesPage() {
                   </svg>
                   {DEMO_MICROCOPY.cardLocked}
                 </span>
-              ) : isDemo ? (
+              ) : cardCount > 0 ? (
                 <span className="absolute top-2 right-2 text-xs px-2 py-0.5 rounded-full bg-eclipse-card text-eclipse-muted">
                   {cardCount} carte{cardCount > 1 ? "s" : ""}
                 </span>
-              ) : (
-                category.premium && (
-                  <span className="absolute top-2 right-2 text-xs px-2 py-0.5 rounded-full bg-eclipse-card text-eclipse-muted">
-                    {DEMO_MICROCOPY.cardLocked}
-                  </span>
-                )
-              )}
+              ) : null}
 
               {/* Picto catégorie - teinté avec la couleur de la catégorie */}
               <div
