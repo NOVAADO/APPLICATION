@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { getSortedCategories, techniques } from "@/lib/techniques";
+import { getSortedCategories, getFreeTechniques } from "@/lib/techniques";
 import { DEMO_MICROCOPY } from "@/lib/demo";
 
 /**
@@ -29,10 +29,11 @@ const COLOR_FILTERS: Record<string, string> = {
 export default function CategoriesPage() {
   const router = useRouter();
   const categories = getSortedCategories();
+  const freeTechniques = getFreeTechniques();
 
-  // Compter les techniques par catégorie
+  // Compter les techniques gratuites par catégorie (2 par catégorie max)
   const countByCategory = (categoryId: string) =>
-    techniques.filter((t) => t.category === categoryId).length;
+    freeTechniques.filter((t) => t.category === categoryId).length;
 
   return (
     <div className="flex-1 flex flex-col px-6 py-8 pb-safe">
