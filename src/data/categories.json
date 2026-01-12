@@ -34,7 +34,7 @@
       "description": "Casse la spirale.",
       "icon": "faire-le-point.png",
       "color": "#A78BFA",
-      "premium": true,
+      "premium": false,
       "order": 4
     },
     {
@@ -43,7 +43,7 @@
       "description": "Ton boost.",
       "icon": "paroles-fortes.png",
       "color": "#EF4444",
-      "premium": true,
+      "premium": false,
       "order": 5
     },
     {
@@ -52,7 +52,7 @@
       "description": "Accepte le désordre.",
       "icon": "chaos.png",
       "color": "#FBBF24",
-      "premium": true,
+      "premium": false,
       "order": 6
     },
     {
@@ -61,7 +61,7 @@
       "description": "Plusieurs techniques. Un moment.",
       "icon": "combinaison.png",
       "color": "#2DD4BF",
-      "premium": true,
+      "premium": false,
       "order": 7
     },
     {
