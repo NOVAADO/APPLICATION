@@ -22,8 +22,8 @@
  * 6. Sécurité (aucune instruction risquée)
  *
  * Contrainte de diversité : 1 Furtif + 1 Libre par catégorie
- * Total : 14 cartes (2 par catégorie × 7 catégories actives)
- * Note : Combinaison n'a pas de cartes disponibles
+ * Total : 12 cartes (2 par catégorie × 6 catégories actives)
+ * Note : Combinaison n'a pas de cartes disponibles, Carte blanche est verrouillée
  */
 export const DEMO_CARD_IDS: string[] = [
   // SOUFFLE (2)
@@ -69,7 +69,7 @@ export function isDemoCard(techniqueId: string): boolean {
 /**
  * Nombre de cartes dans la DÉMO
  */
-export const DEMO_CARD_COUNT = DEMO_CARD_IDS.length; // 14
+export const DEMO_CARD_COUNT = DEMO_CARD_IDS.length; // 12
 
 /**
  * Microcopy pour le tunnel de vente doux
@@ -103,13 +103,12 @@ export const DEMO_MICROCOPY = {
 /**
  * Statistiques DÉMO par catégorie
  *
- * 6 catégories actives × 2 cartes = 12 cartes
- * + 2 cartes bonus = 14 cartes total
+ * 6 catégories actives × 2 cartes = 12 cartes total
  * Combinaison : 0 cartes disponibles
  * Carte blanche : verrouillée (jeu physique uniquement)
  */
 export const DEMO_STATS = {
-  totalCards: 14,
+  totalCards: 12,
   byCategory: {
     souffle: 2,
     decharge: 2,
