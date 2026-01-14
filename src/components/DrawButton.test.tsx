@@ -42,7 +42,7 @@ describe("DrawButton", () => {
   it("contient une image (picto)", () => {
     render(<DrawButton onClick={() => {}} />);
     // L'image a role="presentation" car aria-hidden="true", donc on utilise querySelector
-    const img = document.querySelector('img[src="/pictos/pige-carte.png"]');
+    const img = document.querySelector('img[src="/pictos/pige-carte.svg"]');
     expect(img).toBeInTheDocument();
   });
 });

@@ -35,7 +35,7 @@ export function DrawButton({ onClick, disabled = false }: DrawButtonProps) {
       aria-label="Tirer une carte au hasard"
     >
       <Image
-        src="/pictos/pige-carte.png"
+        src="/pictos/pige-carte.svg"
         alt=""
         width={28}
         height={28}
