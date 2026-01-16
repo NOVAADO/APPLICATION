@@ -50,7 +50,7 @@
       "id": "chaos",
       "name": "Chaos",
       "description": "Accepte le désordre.",
-      "icon": "chaos.png",
+      "icon": "chaos.svg",
       "color": "#FBBF24",
       "premium": false,
       "order": 6
@@ -68,7 +68,7 @@
       "id": "carte-blanche",
       "name": "Carte blanche",
       "description": "Crée ta propre technique.",
-      "icon": "carte-blanche.png",
+      "icon": "carte-blanche.svg",
       "color": "#94A3B8",
       "premium": true,
       "order": 8
