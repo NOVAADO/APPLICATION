@@ -1,11 +1,11 @@
 {
-  "version": "1.1.0",
+  "version": "1.1.1",
   "categories": [
     {
       "id": "souffle",
       "name": "Souffle",
       "description": "Respire. Calme ton système.",
-      "icon": "souffle.png",
+      "icon": "souffle.svg",
       "color": "#7DD3FC",
       "premium": false,
       "order": 1
@@ -14,7 +14,7 @@
       "id": "decharge",
       "name": "Décharge",
       "description": "Bouge. Évacue l'énergie.",
-      "icon": "decharge.png",
+      "icon": "decharge.svg",
       "color": "#FB923C",
       "premium": false,
       "order": 2
@@ -23,7 +23,7 @@
       "id": "ancrage",
       "name": "Ancrage",
       "description": "Reviens au présent.",
-      "icon": "ancrage.png",
+      "icon": "ancrage.svg",
       "color": "#4ADE80",
       "premium": false,
       "order": 3
@@ -32,7 +32,7 @@
       "id": "faire-le-point",
       "name": "Faire le point",
       "description": "Casse la spirale.",
-      "icon": "faire-le-point.png",
+      "icon": "faire-le-point.svg",
       "color": "#A78BFA",
       "premium": false,
       "order": 4
@@ -41,7 +41,7 @@
       "id": "paroles-fortes",
       "name": "Paroles fortes",
       "description": "Ton boost.",
-      "icon": "paroles-fortes.png",
+      "icon": "paroles-fortes.svg",
       "color": "#EF4444",
       "premium": false,
       "order": 5
@@ -59,7 +59,7 @@
       "id": "combinaison",
       "name": "Combinaison",
       "description": "Plusieurs techniques. Un moment.",
-      "icon": "combinaison.png",
+      "icon": "combinaison.svg",
       "color": "#2DD4BF",
       "premium": false,
       "order": 7
