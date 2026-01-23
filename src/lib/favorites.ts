@@ -7,7 +7,7 @@
  */
 
 import { STORAGE_KEYS } from "./constants";
-import type { HistoryEntry } from "./types";
+import type { HistoryEntry, MoonPhase } from "./types";
 
 // Ré-exporter pour les imports existants
 export type { HistoryEntry } from "./types";
@@ -106,11 +106,14 @@ export function saveHistory(history: HistoryEntry[]): void {
 
 /**
  * Ajoute une entrée à l'historique
+ * @param techniqueId - ID de la technique
+ * @param level - Niveau de lune utilisé (croissant, quartier ou pleine-lune)
  */
-export function addToHistory(techniqueId: string): HistoryEntry[] {
+export function addToHistory(techniqueId: string, level: MoonPhase = "croissant"): HistoryEntry[] {
   const history = getHistory();
   const entry: HistoryEntry = {
     techniqueId,
+    level,
     timestamp: Date.now(),
   };
 

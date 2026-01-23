@@ -6,11 +6,11 @@ import { useRouter } from "next/navigation";
 import {
   getTechniqueById,
   getCategoryById,
-  formatDuration,
-  formatIntensity,
+  getTechniqueDurationRange,
 } from "@/lib/techniques";
 import { getSettings } from "@/lib/settings";
 import type { Technique } from "@/lib/types";
+import { MOON_PHASES } from "@/lib/types";
 
 type SortOption = "az" | "recent";
 
@@ -220,11 +220,7 @@ export default function FavoritesPage() {
                       </h2>
                       <div className="flex items-center gap-2 text-sm">
                         <span className="text-eclipse-muted">
-                          {formatDuration(technique.duration)}
-                        </span>
-                        <span className="text-eclipse-muted/50">•</span>
-                        <span className="text-eclipse-muted">
-                          {formatIntensity(technique.intensity)}
+                          {getTechniqueDurationRange(technique)}
                         </span>
                         {category && (
                           <>
@@ -234,6 +230,13 @@ export default function FavoritesPage() {
                             </span>
                           </>
                         )}
+                      </div>
+                      <div className="flex gap-1 mt-1">
+                        {Object.entries(MOON_PHASES).map(([key, phase]) => (
+                          <span key={key} className="text-xs" title={phase.label}>
+                            {phase.emoji}
+                          </span>
+                        ))}
                       </div>
                     </div>
                   </button>

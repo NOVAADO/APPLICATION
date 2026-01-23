@@ -7,9 +7,9 @@ import {
   getCategoryById,
   filterByCategory,
   getFreeTechniques,
-  formatDuration,
-  formatIntensity,
+  getTechniqueDurationRange,
 } from "@/lib/techniques";
+import { MOON_PHASES } from "@/lib/types";
 
 interface CategoryPageProps {
   params: Promise<{ id: string }>;
@@ -116,9 +116,15 @@ export default function CategoryPage({ params }: CategoryPageProps) {
                   {technique.title}
                 </h2>
                 <p className="text-eclipse-muted text-sm">
-                  {formatDuration(technique.duration)} •{" "}
-                  {formatIntensity(technique.intensity)}
+                  {getTechniqueDurationRange(technique)}
                 </p>
+                <div className="flex gap-1 mt-1">
+                  {Object.entries(MOON_PHASES).map(([key, phase]) => (
+                    <span key={key} className="text-xs" title={phase.description}>
+                      {phase.emoji}
+                    </span>
+                  ))}
+                </div>
               </button>
             </li>
           ))}
