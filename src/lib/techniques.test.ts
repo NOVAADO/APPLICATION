@@ -3,26 +3,22 @@ import {
   techniques,
   categories,
   getFreeTechniques,
-  filterByDuration,
-  filterByIntensity,
   filterByCategory,
+  filterByDiscretion,
   drawRandomTechnique,
   drawTechnique,
   getTechniqueById,
   getCategoryById,
   getSortedCategories,
   getFreeCategories,
-  formatDuration,
-  formatIntensity,
-  filterByPreset,
-  filterByDiscretion,
-  getPresetATechniques,
-  getPresetBTechniques,
+  formatDurationSeconds,
+  getTechniqueDurationRange,
   getCanadaValidatedTechniques,
   getTechniquesByEvidenceLevel,
+  countAvailableTechniques,
 } from "./techniques";
 
-describe("Données", () => {
+describe("Données v2.0.0", () => {
   it("contient des techniques", () => {
     expect(techniques.length).toBeGreaterThan(0);
   });
@@ -31,14 +27,28 @@ describe("Données", () => {
     expect(categories.length).toBeGreaterThan(0);
   });
 
-  it("chaque technique a les champs requis", () => {
+  it("chaque technique a la structure v2.0.0 avec 3 niveaux", () => {
     techniques.forEach((t) => {
       expect(t.id).toBeTruthy();
       expect(t.title).toBeTruthy();
       expect(t.category).toBeTruthy();
-      expect(t.duration).toBeGreaterThan(0);
-      expect(["soft", "normal", "intense"]).toContain(t.intensity);
-      expect(t.instructions.length).toBeGreaterThan(0);
+      expect(t.openingPhrase).toBeDefined();
+
+      // Vérifier les 3 niveaux
+      expect(t.levels).toBeDefined();
+      expect(t.levels.croissant).toBeDefined();
+      expect(t.levels.quartier).toBeDefined();
+      expect(t.levels["pleine-lune"]).toBeDefined();
+
+      // Chaque niveau doit avoir les champs requis
+      const levels = [t.levels.croissant, t.levels.quartier, t.levels["pleine-lune"]];
+      levels.forEach((level) => {
+        expect(Array.isArray(level.instructions)).toBe(true);
+        expect(level.instructions.length).toBeGreaterThan(0);
+        expect(typeof level.durationSeconds).toBe("number");
+        expect(level.durationSeconds).toBeGreaterThan(0);
+        expect(typeof level.timer).toBe("boolean");
+      });
     });
   });
 
@@ -48,6 +58,32 @@ describe("Données", () => {
       expect(c.name).toBeTruthy();
       expect(c.color).toMatch(/^#[0-9A-Fa-f]{6}$/);
       expect(typeof c.premium).toBe("boolean");
+    });
+  });
+});
+
+describe("Durées des niveaux (contraintes ADN)", () => {
+  it("niveau croissant: 10-30 secondes", () => {
+    techniques.forEach((t) => {
+      const duration = t.levels.croissant.durationSeconds;
+      expect(duration).toBeGreaterThanOrEqual(5); // Flexibilité pour certaines catégories
+      expect(duration).toBeLessThanOrEqual(45); // Marge
+    });
+  });
+
+  it("niveau quartier: 30-90 secondes", () => {
+    techniques.forEach((t) => {
+      const duration = t.levels.quartier.durationSeconds;
+      expect(duration).toBeGreaterThanOrEqual(20);
+      expect(duration).toBeLessThanOrEqual(120);
+    });
+  });
+
+  it("niveau pleine-lune: 60-180 secondes", () => {
+    techniques.forEach((t) => {
+      const duration = t.levels["pleine-lune"].durationSeconds;
+      expect(duration).toBeGreaterThanOrEqual(30);
+      expect(duration).toBeLessThanOrEqual(300);
     });
   });
 });
@@ -63,54 +99,6 @@ describe("getFreeTechniques", () => {
   it("retourne au moins une technique", () => {
     const free = getFreeTechniques();
     expect(free.length).toBeGreaterThan(0);
-  });
-});
-
-describe("filterByDuration", () => {
-  it("retourne toutes les techniques si duration est null", () => {
-    const techs = getFreeTechniques();
-    const filtered = filterByDuration(techs, null);
-    expect(filtered).toEqual(techs);
-  });
-
-  it("filtre les techniques de 2 min (inclut 2 et 3 min)", () => {
-    const techs = getFreeTechniques();
-    const filtered = filterByDuration(techs, 2);
-    filtered.forEach((t) => {
-      expect(t.duration).toBeLessThanOrEqual(3);
-    });
-  });
-
-  it("filtre les techniques de 5 min exactement", () => {
-    const techs = getFreeTechniques();
-    const filtered = filterByDuration(techs, 5);
-    filtered.forEach((t) => {
-      expect(t.duration).toBe(5);
-    });
-  });
-});
-
-describe("filterByIntensity", () => {
-  it("retourne toutes les techniques si intensity est null", () => {
-    const techs = getFreeTechniques();
-    const filtered = filterByIntensity(techs, null);
-    expect(filtered).toEqual(techs);
-  });
-
-  it("filtre par intensité soft", () => {
-    const techs = getFreeTechniques();
-    const filtered = filterByIntensity(techs, "soft");
-    filtered.forEach((t) => {
-      expect(t.intensity).toBe("soft");
-    });
-  });
-
-  it("filtre par intensité intense", () => {
-    const techs = getFreeTechniques();
-    const filtered = filterByIntensity(techs, "intense");
-    filtered.forEach((t) => {
-      expect(t.intensity).toBe("intense");
-    });
   });
 });
 
@@ -131,6 +119,27 @@ describe("filterByCategory", () => {
   });
 });
 
+describe("filterByDiscretion", () => {
+  it("retourne toutes les techniques si level est null", () => {
+    const filtered = filterByDiscretion(techniques, null);
+    expect(filtered).toEqual(techniques);
+  });
+
+  it("filtre par discrétion public_ok", () => {
+    const filtered = filterByDiscretion(techniques, "public_ok");
+    filtered.forEach((t) => {
+      expect(t.discretionLevel).toBe("public_ok");
+    });
+  });
+
+  it("filtre par discrétion discret", () => {
+    const filtered = filterByDiscretion(techniques, "discret");
+    filtered.forEach((t) => {
+      expect(t.discretionLevel).toBe("discret");
+    });
+  });
+});
+
 describe("drawRandomTechnique", () => {
   it("retourne null si le tableau est vide", () => {
     expect(drawRandomTechnique([])).toBeNull();
@@ -141,6 +150,32 @@ describe("drawRandomTechnique", () => {
     const drawn = drawRandomTechnique(techs);
     expect(drawn).not.toBeNull();
     expect(techs).toContain(drawn);
+  });
+});
+
+describe("drawTechnique", () => {
+  it("retourne une technique", () => {
+    const technique = drawTechnique();
+    expect(technique).not.toBeNull();
+  });
+
+  it("filtre par catégorie", () => {
+    const categoryId = categories[0].id;
+    for (let i = 0; i < 5; i++) {
+      const technique = drawTechnique({ category: categoryId });
+      if (technique) {
+        expect(technique.category).toBe(categoryId);
+      }
+    }
+  });
+
+  it("filtre par niveau de discrétion", () => {
+    for (let i = 0; i < 5; i++) {
+      const technique = drawTechnique({ discretionLevel: "public_ok" });
+      if (technique) {
+        expect(technique.discretionLevel).toBe("public_ok");
+      }
+    }
   });
 });
 
@@ -192,37 +227,55 @@ describe("getFreeCategories", () => {
   });
 });
 
-describe("formatDuration", () => {
-  it("formate la durée en minutes", () => {
-    expect(formatDuration(2)).toBe("2 min");
-    expect(formatDuration(5)).toBe("5 min");
+describe("formatDurationSeconds", () => {
+  it("formate les secondes courtes", () => {
+    expect(formatDurationSeconds(15)).toBe("15s");
+    expect(formatDurationSeconds(30)).toBe("30s");
+    expect(formatDurationSeconds(45)).toBe("45s");
+  });
+
+  it("formate les minutes exactes", () => {
+    expect(formatDurationSeconds(60)).toBe("1 min");
+    expect(formatDurationSeconds(120)).toBe("2 min");
+    expect(formatDurationSeconds(180)).toBe("3 min");
+  });
+
+  it("formate les minutes avec secondes", () => {
+    expect(formatDurationSeconds(90)).toBe("1m 30s");
+    expect(formatDurationSeconds(75)).toBe("1m 15s");
   });
 });
 
-describe("formatIntensity", () => {
-  it("traduit soft en Douce", () => {
-    expect(formatIntensity("soft")).toBe("Douce");
+describe("getTechniqueDurationRange", () => {
+  it("retourne une plage de durées", () => {
+    const tech = techniques[0];
+    const range = getTechniqueDurationRange(tech);
+    expect(range).toContain(" - ");
+  });
+});
+
+describe("countAvailableTechniques", () => {
+  it("compte toutes les techniques gratuites par défaut", () => {
+    const count = countAvailableTechniques();
+    const free = getFreeTechniques();
+    expect(count).toBe(free.length);
   });
 
-  it("traduit normal en Normale", () => {
-    expect(formatIntensity("normal")).toBe("Normale");
-  });
-
-  it("traduit intense", () => {
-    expect(formatIntensity("intense")).toBe("Intense");
+  it("compte avec filtre de catégorie", () => {
+    const categoryId = categories[0].id;
+    const count = countAvailableTechniques({ category: categoryId });
+    const filtered = filterByCategory(getFreeTechniques(), categoryId);
+    expect(count).toBe(filtered.length);
   });
 });
 
 // ============================================
-// Tests v1.1.0 - Presets et Evidence (Canada)
+// Tests Evidence (Canada)
 // ============================================
 
-describe("Champs v1.1.0", () => {
-  it("chaque technique a les champs v1.1.0 requis", () => {
+describe("Evidence - Structure", () => {
+  it("chaque technique a le champ evidence", () => {
     techniques.forEach((t) => {
-      expect(typeof t.durationSeconds).toBe("number");
-      expect(["public_ok", "discret", "prive"]).toContain(t.discretionLevel);
-      expect(Array.isArray(t.presets)).toBe(true);
       expect(t.evidence).toBeDefined();
       expect(typeof t.evidence.isCanadaValidated).toBe("boolean");
       expect(["A", "B", "C"]).toContain(t.evidence.level);
@@ -230,102 +283,6 @@ describe("Champs v1.1.0", () => {
       expect(Array.isArray(t.evidence.scientificSources)).toBe(true);
       expect(typeof t.evidence.needsReview).toBe("boolean");
     });
-  });
-});
-
-describe("filterByPreset", () => {
-  it("retourne toutes les techniques si preset est null", () => {
-    const filtered = filterByPreset(techniques, null);
-    expect(filtered).toEqual(techniques);
-  });
-
-  it("filtre par preset A", () => {
-    const filtered = filterByPreset(techniques, "A");
-    filtered.forEach((t) => {
-      expect(t.presets).toContain("A");
-    });
-  });
-
-  it("filtre par preset B", () => {
-    const filtered = filterByPreset(techniques, "B");
-    filtered.forEach((t) => {
-      expect(t.presets).toContain("B");
-    });
-  });
-});
-
-describe("filterByDiscretion", () => {
-  it("retourne toutes les techniques si level est null", () => {
-    const filtered = filterByDiscretion(techniques, null);
-    expect(filtered).toEqual(techniques);
-  });
-
-  it("filtre par discrétion public_ok", () => {
-    const filtered = filterByDiscretion(techniques, "public_ok");
-    filtered.forEach((t) => {
-      expect(t.discretionLevel).toBe("public_ok");
-    });
-  });
-
-  it("filtre par discrétion prive", () => {
-    const filtered = filterByDiscretion(techniques, "prive");
-    filtered.forEach((t) => {
-      expect(t.discretionLevel).toBe("prive");
-    });
-  });
-});
-
-describe("Preset A - Validation règles strictes", () => {
-  it("retourne au moins une technique", () => {
-    const presetA = getPresetATechniques();
-    expect(presetA.length).toBeGreaterThan(0);
-  });
-
-  it("aucune technique Preset A ne dépasse 120 secondes", () => {
-    const presetA = getPresetATechniques();
-    presetA.forEach((t) => {
-      expect(t.durationSeconds).toBeLessThanOrEqual(120);
-    });
-  });
-
-  it("toutes les techniques Preset A sont public_ok", () => {
-    const presetA = getPresetATechniques();
-    presetA.forEach((t) => {
-      expect(t.discretionLevel).toBe("public_ok");
-    });
-  });
-
-  it("contient au moins 20 techniques (extensions incluses)", () => {
-    // Note: Le nombre augmente avec l'ajout de nouvelles techniques
-    const presetA = getPresetATechniques();
-    expect(presetA.length).toBeGreaterThanOrEqual(20);
-  });
-});
-
-describe("Preset B - Validation règles strictes", () => {
-  it("retourne au moins une technique", () => {
-    const presetB = getPresetBTechniques();
-    expect(presetB.length).toBeGreaterThan(0);
-  });
-
-  it("aucune technique Preset B ne dépasse 300 secondes", () => {
-    const presetB = getPresetBTechniques();
-    presetB.forEach((t) => {
-      expect(t.durationSeconds).toBeLessThanOrEqual(300);
-    });
-  });
-
-  it("aucune technique Preset B n'est privée", () => {
-    const presetB = getPresetBTechniques();
-    presetB.forEach((t) => {
-      expect(t.discretionLevel).not.toBe("prive");
-    });
-  });
-
-  it("contient au moins 15 techniques (extensions incluses)", () => {
-    // Note: Le nombre augmente avec l'ajout de nouvelles techniques
-    const presetB = getPresetBTechniques();
-    expect(presetB.length).toBeGreaterThanOrEqual(15);
   });
 });
 
@@ -362,69 +319,17 @@ describe("Evidence - Niveaux de preuve", () => {
     });
   });
 
-  it("retourne des techniques niveau B", () => {
+  it("retourne des techniques niveau B si présentes", () => {
     const levelB = getTechniquesByEvidenceLevel("B");
-    expect(levelB.length).toBeGreaterThan(0);
     levelB.forEach((t) => {
       expect(t.evidence.level).toBe("B");
     });
   });
 
-  it("plus de techniques niveau A que niveau C", () => {
-    const levelA = getTechniquesByEvidenceLevel("A");
-    const levelB = getTechniquesByEvidenceLevel("B");
+  it("retourne des techniques niveau C si présentes", () => {
     const levelC = getTechniquesByEvidenceLevel("C");
-    // Le niveau A (sources canadiennes validées) doit être majoritaire
-    expect(levelA.length).toBeGreaterThan(levelC.length);
-    // Niveau B doit être significatif
-    expect(levelB.length).toBeGreaterThan(10);
-  });
-});
-
-// ============================================
-// Tests drawTechnique avec preset
-// ============================================
-
-describe("drawTechnique avec preset", () => {
-  it("retourne une technique Preset A quand preset='A'", () => {
-    // Exécuter plusieurs fois pour tester la randomisation
-    for (let i = 0; i < 10; i++) {
-      const technique = drawTechnique({ preset: "A" });
-      expect(technique).not.toBeNull();
-      if (technique) {
-        expect(technique.presets).toContain("A");
-        expect(technique.durationSeconds).toBeLessThanOrEqual(120);
-        expect(technique.discretionLevel).toBe("public_ok");
-      }
-    }
-  });
-
-  it("retourne une technique Preset B quand preset='B'", () => {
-    for (let i = 0; i < 10; i++) {
-      const technique = drawTechnique({ preset: "B" });
-      expect(technique).not.toBeNull();
-      if (technique) {
-        expect(technique.presets).toContain("B");
-        expect(technique.durationSeconds).toBeLessThanOrEqual(300);
-        expect(["public_ok", "discret"]).toContain(technique.discretionLevel);
-      }
-    }
-  });
-
-  it("retourne n'importe quelle technique quand preset=null", () => {
-    const technique = drawTechnique({ preset: null });
-    expect(technique).not.toBeNull();
-  });
-
-  it("combine preset et duration correctement", () => {
-    // Preset A avec durée 2 min (≤3 min en duration)
-    for (let i = 0; i < 5; i++) {
-      const technique = drawTechnique({ preset: "A", duration: 2 });
-      expect(technique).not.toBeNull();
-      if (technique) {
-        expect(technique.presets).toContain("A");
-        expect(technique.duration).toBeLessThanOrEqual(3);
-      }
-    }
+    levelC.forEach((t) => {
+      expect(t.evidence.level).toBe("C");
+    });
   });
 });

@@ -1,50 +1,32 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { DrawButton } from "@/components/DrawButton";
-import { DurationFilter } from "@/components/DurationFilter";
-import { ContextFilter, type ContextOption } from "@/components/ContextFilter";
 import { GamePromoCard } from "@/components/GamePromoCard";
 import { drawTechnique, countAvailableTechniques } from "@/lib/techniques";
 import { isDemoMode, DEMO_MICROCOPY } from "@/lib/demo";
-import type { Duration, Preset } from "@/lib/types";
 
 /**
  * Page d'accueil - Éclipse NOVA ADO
+ * Version 2.0.0 - Interface simplifiée
  *
  * Objectif : technique en < 10 secondes
  * Microcopy : "T'as besoin d'une pause ?"
  */
 export default function HomePage() {
   const router = useRouter();
-  const [duration, setDuration] = useState<Duration | null>(null);
-  const [context, setContext] = useState<ContextOption>("all");
   const [isDrawing, setIsDrawing] = useState(false);
 
-  // Convertir le contexte en preset (null si "all")
-  const preset: Preset | null = context === "all" ? null : context;
-
-  // Calculer les durées incompatibles selon le contexte
-  // Preset A (Public) : max 120s → pas de 5 min
-  const disabledDurations: Duration[] = context === "A" ? [5] : [];
-
-  // Compter les techniques disponibles avec les filtres actuels
-  const availableCount = countAvailableTechniques({ duration, preset });
-
-  // Réinitialiser la durée si elle devient incompatible avec le contexte
-  useEffect(() => {
-    if (duration && disabledDurations.includes(duration)) {
-      setDuration(null);
-    }
-  }, [context, duration, disabledDurations]);
+  // Compter les techniques disponibles
+  const availableCount = countAvailableTechniques();
 
   const handleDraw = () => {
     setIsDrawing(true);
 
     // Petit délai pour le feedback visuel
     setTimeout(() => {
-      const technique = drawTechnique({ duration, preset });
+      const technique = drawTechnique();
 
       if (technique) {
         router.push(`/technique/${technique.id}`);
@@ -64,22 +46,8 @@ export default function HomePage() {
 
       {/* Sous-titre */}
       <p className="text-eclipse-muted text-center mb-10">
-        Une technique. 2 à 5 minutes. Direct.
+        Une technique. À ton rythme. Direct.
       </p>
-
-      {/* Sélecteur de contexte */}
-      <div className="mb-6">
-        <ContextFilter selected={context} onChange={setContext} />
-      </div>
-
-      {/* Filtres durée */}
-      <div className="mb-8">
-        <DurationFilter
-          selected={duration}
-          onChange={setDuration}
-          disabledDurations={disabledDurations}
-        />
-      </div>
 
       {/* État vide : aucune technique disponible */}
       {availableCount === 0 ? (
@@ -87,30 +55,13 @@ export default function HomePage() {
           <p className="text-eclipse-muted mb-4">
             {isDemoMode()
               ? DEMO_MICROCOPY.emptyStateDemo
-              : "Aucune technique disponible avec ces filtres."}
+              : "Aucune technique disponible."}
           </p>
           {isDemoMode() && (
             <p className="text-eclipse-muted/60 text-sm mb-4">
               {DEMO_MICROCOPY.emptyStateHint}
             </p>
           )}
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <button
-              onClick={() => {
-                setContext("all");
-                setDuration(null);
-              }}
-              className="px-4 py-2 rounded-lg bg-eclipse-accent text-eclipse-bg font-medium touch-feedback"
-            >
-              Tout afficher
-            </button>
-            <button
-              onClick={() => setDuration(null)}
-              className="px-4 py-2 rounded-lg bg-eclipse-card text-eclipse-text border border-eclipse-muted/30 font-medium touch-feedback hover:border-eclipse-accent/50"
-            >
-              Retirer le filtre durée
-            </button>
-          </div>
         </div>
       ) : (
         /* CTA principal */

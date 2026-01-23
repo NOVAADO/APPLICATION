@@ -1,11 +1,12 @@
 /**
  * Gestion des techniques - Application Éclipse
+ * Version 2.0.0 - Modèle 3 niveaux par carte (phases de lune)
  *
- * Mode DÉMO : L'app peut fonctionner en mode aperçu (18 cartes sélectionnées)
+ * Mode DÉMO : L'app peut fonctionner en mode aperçu (cartes sélectionnées)
  * pour servir de tunnel de vente doux vers le jeu physique.
  */
 
-import type { Technique, Category, Duration, Intensity, Preset, DiscretionLevel } from "./types";
+import type { Technique, Category, MoonPhase, DiscretionLevel, MOON_PHASES } from "./types";
 import techniquesData from "@/data/techniques.json";
 import categoriesData from "@/data/categories.json";
 import { isDemoMode, DEMO_CARD_IDS } from "./demo";
@@ -30,33 +31,6 @@ export function getFreeTechniques(): Technique[] {
 }
 
 /**
- * Filtre les techniques par durée
- */
-export function filterByDuration(
-  techs: Technique[],
-  duration: Duration | null
-): Technique[] {
-  if (!duration) return techs;
-  // 2 min = techniques de 2 ou 3 min
-  // 5 min = techniques de 5 min
-  if (duration === 2) {
-    return techs.filter((t) => t.duration <= 3);
-  }
-  return techs.filter((t) => t.duration === duration);
-}
-
-/**
- * Filtre les techniques par intensité
- */
-export function filterByIntensity(
-  techs: Technique[],
-  intensity: Intensity | null
-): Technique[] {
-  if (!intensity) return techs;
-  return techs.filter((t) => t.intensity === intensity);
-}
-
-/**
  * Filtre les techniques par catégorie
  */
 export function filterByCategory(
@@ -65,6 +39,17 @@ export function filterByCategory(
 ): Technique[] {
   if (!categoryId) return techs;
   return techs.filter((t) => t.category === categoryId);
+}
+
+/**
+ * Filtre les techniques par niveau de discrétion
+ */
+export function filterByDiscretion(
+  techs: Technique[],
+  level: DiscretionLevel | null
+): Technique[] {
+  if (!level) return techs;
+  return techs.filter((t) => t.discretionLevel === level);
 }
 
 /**
@@ -81,36 +66,17 @@ export function drawRandomTechnique(techs: Technique[]): Technique | null {
  * Ne retourne que des techniques gratuites par défaut
  */
 export function drawTechnique(options?: {
-  duration?: Duration | null;
-  intensity?: Intensity | null;
   category?: string | null;
-  preset?: Preset | null;
+  discretionLevel?: DiscretionLevel | null;
   includePremium?: boolean;
 }): Technique | null {
   let filtered = options?.includePremium ? techniques : getFreeTechniques();
 
-  // Filtre par preset (contexte) - appliqué en premier
-  if (options?.preset === "A") {
-    filtered = filtered.filter(
-      (t) => t.presets.includes("A") && t.durationSeconds <= 120 && t.discretionLevel === "public_ok"
-    );
-  } else if (options?.preset === "B") {
-    filtered = filtered.filter(
-      (t) =>
-        t.presets.includes("B") &&
-        t.durationSeconds <= 300 &&
-        (t.discretionLevel === "public_ok" || t.discretionLevel === "discret")
-    );
-  }
-
-  if (options?.duration) {
-    filtered = filterByDuration(filtered, options.duration);
-  }
-  if (options?.intensity) {
-    filtered = filterByIntensity(filtered, options.intensity);
-  }
   if (options?.category) {
     filtered = filterByCategory(filtered, options.category);
+  }
+  if (options?.discretionLevel) {
+    filtered = filterByDiscretion(filtered, options.discretionLevel);
   }
 
   return drawRandomTechnique(filtered);
@@ -145,69 +111,18 @@ export function getFreeCategories(): Category[] {
 }
 
 /**
- * Formate la durée pour l'affichage
+ * Formate la durée en secondes pour l'affichage
  */
-export function formatDuration(duration: number): string {
-  return `${duration} min`;
-}
-
-/**
- * Traduit l'intensité pour l'affichage
- */
-export function formatIntensity(intensity: Intensity): string {
-  const labels: Record<Intensity, string> = {
-    soft: "Douce",
-    normal: "Normale",
-    intense: "Intense",
-  };
-  return labels[intensity];
-}
-
-/**
- * Filtre les techniques par preset (A ou B)
- */
-export function filterByPreset(
-  techs: Technique[],
-  preset: Preset | null
-): Technique[] {
-  if (!preset) return techs;
-  return techs.filter((t) => t.presets.includes(preset));
-}
-
-/**
- * Filtre les techniques par niveau de discrétion
- */
-export function filterByDiscretion(
-  techs: Technique[],
-  level: DiscretionLevel | null
-): Technique[] {
-  if (!level) return techs;
-  return techs.filter((t) => t.discretionLevel === level);
-}
-
-/**
- * Récupère les techniques du Preset A (École/Public)
- * - Durée <= 120s
- * - Discrétion = public_ok
- */
-export function getPresetATechniques(): Technique[] {
-  return techniques.filter(
-    (t) => t.presets.includes("A") && t.durationSeconds <= 120 && t.discretionLevel === "public_ok"
-  );
-}
-
-/**
- * Récupère les techniques du Preset B (Discret)
- * - Durée 121-300s
- * - Discrétion = public_ok ou discret
- */
-export function getPresetBTechniques(): Technique[] {
-  return techniques.filter(
-    (t) =>
-      t.presets.includes("B") &&
-      t.durationSeconds <= 300 &&
-      (t.discretionLevel === "public_ok" || t.discretionLevel === "discret")
-  );
+export function formatDurationSeconds(seconds: number): string {
+  if (seconds < 60) {
+    return `${seconds}s`;
+  }
+  const mins = Math.floor(seconds / 60);
+  const secs = seconds % 60;
+  if (secs === 0) {
+    return `${mins} min`;
+  }
+  return `${mins}m ${secs}s`;
 }
 
 /**
@@ -228,28 +143,32 @@ export function getTechniquesByEvidenceLevel(level: "A" | "B" | "C"): Technique[
  * Compte les techniques disponibles selon les filtres
  */
 export function countAvailableTechniques(options?: {
-  duration?: Duration | null;
-  preset?: Preset | null;
+  category?: string | null;
+  discretionLevel?: DiscretionLevel | null;
   includePremium?: boolean;
 }): number {
   let filtered = options?.includePremium ? techniques : getFreeTechniques();
 
-  if (options?.preset === "A") {
-    filtered = filtered.filter(
-      (t) => t.presets.includes("A") && t.durationSeconds <= 120 && t.discretionLevel === "public_ok"
-    );
-  } else if (options?.preset === "B") {
-    filtered = filtered.filter(
-      (t) =>
-        t.presets.includes("B") &&
-        t.durationSeconds <= 300 &&
-        (t.discretionLevel === "public_ok" || t.discretionLevel === "discret")
-    );
+  if (options?.category) {
+    filtered = filterByCategory(filtered, options.category);
   }
-
-  if (options?.duration) {
-    filtered = filterByDuration(filtered, options.duration);
+  if (options?.discretionLevel) {
+    filtered = filterByDiscretion(filtered, options.discretionLevel);
   }
 
   return filtered.length;
+}
+
+/**
+ * Récupère la plage de durées pour une technique (min-max des 3 niveaux)
+ */
+export function getTechniqueDurationRange(technique: Technique): string {
+  const durations = [
+    technique.levels.croissant.durationSeconds,
+    technique.levels.quartier.durationSeconds,
+    technique.levels["pleine-lune"].durationSeconds,
+  ];
+  const min = Math.min(...durations);
+  const max = Math.max(...durations);
+  return `${formatDurationSeconds(min)} - ${formatDurationSeconds(max)}`;
 }

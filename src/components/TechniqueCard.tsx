@@ -1,12 +1,15 @@
 "use client";
 
 import { toast } from "sonner";
-import type { Technique, Category } from "@/lib/types";
-import { formatDuration, formatIntensity } from "@/lib/techniques";
+import type { Technique, Category, MoonPhase } from "@/lib/types";
+import { MOON_PHASES } from "@/lib/types";
+import { formatDurationSeconds } from "@/lib/techniques";
 
 interface TechniqueCardProps {
   technique: Technique;
   category?: Category;
+  selectedLevel: MoonPhase | null;
+  onSelectLevel: (level: MoonPhase) => void;
   onFavorite?: () => void;
   isFavorite?: boolean;
   onDone?: () => void;
@@ -15,12 +18,14 @@ interface TechniqueCardProps {
 }
 
 /**
- * Fiche complète d'une technique
- * Affiche : titre, métadonnées, instructions, note, matériel
+ * Fiche complète d'une technique - Version 2.0.0
+ * Affiche : titre, sélection de niveau (phases de lune), instructions du niveau choisi
  */
 export function TechniqueCard({
   technique,
   category,
+  selectedLevel,
+  onSelectLevel,
   onFavorite,
   isFavorite = false,
   onDone,
@@ -28,6 +33,9 @@ export function TechniqueCard({
   onStartTimer,
 }: TechniqueCardProps) {
   const categoryColor = category?.color || "#7DD3FC";
+
+  // Récupérer le niveau actuellement sélectionné
+  const currentLevel = selectedLevel ? technique.levels[selectedLevel] : null;
 
   const handleShare = async () => {
     const shareText = `J'ai essayé "${technique.title}" avec Éclipse. Une technique rapide pour gérer le stress.`;
@@ -57,30 +65,59 @@ export function TechniqueCard({
 
   return (
     <article className="flex flex-col h-full">
-      {/* En-tête avec métadonnées */}
+      {/* En-tête avec titre et catégorie */}
       <header className="mb-6">
         <h1 className="text-2xl sm:text-3xl font-bold mb-3">
           {technique.title}
         </h1>
 
-        {/* Tags : durée, intensité, catégorie */}
-        <div className="flex flex-wrap gap-2 text-sm">
-          <span className="px-3 py-1 rounded-full bg-eclipse-card text-eclipse-muted">
-            {formatDuration(technique.duration)}
+        {/* Tag catégorie */}
+        {category && (
+          <span
+            className="px-3 py-1 rounded-full text-sm"
+            style={{ backgroundColor: `${categoryColor}20`, color: categoryColor }}
+          >
+            {category.name}
           </span>
-          <span className="px-3 py-1 rounded-full bg-eclipse-card text-eclipse-muted">
-            {formatIntensity(technique.intensity)}
-          </span>
-          {category && (
-            <span
-              className="px-3 py-1 rounded-full"
-              style={{ backgroundColor: `${categoryColor}20`, color: categoryColor }}
-            >
-              {category.name}
-            </span>
-          )}
-        </div>
+        )}
       </header>
+
+      {/* Phrase d'ouverture */}
+      {technique.openingPhrase && (
+        <p className="text-eclipse-muted text-lg leading-relaxed mb-6 px-1">
+          {technique.openingPhrase}
+        </p>
+      )}
+
+      {/* Sélection du niveau (phases de lune) */}
+      <div className="mb-6">
+        <p className="text-eclipse-muted text-sm mb-3">Choisis ton intensité :</p>
+        <div className="grid grid-cols-3 gap-2">
+          {(Object.entries(MOON_PHASES) as [MoonPhase, typeof MOON_PHASES[MoonPhase]][]).map(([key, phase]) => {
+            const levelData = technique.levels[key];
+            const isSelected = selectedLevel === key;
+
+            return (
+              <button
+                key={key}
+                onClick={() => onSelectLevel(key)}
+                className={`p-3 rounded-xl border text-center transition-all ${
+                  isSelected
+                    ? "border-eclipse-accent bg-eclipse-accent/10"
+                    : "border-eclipse-muted/30 hover:border-eclipse-accent/50"
+                }`}
+                aria-pressed={isSelected}
+              >
+                <span className="text-2xl block mb-1">{phase.emoji}</span>
+                <span className="text-sm font-medium block">{phase.label}</span>
+                <span className="text-xs text-eclipse-muted block">
+                  {formatDurationSeconds(levelData.durationSeconds)}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
 
       {/* Matériel requis */}
       {technique.material && (
@@ -90,62 +127,42 @@ export function TechniqueCard({
         </div>
       )}
 
-      {/*
-        Phrase d'ouverture (première instruction, sans numéro)
-        - Catégories AVEC phrase d'ouverture : souffle, decharge, ancrage, faire-le-point, combinaison
-        - Catégories SANS phrase d'ouverture : chaos, paroles-fortes (toutes les instructions sont numérotées)
-      */}
-      {technique.instructions.length > 0 && (
-        <>
-          {/* Catégories avec phrase d'ouverture séparée */}
-          {!["chaos", "paroles-fortes"].includes(technique.category) ? (
-            <>
-              <p className="text-eclipse-muted text-lg leading-relaxed mb-6 px-1">
-                {technique.instructions[0]}
-              </p>
-              {technique.instructions.length > 1 && (
-                <ol className="space-y-4 mb-6 flex-1" aria-label="Instructions">
-                  {technique.instructions.slice(1).map((instruction, index) => (
-                    <li key={index} className="flex gap-4">
-                      <span
-                        className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-sm font-medium"
-                        style={{ backgroundColor: `${categoryColor}30`, color: categoryColor }}
-                        aria-hidden="true"
-                      >
-                        {index + 1}
-                      </span>
-                      <span className="text-eclipse-text leading-relaxed pt-0.5">
-                        {instruction}
-                      </span>
-                    </li>
-                  ))}
-                </ol>
-              )}
-            </>
-          ) : (
-            /* Catégories Chaos et Paroles fortes : toutes les instructions numérotées */
-            <ol className="space-y-4 mb-6 flex-1" aria-label="Instructions">
-              {technique.instructions.map((instruction, index) => (
-                <li key={index} className="flex gap-4">
-                  <span
-                    className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-sm font-medium"
-                    style={{ backgroundColor: `${categoryColor}30`, color: categoryColor }}
-                    aria-hidden="true"
-                  >
-                    {index + 1}
-                  </span>
-                  <span className="text-eclipse-text leading-relaxed pt-0.5">
-                    {instruction}
-                  </span>
-                </li>
-              ))}
-            </ol>
-          )}
-        </>
+      {/* Instructions du niveau sélectionné */}
+      {currentLevel && currentLevel.instructions.length > 0 && (
+        <div className="mb-6 flex-1">
+          <p className="text-eclipse-muted text-sm mb-3">
+            {MOON_PHASES[selectedLevel!].emoji} Niveau {MOON_PHASES[selectedLevel!].label} :
+          </p>
+          <ol className="space-y-4" aria-label="Instructions">
+            {currentLevel.instructions.map((instruction, index) => (
+              <li key={index} className="flex gap-4">
+                <span
+                  className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-sm font-medium"
+                  style={{ backgroundColor: `${categoryColor}30`, color: categoryColor }}
+                  aria-hidden="true"
+                >
+                  {index + 1}
+                </span>
+                <span className="text-eclipse-text leading-relaxed pt-0.5">
+                  {instruction}
+                </span>
+              </li>
+            ))}
+          </ol>
+        </div>
+      )}
+
+      {/* Message si aucun niveau sélectionné */}
+      {!selectedLevel && (
+        <div className="mb-6 flex-1 flex items-center justify-center">
+          <p className="text-eclipse-muted text-center">
+            Choisis un niveau pour voir les instructions.
+          </p>
+        </div>
       )}
 
       {/* Note contextuelle */}
-      {technique.note && (
+      {technique.note && selectedLevel && (
         <p className="text-eclipse-muted text-sm italic mb-6 px-4 py-3 bg-eclipse-card/30 rounded-lg">
           {technique.note}
         </p>
@@ -153,8 +170,8 @@ export function TechniqueCard({
 
       {/* Actions */}
       <div className="mt-auto space-y-3">
-        {/* Bouton Timer (si la technique a un timer) */}
-        {onStartTimer && (
+        {/* Bouton Timer (si la technique a un timer pour ce niveau) */}
+        {onStartTimer && selectedLevel && (
           <button
             onClick={onStartTimer}
             className="w-full py-3.5 rounded-xl bg-gradient-to-r from-souffle to-ancrage text-eclipse-bg font-semibold text-lg touch-feedback hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
@@ -166,7 +183,7 @@ export function TechniqueCard({
         )}
 
         {/* Bouton principal */}
-        {onDone && (
+        {onDone && selectedLevel && (
           <button
             onClick={onDone}
             className={`w-full py-3.5 rounded-xl font-semibold text-lg touch-feedback hover:opacity-90 transition-opacity ${
