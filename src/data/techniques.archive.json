@@ -1,0 +1,1521 @@
+{
+  "_archived": true,
+  "_archivedDate": "2026-01-23",
+  "_archivedReason": "Restructuration du modèle de données pour supporter 3 niveaux par carte (Croissant/Quartier/Pleine lune). Ces 43 techniques sont conservées pour référence interne uniquement.",
+  "_note": "Ce fichier n'est PAS utilisé par l'application. Il sert d'archive de référence pour les techniques originales.",
+  "version": "1.1.0",
+  "techniques": [
+    {
+      "id": "souffle-478",
+      "title": "Respiration 4-7-8",
+      "category": "souffle",
+      "duration": 2,
+      "intensity": "soft",
+      "instructions": [
+        "Peut-être que ton corps a besoin d'un moment de calme.",
+        "Inspire par le nez pendant 4 secondes.",
+        "Retiens ton souffle pendant 7 secondes.",
+        "Expire lentement par la bouche pendant 8 secondes.",
+        "Répète 3 à 4 fois."
+      ],
+      "note": "C'est normal si t'as du mal au début.",
+      "timer": true,
+      "timerConfig": {
+        "phases": [
+          { "name": "Inspire", "duration": 4 },
+          { "name": "Retiens", "duration": 7 },
+          { "name": "Expire", "duration": 8 }
+        ],
+        "cycles": 4,
+        "totalDuration": 76
+      },
+      "material": null,
+      "tags": ["calme", "anxiété", "sommeil", "stress"],
+      "premium": false,
+      "durationSeconds": 76,
+      "discretionLevel": "public_ok",
+      "presets": ["A"],
+      "evidence": {
+        "isCanadaValidated": true,
+        "level": "A",
+        "canadaSources": [
+          { "org": "Clinique Jacques-Cartier", "title": "Guide de gestion du stress 4-7-8", "url": "http://cliniquejacques-cartier.ca/clinique-content/uploads/2016/10/4-7-8-Gestion-du-stress.pdf" },
+          { "org": "Accroc.qc.ca", "title": "Technique de respiration 4-4-8", "url": "https://accroc.qc.ca/le-4-4-8-technique-de-respiration/" }
+        ],
+        "scientificSources": [
+          { "title": "Réduction anxiété 56% après 8 semaines (étude 2023)", "year": 2023 }
+        ],
+        "notes": "Développée par Dr. Andrew Weil (Harvard). Stimule le nerf vague.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "souffle-carree",
+      "title": "Respiration carrée",
+      "category": "souffle",
+      "duration": 3,
+      "intensity": "normal",
+      "instructions": [
+        "On dirait que ça tourbillonne. Tu peux poser un rythme, si ça te dit.",
+        "Inspire pendant 4 secondes.",
+        "Retiens pendant 4 secondes.",
+        "Expire pendant 4 secondes.",
+        "Retiens poumons vides pendant 4 secondes.",
+        "Répète 5 fois."
+      ],
+      "note": null,
+      "timer": true,
+      "timerConfig": {
+        "phases": [
+          { "name": "Inspire", "duration": 4 },
+          { "name": "Retiens", "duration": 4 },
+          { "name": "Expire", "duration": 4 },
+          { "name": "Pause", "duration": 4 }
+        ],
+        "cycles": 5,
+        "totalDuration": 80
+      },
+      "material": null,
+      "tags": ["focus", "concentration", "calme", "stress"],
+      "premium": true,
+      "durationSeconds": 80,
+      "discretionLevel": "public_ok",
+      "presets": ["A"],
+      "evidence": {
+        "isCanadaValidated": true,
+        "level": "A",
+        "canadaSources": [
+          { "org": "Anxiety Canada", "title": "Techniques de respiration contrôlée", "url": "https://www.anxietycanada.com/" }
+        ],
+        "scientificSources": [
+          { "title": "Box Breathing - Navy SEALs stress management" }
+        ],
+        "notes": "Utilisée par forces armées et services d'urgence.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "souffle-coherence",
+      "title": "Cohérence cardiaque",
+      "category": "souffle",
+      "duration": 5,
+      "intensity": "soft",
+      "instructions": [
+        "Tu n'as rien à forcer. Juste un moment pour toi, si tu veux.",
+        "Inspire pendant 5 secondes.",
+        "Expire pendant 5 secondes.",
+        "Garde un rythme régulier.",
+        "Continue pendant 5 minutes."
+      ],
+      "note": "Idéal le matin ou avant un moment stressant.",
+      "timer": true,
+      "timerConfig": {
+        "phases": [
+          { "name": "Inspire", "duration": 5 },
+          { "name": "Expire", "duration": 5 }
+        ],
+        "cycles": 30,
+        "totalDuration": 300
+      },
+      "material": null,
+      "tags": ["calme", "régulation", "matin", "stress"],
+      "premium": true,
+      "durationSeconds": 300,
+      "discretionLevel": "discret",
+      "presets": ["B"],
+      "evidence": {
+        "isCanadaValidated": true,
+        "level": "A",
+        "canadaSources": [
+          { "org": "Université Laval", "title": "Mon équilibre UL - Cohérence cardiaque", "url": "https://www.ulaval.ca/mon-equilibre-ul/mes-habitudes-de-vie/coherence-cardiaque" },
+          { "org": "Excellence en santé Canada", "title": "Programme TREC - Bien-être du personnel", "url": "https://www.healthcareexcellence.ca/fr/evenements-et-initiatives/coherence-cardiaque-et-bien-etre-du-personnel/" }
+        ],
+        "scientificSources": [
+          { "title": "Méta-analyses sur réduction stress, dépression, anxiété" }
+        ],
+        "notes": "Méthode 365. Effets en 3 min, durent 4-6h.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "souffle-feu",
+      "title": "Respiration du feu",
+      "category": "souffle",
+      "duration": 2,
+      "intensity": "intense",
+      "instructions": [
+        "Parfois l'énergie est coincée. Tu peux la débloquer, si t'en as envie.",
+        "Assis, dos droit.",
+        "Inspire rapidement par le nez.",
+        "Expire fort par le nez en contractant le ventre.",
+        "Accélère le rythme pendant 30 secondes.",
+        "Pause, respire normalement.",
+        "Répète 2 fois."
+      ],
+      "note": "Pas recommandé si t'es étourdi ou enceinte.",
+      "timer": true,
+      "timerConfig": {
+        "phases": [
+          { "name": "Respiration rapide", "duration": 30 },
+          { "name": "Pause", "duration": 15 }
+        ],
+        "cycles": 3,
+        "totalDuration": 135
+      },
+      "material": null,
+      "tags": ["énergie", "réveil", "boost", "intense"],
+      "premium": true,
+      "durationSeconds": 135,
+      "discretionLevel": "prive",
+      "presets": [],
+      "evidence": {
+        "isCanadaValidated": false,
+        "level": "B",
+        "canadaSources": [],
+        "scientificSources": [
+          { "title": "Études sur pranayama yoga - Kapalabhati" }
+        ],
+        "notes": "Contre-indiquée pour certaines conditions.",
+        "needsReview": true
+      }
+    },
+    {
+      "id": "souffle-soupir",
+      "title": "Le grand soupir",
+      "category": "souffle",
+      "duration": 2,
+      "intensity": "soft",
+      "instructions": [
+        "Des fois, on a juste besoin de souffler. Tu peux te le permettre.",
+        "Inspire profondément par le nez.",
+        "Retiens 2 secondes.",
+        "Expire en soupirant fort par la bouche.",
+        "Laisse tes épaules tomber.",
+        "Répète 5 fois."
+      ],
+      "note": "Simple mais efficace.",
+      "timer": false,
+      "timerConfig": null,
+      "material": null,
+      "tags": ["tension", "relâcher", "rapide", "stress"],
+      "premium": false,
+      "durationSeconds": 30,
+      "discretionLevel": "discret",
+      "presets": ["B"],
+      "evidence": {
+        "isCanadaValidated": true,
+        "level": "A",
+        "canadaSources": [
+          { "org": "CISSS/CIUSSS", "title": "Guides de gestion du stress" }
+        ],
+        "scientificSources": [
+          { "title": "Stanford 2023 - Soupir physiologique plus efficace que méditation", "year": 2023 }
+        ],
+        "notes": "Effet immédiat en 1-2 respirations.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "souffle-deblocage",
+      "title": "Déblocage respiration",
+      "category": "souffle",
+      "duration": 1,
+      "intensity": "soft",
+      "instructions": [
+        "Ta respiration est peut-être coincée. Tu peux lui donner de l'espace, si t'en as envie.",
+        "Place tes doigts sous tes côtes, là où elles font un V.",
+        "Inspire lentement par le nez.",
+        "En expirant, appuie doucement vers l'intérieur.",
+        "Sens tes côtes bouger sous tes doigts.",
+        "Répète 5 fois."
+      ],
+      "note": "Utile quand t'as l'impression de pas respirer à fond.",
+      "timer": false,
+      "timerConfig": null,
+      "material": null,
+      "tags": ["respiration", "tension", "poitrine", "calme"],
+      "premium": true,
+      "durationSeconds": 60,
+      "discretionLevel": "discret",
+      "presets": ["B"],
+      "evidence": {
+        "isCanadaValidated": false,
+        "level": "B",
+        "canadaSources": [],
+        "scientificSources": [
+          { "title": "Massage zone thoracique et respiration profonde" }
+        ],
+        "notes": "Libère les tensions dans la zone de respiration.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "decharge-secoue",
+      "title": "Secoue tout",
+      "category": "decharge",
+      "duration": 2,
+      "intensity": "intense",
+      "instructions": [
+        "On dirait que ton corps retient beaucoup. Tu as le droit de laisser sortir un peu de ça.",
+        "Debout, pieds écartés largeur hanches.",
+        "Secoue tes mains comme si tu les séchais.",
+        "Ajoute les bras, les épaules.",
+        "Secoue tout le corps pendant 1 minute.",
+        "Arrête et observe les sensations."
+      ],
+      "note": "Ça peut paraître bizarre. C'est normal.",
+      "timer": true,
+      "timerConfig": {
+        "phases": [
+          { "name": "Secoue", "duration": 60 },
+          { "name": "Observe", "duration": 30 }
+        ],
+        "cycles": 1,
+        "totalDuration": 90
+      },
+      "material": null,
+      "tags": ["colère", "frustration", "énergie", "tension"],
+      "premium": false,
+      "durationSeconds": 90,
+      "discretionLevel": "prive",
+      "presets": [],
+      "evidence": {
+        "isCanadaValidated": false,
+        "level": "B",
+        "canadaSources": [],
+        "scientificSources": [
+          { "title": "TRE - Tension & Trauma Releasing Exercises (David Berceli)" }
+        ],
+        "notes": "Utilisé en Trauma-Informed Care.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "decharge-mur",
+      "title": "Pousse le mur",
+      "category": "decharge",
+      "duration": 2,
+      "intensity": "intense",
+      "instructions": [
+        "Parfois la tension a besoin d'un endroit où aller. Tu peux lui donner une sortie, si tu veux.",
+        "Trouve un mur solide",
+        "Place tes mains à hauteur d'épaules",
+        "Pousse de toutes tes forces pendant 10 secondes",
+        "Relâche et respire",
+        "Répète 5 fois"
+      ],
+      "note": null,
+      "timer": true,
+      "timerConfig": {
+        "phases": [
+          { "name": "Pousse", "duration": 10 },
+          { "name": "Relâche", "duration": 10 }
+        ],
+        "cycles": 5,
+        "totalDuration": 100
+      },
+      "material": "Un mur",
+      "tags": ["colère", "frustration", "force", "tension"],
+      "premium": true,
+      "durationSeconds": 100,
+      "discretionLevel": "prive",
+      "presets": [],
+      "evidence": {
+        "isCanadaValidated": false,
+        "level": "B",
+        "canadaSources": [
+          { "org": "Santé Montérégie", "title": "Fiches exercice et santé mentale", "url": "https://www.santemonteregie.qc.ca/sites/default/files/2022/06/e8.pdf" }
+        ],
+        "scientificSources": [
+          { "title": "Exercices isométriques et libération tension musculaire" }
+        ],
+        "notes": "Effet cathartique sur colère/frustration.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "decharge-jumping",
+      "title": "Sauts étoiles express",
+      "category": "decharge",
+      "duration": 3,
+      "intensity": "intense",
+      "instructions": [
+        "L'énergie est peut-être coincée. Tu peux la faire bouger, si t'en as envie.",
+        "Debout, bras le long du corps",
+        "Fais des sauts étoiles : saute en écartant jambes et bras",
+        "Reviens à la position de départ",
+        "Continue pendant 1 minute",
+        "Pause 30 secondes",
+        "Répète 2 fois"
+      ],
+      "note": "Fais-le dans un endroit où tu peux bouger.",
+      "timer": true,
+      "timerConfig": {
+        "phases": [
+          { "name": "Sauts étoiles", "duration": 60 },
+          { "name": "Pause", "duration": 30 }
+        ],
+        "cycles": 2,
+        "totalDuration": 180
+      },
+      "material": null,
+      "tags": ["énergie", "cardio", "stress", "évacuer"],
+      "premium": true,
+      "durationSeconds": 180,
+      "discretionLevel": "prive",
+      "presets": [],
+      "evidence": {
+        "isCanadaValidated": true,
+        "level": "A",
+        "canadaSources": [
+          { "org": "Statistique Canada", "title": "Rapports santé - Activité physique et santé mentale ados", "year": 2025, "url": "https://www150.statcan.gc.ca/n1/daily-quotidien/250115/dq250115d-fra.htm" },
+          { "org": "Sun Life Canada", "title": "Exercice contre anxiété et dépression", "url": "https://www.sunlife.ca/fr/tools-and-resources/health-and-wellness/preventing-and-treating-illness/exercice-pour-combattre-anxiete-et-depression/" }
+        ],
+        "scientificSources": [
+          { "title": "Moving to Beat Anxiety (2018)" }
+        ],
+        "notes": "20-40 min exercice aérobique = réduction anxiété légère.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "decharge-etirements",
+      "title": "Étirements rapides",
+      "category": "decharge",
+      "duration": 3,
+      "intensity": "soft",
+      "instructions": [
+        "Ton corps porte peut-être beaucoup en ce moment. Tu peux lui offrir un peu d'espace.",
+        "Debout, lève les bras au ciel et étire-toi",
+        "Penche-toi doucement vers l'avant",
+        "Roule les épaules en arrière 5 fois",
+        "Tourne la tête à gauche, puis à droite",
+        "Secoue les bras et les jambes"
+      ],
+      "note": "Trouve un coin tranquille, ces mouvements sont visibles.",
+      "timer": false,
+      "timerConfig": null,
+      "material": null,
+      "tags": ["tension", "corps", "détente", "doux"],
+      "premium": true,
+      "durationSeconds": 180,
+      "discretionLevel": "prive",
+      "presets": [],
+      "evidence": {
+        "isCanadaValidated": true,
+        "level": "A",
+        "canadaSources": [
+          { "org": "Commission de la santé mentale du Canada", "title": "Relaxation et étirements", "url": "https://commissionsantementale.ca/mhcc-glossary/relaxation-musculaire-progressive/" }
+        ],
+        "scientificSources": [],
+        "notes": "Réduction tension musculaire associée au stress.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "decharge-marche",
+      "title": "Marche sur place",
+      "category": "decharge",
+      "duration": 5,
+      "intensity": "normal",
+      "instructions": [
+        "Peut-être que ton corps aimerait bouger un peu. Si ça te dit, juste quelques pas.",
+        "Lève-toi",
+        "Marche sur place en levant les genoux",
+        "Balance les bras naturellement",
+        "Accélère si t'en as envie",
+        "Continue pendant 5 minutes"
+      ],
+      "note": "Simple mais ça débloque l'énergie.",
+      "timer": true,
+      "timerConfig": {
+        "phases": [
+          { "name": "Marche", "duration": 300 }
+        ],
+        "cycles": 1,
+        "totalDuration": 300
+      },
+      "material": null,
+      "tags": ["mouvement", "simple", "énergie", "blocage"],
+      "premium": true,
+      "durationSeconds": 300,
+      "discretionLevel": "prive",
+      "presets": [],
+      "evidence": {
+        "isCanadaValidated": true,
+        "level": "A",
+        "canadaSources": [
+          { "org": "UdeM Nouvelles", "title": "Bouger pour avoir une santé mentale en forme", "year": 2021, "url": "https://nouvelles.umontreal.ca/article/2021/10/18/bouger-pour-avoir-une-sante-mentale-en-forme" }
+        ],
+        "scientificSources": [],
+        "notes": "Mêmes bénéfices que l'exercice aérobique.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "decharge-croises",
+      "title": "Mouvements croisés",
+      "category": "decharge",
+      "duration": 2,
+      "intensity": "normal",
+      "instructions": [
+        "Là, ça bouge peut-être beaucoup dans ta tête. Tu peux ralentir un peu, si tu veux.",
+        "Debout ou assis.",
+        "Main droite tape genou gauche.",
+        "Puis main gauche tape genou droit.",
+        "Alterne pendant 1 minute.",
+        "Pas besoin d'aller vite. Le rythme compte plus."
+      ],
+      "note": "Ça réveille le corps sans faire trop de bruit.",
+      "timer": true,
+      "timerConfig": {
+        "phases": [
+          { "name": "Croisés", "duration": 60 }
+        ],
+        "cycles": 1,
+        "totalDuration": 60
+      },
+      "material": null,
+      "tags": ["mouvement", "coordination", "énergie", "focus"],
+      "premium": false,
+      "durationSeconds": 60,
+      "discretionLevel": "discret",
+      "presets": ["B"],
+      "evidence": {
+        "isCanadaValidated": false,
+        "level": "B",
+        "canadaSources": [],
+        "scientificSources": [
+          { "title": "Mouvements bilatéraux et coordination inter-hémisphérique" }
+        ],
+        "notes": "Active les deux côtés du corps. Effet recentrant.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "ancrage-54321",
+      "title": "5-4-3-2-1",
+      "category": "ancrage",
+      "duration": 3,
+      "intensity": "soft",
+      "instructions": [
+        "Là, peut-être que tes pensées s'emballent. Tu peux te reconnecter à ce qui t'entoure, si tu veux.",
+        "Nomme 5 choses que tu vois",
+        "Nomme 4 choses que tu touches",
+        "Nomme 3 choses que tu entends",
+        "Nomme 2 choses que tu sens (odeurs)",
+        "Nomme 1 chose que tu goûtes"
+      ],
+      "note": "Prends ton temps. Pas de rush.",
+      "timer": false,
+      "timerConfig": null,
+      "material": null,
+      "tags": ["panique", "anxiété", "dissociation", "présent"],
+      "premium": false,
+      "durationSeconds": 90,
+      "discretionLevel": "public_ok",
+      "presets": ["A"],
+      "evidence": {
+        "isCanadaValidated": true,
+        "level": "A",
+        "canadaSources": [
+          { "org": "eSanteMentale.ca", "title": "ABC de la pleine conscience", "url": "https://www.esantementale.ca/Canada/La-b-c-de-la-pleine-conscience/index.php?m=article&ID=55385" }
+        ],
+        "scientificSources": [
+          { "title": "TCC et DBT - Grounding techniques" }
+        ],
+        "notes": "Technique de Betty Alice Erickson. Peut ne pas convenir si dissociation.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "ancrage-pieds",
+      "title": "Pieds au sol",
+      "category": "ancrage",
+      "duration": 2,
+      "intensity": "soft",
+      "instructions": [
+        "On dirait que ça flotte un peu. Tu peux revenir au sol, si ça te dit.",
+        "Assieds-toi, pieds bien à plat au sol",
+        "Sens le contact avec le sol",
+        "Appuie fort pendant 5 secondes",
+        "Relâche",
+        "Répète 5 fois en te concentrant sur les sensations"
+      ],
+      "note": null,
+      "timer": false,
+      "timerConfig": null,
+      "material": null,
+      "tags": ["ancrage", "présent", "calme", "simple"],
+      "premium": true,
+      "durationSeconds": 60,
+      "discretionLevel": "public_ok",
+      "presets": ["A"],
+      "evidence": {
+        "isCanadaValidated": true,
+        "level": "A",
+        "canadaSources": [
+          { "org": "Anxiety Canada", "title": "Techniques de grounding", "url": "https://www.anxietycanada.com/" }
+        ],
+        "scientificSources": [
+          { "title": "TCC et thérapies trauma-informed" }
+        ],
+        "notes": "Activation proprioception.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "ancrage-glacons",
+      "title": "Glaçons dans les mains",
+      "category": "ancrage",
+      "duration": 2,
+      "intensity": "intense",
+      "instructions": [
+        "Des fois, on a besoin de quelque chose de fort pour se ramener. C'est correct.",
+        "Prends un ou deux glaçons",
+        "Tiens-les dans tes mains",
+        "Concentre-toi sur la sensation de froid",
+        "Observe comment ça change avec le temps",
+        "Laisse fondre ou pose-les quand c'est trop"
+      ],
+      "note": "Technique forte pour les moments intenses.",
+      "timer": false,
+      "timerConfig": null,
+      "material": "Glaçons",
+      "tags": ["panique", "dissociation", "intense", "crise"],
+      "premium": false,
+      "durationSeconds": 120,
+      "discretionLevel": "prive",
+      "presets": [],
+      "evidence": {
+        "isCanadaValidated": false,
+        "level": "B",
+        "canadaSources": [],
+        "scientificSources": [
+          { "title": "DBT - Dialectical Behavior Therapy (Marsha Linehan)" }
+        ],
+        "notes": "Stimulation sensorielle intense. Ne pas utiliser si problèmes circulatoires.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "ancrage-main-coeur",
+      "title": "Main sur le cœur",
+      "category": "ancrage",
+      "duration": 2,
+      "intensity": "soft",
+      "instructions": [
+        "Peut-être que t'as besoin d'un moment avec toi. Juste un moment.",
+        "Pose ta main sur ton cœur",
+        "Sens les battements",
+        "Respire lentement",
+        "Dis-toi : \"Je suis là. Ce moment va passer.\"",
+        "Reste comme ça 1 à 2 minutes"
+      ],
+      "note": null,
+      "timer": true,
+      "timerConfig": {
+        "phases": [
+          { "name": "Main sur le cœur", "duration": 120 }
+        ],
+        "cycles": 1,
+        "totalDuration": 120
+      },
+      "material": null,
+      "tags": ["réconfort", "calme", "anxiété", "doux"],
+      "premium": true,
+      "durationSeconds": 120,
+      "discretionLevel": "public_ok",
+      "presets": ["A"],
+      "evidence": {
+        "isCanadaValidated": true,
+        "level": "A",
+        "canadaSources": [
+          { "org": "Centre RBC UdeS", "title": "Pleine conscience pour les jeunes", "url": "https://sante-mentale-jeunesse.usherbrooke.ca/je-suis-un-parent/pleine-conscience/" }
+        ],
+        "scientificSources": [
+          { "title": "Dr. Kristin Neff - Autocompassion" }
+        ],
+        "notes": "Activation système d'attachement. Ocytocine.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "ancrage-objet",
+      "title": "Objet d'ancrage",
+      "category": "ancrage",
+      "duration": 3,
+      "intensity": "soft",
+      "instructions": [
+        "Ta tête tourne peut-être beaucoup. Tu peux poser ton attention quelque part, si tu veux.",
+        "Choisis un petit objet près de toi",
+        "Observe-le attentivement : couleur, forme, texture",
+        "Touche-le, retourne-le dans tes mains",
+        "Décris-le mentalement avec le plus de détails possible",
+        "Repose-le et respire"
+      ],
+      "note": "N'importe quel objet fait l'affaire.",
+      "timer": false,
+      "timerConfig": null,
+      "material": "Un petit objet",
+      "tags": ["présent", "focus", "calme", "simple"],
+      "premium": true,
+      "durationSeconds": 180,
+      "discretionLevel": "discret",
+      "presets": ["B"],
+      "evidence": {
+        "isCanadaValidated": false,
+        "level": "B",
+        "canadaSources": [],
+        "scientificSources": [
+          { "title": "Pleine conscience - attention focalisée" }
+        ],
+        "notes": "Engagement sensoriel pour détourner ruminations.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "ancrage-reset-postural",
+      "title": "Reset postural",
+      "category": "ancrage",
+      "duration": 2,
+      "intensity": "soft",
+      "instructions": [
+        "On dirait que le corps a besoin de bouger un peu. Tu peux lui offrir ça, si t'en as envie.",
+        "Debout, pieds largeur épaules.",
+        "Laisse ton poids bouger doucement d'un pied à l'autre.",
+        "Comme un athlète qui se prépare.",
+        "Pas besoin de forcer. Juste sentir.",
+        "Continue 2 minutes."
+      ],
+      "note": "Fais-le en attendant quelque chose. Ça passe inaperçu.",
+      "timer": true,
+      "timerConfig": {
+        "phases": [
+          { "name": "Balance", "duration": 120 }
+        ],
+        "cycles": 1,
+        "totalDuration": 120
+      },
+      "material": null,
+      "tags": ["ancrage", "corps", "discret", "calme"],
+      "premium": true,
+      "durationSeconds": 120,
+      "discretionLevel": "public_ok",
+      "presets": ["A"],
+      "evidence": {
+        "isCanadaValidated": false,
+        "level": "B",
+        "canadaSources": [],
+        "scientificSources": [
+          { "title": "Proprioception et régulation du système nerveux" }
+        ],
+        "notes": "Stimulation vestibulaire légère. Effet calmant.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "faire-le-point-stop",
+      "title": "STOP",
+      "category": "faire-le-point",
+      "duration": 2,
+      "intensity": "soft",
+      "instructions": [
+        "Parfois le cerveau a juste besoin qu'on appuie sur pause. Tu peux t'offrir ça.",
+        "S - Stop. Arrête ce que tu fais.",
+        "T - Tranquille. Prends une grande respiration.",
+        "O - Observe. Qu'est-ce qui se passe en toi ?",
+        "P - Poursuis. Continue avec conscience."
+      ],
+      "note": "Acronyme simple pour casser le pilote automatique.",
+      "timer": false,
+      "timerConfig": null,
+      "material": null,
+      "tags": ["pause", "conscience", "réflexion", "automatisme"],
+      "premium": true,
+      "durationSeconds": 30,
+      "discretionLevel": "public_ok",
+      "presets": ["A"],
+      "evidence": {
+        "isCanadaValidated": true,
+        "level": "A",
+        "canadaSources": [
+          { "org": "CSF Bienveillance (BC)", "title": "Pleine conscience en milieu scolaire", "url": "https://bienveillance.csf.bc.ca/pratiquer-la-pleine-conscience-avec-les-eleves/" }
+        ],
+        "scientificSources": [
+          { "title": "MBSR - Jon Kabat-Zinn" }
+        ],
+        "notes": "Interruption du pilote automatique.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "faire-le-point-pensees",
+      "title": "Observe tes pensées",
+      "category": "faire-le-point",
+      "duration": 3,
+      "intensity": "normal",
+      "instructions": [
+        "Des fois les pensées tournent en boucle. Tu peux juste les regarder passer, si t'en as envie.",
+        "Ferme les yeux",
+        "Imagine tes pensées comme des nuages qui passent",
+        "Ne les retiens pas, ne les pousse pas",
+        "Observe-les simplement",
+        "Reviens à ta respiration quand tu te perds"
+      ],
+      "note": "T'es pas tes pensées. Elles passent.",
+      "timer": true,
+      "timerConfig": {
+        "phases": [
+          { "name": "Observe", "duration": 180 }
+        ],
+        "cycles": 1,
+        "totalDuration": 180
+      },
+      "material": null,
+      "tags": ["pensées", "rumination", "lâcher-prise", "mental"],
+      "premium": true,
+      "durationSeconds": 180,
+      "discretionLevel": "discret",
+      "presets": ["B"],
+      "evidence": {
+        "isCanadaValidated": true,
+        "level": "A",
+        "canadaSources": [
+          { "org": "Centre RBC UdeS", "title": "Pleine conscience pour les jeunes", "url": "https://sante-mentale-jeunesse.usherbrooke.ca/je-suis-un-parent/pleine-conscience/" }
+        ],
+        "scientificSources": [
+          { "title": "MBCT - Développé par Zindel Segal (Canada)" }
+        ],
+        "notes": "MBCT aussi efficace que traitement pharmacologique pour prévention rechutes.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "faire-le-point-questions",
+      "title": "3 questions",
+      "category": "faire-le-point",
+      "duration": 3,
+      "intensity": "normal",
+      "instructions": [
+        "Peut-être que ça aiderait de mettre des mots sur ce qui se passe. Pas d'obligation.",
+        "Demande-toi : \"Qu'est-ce que je ressens là ?\"",
+        "Demande-toi : \"Qu'est-ce qui a déclenché ça ?\"",
+        "Demande-toi : \"De quoi j'aurais besoin maintenant ?\"",
+        "Réponds honnêtement, sans te juger"
+      ],
+      "note": null,
+      "timer": false,
+      "timerConfig": null,
+      "material": null,
+      "tags": ["introspection", "émotions", "besoins", "clarté"],
+      "premium": true,
+      "durationSeconds": 180,
+      "discretionLevel": "discret",
+      "presets": ["B"],
+      "evidence": {
+        "isCanadaValidated": false,
+        "level": "B",
+        "canadaSources": [],
+        "scientificSources": [
+          { "title": "TCC - Identification émotions et déclencheurs" }
+        ],
+        "notes": "Technique de régulation émotionnelle.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "faire-le-point-ecrire",
+      "title": "Vide ta tête",
+      "category": "faire-le-point",
+      "duration": 5,
+      "intensity": "normal",
+      "instructions": [
+        "Ta tête est peut-être pleine. Tu peux laisser sortir un peu de ça, si ça te dit.",
+        "Prends un papier ou ouvre une note sur ton cell",
+        "Écris tout ce qui te passe par la tête",
+        "Pas de filtre, pas de structure",
+        "Continue pendant 5 minutes sans t'arrêter",
+        "Relis si tu veux, ou jette/supprime"
+      ],
+      "note": "Personne va lire ça. Lâche-toi.",
+      "timer": true,
+      "timerConfig": {
+        "phases": [
+          { "name": "Écris", "duration": 300 }
+        ],
+        "cycles": 1,
+        "totalDuration": 300
+      },
+      "material": "Papier ou téléphone",
+      "tags": ["écriture", "libération", "pensées", "surcharge"],
+      "premium": false,
+      "durationSeconds": 300,
+      "discretionLevel": "discret",
+      "presets": ["B"],
+      "evidence": {
+        "isCanadaValidated": true,
+        "level": "A",
+        "canadaSources": [
+          { "org": "Clic Aide (Québec)", "title": "Le journaling pour aller mieux", "url": "https://www.clicaide.org/le-journaling-ecrire-pour-aller-mieux/" }
+        ],
+        "scientificSources": [
+          { "title": "James Pennebaker - Expressive Writing (1986)" },
+          { "title": "Méta-analyse Frattaroli (2006) - 146 études", "year": 2006 }
+        ],
+        "notes": "Efficace pour anxiété scolaire ados. Bienfaits plus marqués si anxiété élevée.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "faire-le-point-echelle",
+      "title": "Échelle 1 à 10",
+      "category": "faire-le-point",
+      "duration": 2,
+      "intensity": "soft",
+      "instructions": [
+        "Des fois, ça aide de voir où t'en es. Juste pour toi.",
+        "Évalue ton niveau de stress de 1 à 10",
+        "Demande-toi : \"Qu'est-ce qui ferait baisser d'un point ?\"",
+        "Fais cette petite chose",
+        "Réévalue"
+      ],
+      "note": "Viser -1, pas -10. Petit pas.",
+      "timer": false,
+      "timerConfig": null,
+      "material": null,
+      "tags": ["évaluation", "stress", "petit pas", "concret"],
+      "premium": false,
+      "durationSeconds": 60,
+      "discretionLevel": "public_ok",
+      "presets": ["A"],
+      "evidence": {
+        "isCanadaValidated": false,
+        "level": "B",
+        "canadaSources": [],
+        "scientificSources": [
+          { "title": "TCC - Auto-évaluation et petits pas" }
+        ],
+        "notes": "Technique de coaching et thérapie.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "paroles-plus-fort",
+      "title": "T'es plus fort que ça",
+      "category": "paroles-fortes",
+      "duration": 2,
+      "intensity": "normal",
+      "instructions": [
+        "Lis ces phrases à voix haute ou dans ta tête :",
+        "\"T'es plus fort que ce moment.\"",
+        "\"C'est temporaire.\"",
+        "\"T'as déjà traversé pire.\"",
+        "Répète celle qui te parle le plus."
+      ],
+      "note": null,
+      "timer": false,
+      "timerConfig": null,
+      "material": null,
+      "tags": ["boost", "motivation", "confiance", "force"],
+      "premium": true,
+      "durationSeconds": 60,
+      "discretionLevel": "public_ok",
+      "presets": ["A"],
+      "evidence": {
+        "isCanadaValidated": false,
+        "level": "B",
+        "canadaSources": [],
+        "scientificSources": [
+          { "title": "IRMf - Activation cortex préfrontal ventromédian et striatum ventral" }
+        ],
+        "notes": "Affirmations modifient progressivement le comportement.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "paroles-lache-pas",
+      "title": "Lâche pas",
+      "category": "paroles-fortes",
+      "duration": 2,
+      "intensity": "normal",
+      "instructions": [
+        "Lis ces phrases :",
+        "\"Lâche pas.\"",
+        "\"Un pas à la fois.\"",
+        "\"T'es capable.\"",
+        "Choisis-en une et répète-la 5 fois."
+      ],
+      "note": null,
+      "timer": false,
+      "timerConfig": null,
+      "material": null,
+      "tags": ["persévérance", "courage", "difficile", "boost"],
+      "premium": true,
+      "durationSeconds": 60,
+      "discretionLevel": "public_ok",
+      "presets": ["A"],
+      "evidence": {
+        "isCanadaValidated": false,
+        "level": "B",
+        "canadaSources": [],
+        "scientificSources": [
+          { "title": "Psychologie positive - Affirmations" }
+        ],
+        "notes": "Renforce la résilience mentale.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "paroles-droit",
+      "title": "T'as le droit",
+      "category": "paroles-fortes",
+      "duration": 2,
+      "intensity": "soft",
+      "instructions": [
+        "Rappelle-toi :",
+        "\"T'as le droit d'être fatigué.\"",
+        "\"T'as le droit de pas être parfait.\"",
+        "\"T'as le droit de prendre du temps pour toi.\"",
+        "Respire. Prends le temps d'y penser."
+      ],
+      "note": null,
+      "timer": false,
+      "timerConfig": null,
+      "material": null,
+      "tags": ["permission", "bienveillance", "fatigue", "doux"],
+      "premium": true,
+      "durationSeconds": 60,
+      "discretionLevel": "public_ok",
+      "presets": ["A"],
+      "evidence": {
+        "isCanadaValidated": false,
+        "level": "B",
+        "canadaSources": [],
+        "scientificSources": [
+          { "title": "Dr. Kristin Neff - Autocompassion" }
+        ],
+        "notes": "Bienveillance envers soi.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "paroles-fierte",
+      "title": "Fierté express",
+      "category": "paroles-fortes",
+      "duration": 2,
+      "intensity": "soft",
+      "instructions": [
+        "Nomme 3 choses dont t'es fier aujourd'hui",
+        "Même des petites choses comptent",
+        "Dis-les à voix haute si tu peux",
+        "Prends 30 secondes pour les ressentir"
+      ],
+      "note": "Se lever compte. Manger compte. Être là compte.",
+      "timer": false,
+      "timerConfig": null,
+      "material": null,
+      "tags": ["fierté", "positif", "gratitude", "estime"],
+      "premium": true,
+      "durationSeconds": 60,
+      "discretionLevel": "public_ok",
+      "presets": ["A"],
+      "evidence": {
+        "isCanadaValidated": false,
+        "level": "B",
+        "canadaSources": [],
+        "scientificSources": [
+          { "title": "Psychologie positive - Gratitude et reconnaissance" }
+        ],
+        "notes": "Impact sur estime de soi.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "paroles-ami",
+      "title": "Parle-toi comme à un ami",
+      "category": "paroles-fortes",
+      "duration": 3,
+      "intensity": "normal",
+      "instructions": [
+        "Imagine qu'un ami vit exactement ce que tu vis",
+        "Qu'est-ce que tu lui dirais ?",
+        "Maintenant, dis-le toi à toi-même",
+        "Sans te juger"
+      ],
+      "note": "On est souvent plus durs avec nous-mêmes.",
+      "timer": false,
+      "timerConfig": null,
+      "material": null,
+      "tags": ["bienveillance", "auto-compassion", "douceur", "soutien"],
+      "premium": false,
+      "durationSeconds": 180,
+      "discretionLevel": "discret",
+      "presets": ["B"],
+      "evidence": {
+        "isCanadaValidated": true,
+        "level": "A",
+        "canadaSources": [
+          { "org": "Programmes santé mentale scolaires Canada", "title": "Concept autocompassion" }
+        ],
+        "scientificSources": [
+          { "title": "Dr. Kristin Neff - Études 2011 et 2013 sur autocompassion" }
+        ],
+        "notes": "Moins anxiété/dépression, plus satisfaction de vie et résilience.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "paroles-encore-la",
+      "title": "Encore là",
+      "category": "paroles-fortes",
+      "duration": 2,
+      "intensity": "soft",
+      "instructions": [
+        "Lis cette phrase lentement :",
+        "\"T'es encore là.\"",
+        "\"Après tout ça, t'es encore là.\"",
+        "Pose une main sur ta poitrine.",
+        "C'est tout. Respire."
+      ],
+      "note": null,
+      "timer": false,
+      "timerConfig": null,
+      "material": null,
+      "tags": ["résilience", "force", "présent", "doux"],
+      "premium": false,
+      "durationSeconds": 60,
+      "discretionLevel": "public_ok",
+      "presets": ["A", "B"],
+      "evidence": {
+        "isCanadaValidated": false,
+        "level": "B",
+        "canadaSources": [],
+        "scientificSources": [
+          { "title": "Affirmations et auto-compassion" }
+        ],
+        "notes": "Reconnaissance de la présence et de la force.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "paroles-repos",
+      "title": "Repos mérité",
+      "category": "paroles-fortes",
+      "duration": 2,
+      "intensity": "soft",
+      "instructions": [
+        "Rappelle-toi :",
+        "\"Tu peux t'arrêter.\"",
+        "\"Là, maintenant.\"",
+        "\"Personne ne chronomètre.\"",
+        "5 minutes. Juste 5. Tu choisis comment."
+      ],
+      "note": "Le repos n'est pas de la paresse. C'est du soin.",
+      "timer": false,
+      "timerConfig": null,
+      "material": null,
+      "tags": ["repos", "permission", "bienveillance", "doux"],
+      "premium": true,
+      "durationSeconds": 60,
+      "discretionLevel": "public_ok",
+      "presets": ["A", "B"],
+      "evidence": {
+        "isCanadaValidated": false,
+        "level": "B",
+        "canadaSources": [],
+        "scientificSources": [
+          { "title": "Autorisation émotionnelle et réduction du stress" }
+        ],
+        "notes": "Accepter le repos diminue l'anxiété de performance.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "paroles-bordel",
+      "title": "Le bordel",
+      "category": "paroles-fortes",
+      "duration": 2,
+      "intensity": "normal",
+      "instructions": [
+        "Rappelle-toi :",
+        "\"C'est le bordel en ce moment.\"",
+        "\"OK.\"",
+        "\"C'est pas une raison pour te juger en plus.\"",
+        "Nomme le bordel. Juste le nommer, sans chercher à le résoudre."
+      ],
+      "note": null,
+      "timer": false,
+      "timerConfig": null,
+      "material": null,
+      "tags": ["acceptation", "non-jugement", "difficile", "présent"],
+      "premium": true,
+      "durationSeconds": 60,
+      "discretionLevel": "public_ok",
+      "presets": ["A", "B"],
+      "evidence": {
+        "isCanadaValidated": false,
+        "level": "B",
+        "canadaSources": [],
+        "scientificSources": [
+          { "title": "ACT - Acceptation sans jugement" }
+        ],
+        "notes": "Nommer réduit l'intensité émotionnelle.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "paroles-feu-vert",
+      "title": "Feu vert",
+      "category": "paroles-fortes",
+      "duration": 2,
+      "intensity": "normal",
+      "instructions": [
+        "Affirme :",
+        "\"Personne ne va me donner le feu vert.\"",
+        "\"Je peux me le donner moi-même.\"",
+        "Écris UN truc que tu repoussais.",
+        "Juste l'écrire. C'est déjà un pas."
+      ],
+      "note": null,
+      "timer": false,
+      "timerConfig": null,
+      "material": null,
+      "tags": ["action", "autonomie", "permission", "courage"],
+      "premium": true,
+      "durationSeconds": 60,
+      "discretionLevel": "public_ok",
+      "presets": ["A", "B"],
+      "evidence": {
+        "isCanadaValidated": false,
+        "level": "B",
+        "canadaSources": [],
+        "scientificSources": [
+          { "title": "Locus de contrôle interne" }
+        ],
+        "notes": "Renforcer le sentiment de contrôle augmente la motivation.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "paroles-lacher",
+      "title": "Lâcher",
+      "category": "paroles-fortes",
+      "duration": 2,
+      "intensity": "soft",
+      "instructions": [
+        "Rappelle-toi :",
+        "\"Lâcher, c'est pas perdre.\"",
+        "\"C'est choisir où je mets mon énergie.\"",
+        "Qu'est-ce que tu peux arrêter de nourrir?",
+        "Une dispute? Une justification? La perfection?"
+      ],
+      "note": null,
+      "timer": false,
+      "timerConfig": null,
+      "material": null,
+      "tags": ["lâcher-prise", "liberté", "énergie", "choix"],
+      "premium": true,
+      "durationSeconds": 60,
+      "discretionLevel": "public_ok",
+      "presets": ["A", "B"],
+      "evidence": {
+        "isCanadaValidated": true,
+        "level": "A",
+        "canadaSources": [
+          { "org": "Thérapies ACT Canada", "title": "Acceptation et engagement" }
+        ],
+        "scientificSources": [
+          { "title": "ACT - Défusion cognitive et acceptation" }
+        ],
+        "notes": "Lâcher prise sur l'incontrôlable réduit l'anxiété.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "paroles-maintenant",
+      "title": "Maintenant",
+      "category": "paroles-fortes",
+      "duration": 2,
+      "intensity": "normal",
+      "instructions": [
+        "Dis-toi :",
+        "\"Le bon moment, c'est celui que je décide.\"",
+        "\"Pas celui que j'attends.\"",
+        "Écris la plus petite version de ce que tu repousses.",
+        "Commence par ça."
+      ],
+      "note": null,
+      "timer": false,
+      "timerConfig": null,
+      "material": null,
+      "tags": ["présent", "action", "confiance", "décision"],
+      "premium": true,
+      "durationSeconds": 60,
+      "discretionLevel": "public_ok",
+      "presets": ["A", "B"],
+      "evidence": {
+        "isCanadaValidated": false,
+        "level": "B",
+        "canadaSources": [],
+        "scientificSources": [
+          { "title": "Paralysie par analyse et action présente" }
+        ],
+        "notes": "L'action présente crée du momentum.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "chaos-mode-pnj",
+      "title": "Mode PNJ",
+      "category": "chaos",
+      "duration": 2,
+      "intensity": "soft",
+      "instructions": [
+        "Pendant 30 secondes, t'es un PNJ de jeu vidéo.",
+        "Regarde droit devant, visage neutre.",
+        "Répète mentalement une phrase random : « Belle journée pour se promener. »",
+        "Ignore tout ce qui se passe autour.",
+        "Quand c'est fini, reprends ta vie."
+      ],
+      "note": "Personne va remarquer. Promis.",
+      "timer": true,
+      "timerConfig": {
+        "phases": [
+          { "name": "Mode PNJ", "duration": 30 }
+        ],
+        "cycles": 1,
+        "totalDuration": 30
+      },
+      "material": null,
+      "tags": ["chaos", "absurde", "décrochage", "jeu de rôle"],
+      "premium": false,
+      "durationSeconds": 30,
+      "discretionLevel": "public_ok",
+      "presets": ["A"],
+      "evidence": {
+        "isCanadaValidated": false,
+        "level": "C",
+        "canadaSources": [],
+        "scientificSources": [
+          { "title": "Distraction cognitive - interruption des ruminations" }
+        ],
+        "notes": "Cassure de la boucle mentale par le jeu de rôle discret.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "chaos-machoire-molle",
+      "title": "Mâchoire molle",
+      "category": "chaos",
+      "duration": 2,
+      "intensity": "soft",
+      "instructions": [
+        "Ta mission : avoir la mâchoire la plus molle possible.",
+        "Laisse ta bouche s'entrouvrir légèrement.",
+        "Détends ta langue. Elle touche rien.",
+        "Garde ça 20 secondes.",
+        "Bonus : fais un micro-soupir à la fin."
+      ],
+      "note": "Ton visage va détester être tendu après ça.",
+      "timer": true,
+      "timerConfig": {
+        "phases": [
+          { "name": "Mâchoire molle", "duration": 20 }
+        ],
+        "cycles": 1,
+        "totalDuration": 20
+      },
+      "material": null,
+      "tags": ["chaos", "corps", "détente", "discret"],
+      "premium": true,
+      "durationSeconds": 20,
+      "discretionLevel": "public_ok",
+      "presets": ["A"],
+      "evidence": {
+        "isCanadaValidated": false,
+        "level": "B",
+        "canadaSources": [],
+        "scientificSources": [
+          { "title": "Relaxation musculaire progressive - zone faciale" }
+        ],
+        "notes": "Détente rapide via relâchement de la mâchoire (zone de tension commune).",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "chaos-ninja-silencieux",
+      "title": "Ninja silencieux",
+      "category": "chaos",
+      "duration": 2,
+      "intensity": "normal",
+      "instructions": [
+        "Mission : te déplacer sans faire aucun bruit.",
+        "Marche au ralenti. Pieds légers.",
+        "Respire par le nez. Silencieux.",
+        "Atteins un point (porte, fenêtre, casier) sans te faire repérer.",
+        "Mission accomplie ? Tu peux reprendre ta vie normale."
+      ],
+      "note": "Mode furtif activé.",
+      "timer": false,
+      "timerConfig": null,
+      "material": null,
+      "tags": ["chaos", "mouvement", "jeu", "focus"],
+      "premium": false,
+      "durationSeconds": 45,
+      "discretionLevel": "public_ok",
+      "presets": ["A"],
+      "evidence": {
+        "isCanadaValidated": false,
+        "level": "C",
+        "canadaSources": [],
+        "scientificSources": [
+          { "title": "Attention focalisée et régulation par le mouvement contrôlé" }
+        ],
+        "notes": "Redirection de l'attention vers une tâche physique simple.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "chaos-compliment-objet",
+      "title": "Compliment à un objet",
+      "category": "chaos",
+      "duration": 2,
+      "intensity": "soft",
+      "instructions": [
+        "Choisis un objet près de toi.",
+        "Fais-lui un compliment sincère. Dans ta tête.",
+        "« T'es un bon stylo. Tu m'as jamais lâché. »",
+        "Bonus maison : dis-le à voix haute avec conviction."
+      ],
+      "note": "C'est ridicule. C'est le but.",
+      "timer": false,
+      "timerConfig": null,
+      "material": null,
+      "tags": ["chaos", "absurde", "humour", "décrochage"],
+      "premium": true,
+      "durationSeconds": 30,
+      "discretionLevel": "public_ok",
+      "presets": ["A"],
+      "evidence": {
+        "isCanadaValidated": false,
+        "level": "C",
+        "canadaSources": [],
+        "scientificSources": [
+          { "title": "Humour et régulation émotionnelle" }
+        ],
+        "notes": "L'absurde crée une distance avec le stress.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "chaos-slow-motion",
+      "title": "Slow motion",
+      "category": "chaos",
+      "duration": 2,
+      "intensity": "soft",
+      "instructions": [
+        "Fais ton prochain geste au ralenti extrême.",
+        "Prendre ton crayon. Tourner une page. Boire de l'eau.",
+        "Genre vraiment lent. Film d'action au ralenti.",
+        "Observe chaque micro-mouvement.",
+        "Reprends la vitesse normale quand t'as fini."
+      ],
+      "note": "Personne va s'en rendre compte. Sauf toi.",
+      "timer": false,
+      "timerConfig": null,
+      "material": null,
+      "tags": ["chaos", "présent", "mouvement", "discret"],
+      "premium": true,
+      "durationSeconds": 30,
+      "discretionLevel": "public_ok",
+      "presets": ["A"],
+      "evidence": {
+        "isCanadaValidated": false,
+        "level": "B",
+        "canadaSources": [],
+        "scientificSources": [
+          { "title": "Pleine conscience et ralentissement intentionnel" }
+        ],
+        "notes": "Ancrage dans le présent via attention au mouvement.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "faire-le-point-ancres",
+      "title": "Tes ancres",
+      "category": "faire-le-point",
+      "duration": 3,
+      "intensity": "soft",
+      "instructions": [
+        "Quand tout bouge, certaines choses restent stables.",
+        "Pense à une personne avec qui tu te sens safe.",
+        "Un lieu où tu respires mieux.",
+        "Un moment où tu te sens connecté.",
+        "Garde-les en tête. C'est ta liste."
+      ],
+      "note": "Un seul élément, c'est déjà beaucoup.",
+      "timer": false,
+      "timerConfig": null,
+      "material": null,
+      "tags": ["ancrage", "sécurité", "repères", "stabilité"],
+      "premium": true,
+      "durationSeconds": 180,
+      "discretionLevel": "discret",
+      "presets": ["B"],
+      "evidence": {
+        "isCanadaValidated": true,
+        "level": "A",
+        "canadaSources": [
+          { "org": "Anxiety Canada", "title": "Techniques de grounding et sécurité", "url": "https://www.anxietycanada.com/" }
+        ],
+        "scientificSources": [
+          { "title": "Polyvagal Theory - Stephen Porges - Social engagement system" }
+        ],
+        "notes": "Identifier ses ressources renforce le sentiment de sécurité interne.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "faire-le-point-corps",
+      "title": "Écoute ton corps",
+      "category": "faire-le-point",
+      "duration": 2,
+      "intensity": "soft",
+      "instructions": [
+        "T'as le droit de lever le pied. Juste quelques secondes avec toi-même.",
+        "Pose une main sur ton ventre.",
+        "L'autre sur ton cœur.",
+        "Sens ce qui se passe sous chaque main.",
+        "Reste là un instant. Juste toi."
+      ],
+      "note": "Si ça devient weird, ouvre les yeux et regarde autour.",
+      "timer": true,
+      "timerConfig": {
+        "phases": [
+          { "name": "Écoute", "duration": 120 }
+        ],
+        "cycles": 1,
+        "totalDuration": 120
+      },
+      "material": null,
+      "tags": ["corps", "présence", "intérieur", "calme"],
+      "premium": true,
+      "durationSeconds": 120,
+      "discretionLevel": "discret",
+      "presets": ["B"],
+      "evidence": {
+        "isCanadaValidated": true,
+        "level": "A",
+        "canadaSources": [
+          { "org": "Centre RBC UdeS", "title": "Pleine conscience pour les jeunes", "url": "https://sante-mentale-jeunesse.usherbrooke.ca/je-suis-un-parent/pleine-conscience/" }
+        ],
+        "scientificSources": [
+          { "title": "Body awareness and interoception - Mindfulness research" }
+        ],
+        "notes": "L'attention au corps renforce la conscience de soi sans jugement.",
+        "needsReview": false
+      }
+    }
+  ]
+}
