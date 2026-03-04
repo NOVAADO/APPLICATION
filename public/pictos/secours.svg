@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!--
+    Constellation "Secours" - Big Dipper / Grande Ourse pattern
+    with 4-pointed sparkle star. Transparent background.
+    6 hollow circle dots + 1 sparkle star, 7 connecting lines.
+    Pixel-accurate coordinates from analysis of the original 562x514 PNG.
+  -->
+
+  <defs>
+    <mask id="m">
+      <rect width="512" height="512" fill="white"/>
+      <circle cx="56" cy="418" r="14" fill="black"/>
+      <circle cx="134" cy="480" r="14" fill="black"/>
+      <circle cx="246" cy="396" r="14" fill="black"/>
+      <circle cx="215" cy="315" r="14" fill="black"/>
+      <circle cx="271" cy="225" r="14" fill="black"/>
+      <circle cx="310" cy="139" r="14" fill="black"/>
+    </mask>
+  </defs>
+
+  <!-- Connecting lines -->
+  <g mask="url(#m)" stroke="#1a1a1a" stroke-width="7" stroke-linecap="round">
+    <!-- Dipper -->
+    <line x1="56" y1="418" x2="134" y2="480"/>
+    <line x1="134" y1="480" x2="246" y2="396"/>
+    <!-- Dipper to chain -->
+    <line x1="56" y1="418" x2="215" y2="315"/>
+    <line x1="246" y1="396" x2="215" y2="315"/>
+    <!-- Ascending chain -->
+    <line x1="215" y1="315" x2="271" y2="225"/>
+    <line x1="271" y1="225" x2="310" y2="139"/>
+    <!-- Chain to star -->
+    <line x1="310" y1="139" x2="436" y2="78"/>
+  </g>
+
+  <!-- Hollow circle dots -->
+  <circle cx="56" cy="418" r="11" fill="none" stroke="#1a1a1a" stroke-width="5"/>
+  <circle cx="134" cy="480" r="11" fill="none" stroke="#1a1a1a" stroke-width="5"/>
+  <circle cx="246" cy="396" r="11" fill="none" stroke="#1a1a1a" stroke-width="5"/>
+  <circle cx="215" cy="315" r="11" fill="none" stroke="#1a1a1a" stroke-width="5"/>
+  <circle cx="271" cy="225" r="11" fill="none" stroke="#1a1a1a" stroke-width="5"/>
+  <circle cx="310" cy="139" r="11" fill="none" stroke="#1a1a1a" stroke-width="5"/>
+
+  <!-- 4-pointed sparkle star
+       Center: (440, 71)
+       Top tip: (440, 25)   - 46 units above center
+       Bottom tip: (440, 117) - 46 units below center
+       Left tip: (399, 71)  - 41 units left of center
+       Right tip: (481, 71) - 41 units right of center
+       Quadratic bezier curves with control point at center create concave sides -->
+  <path fill="#1a1a1a" d="
+    M 440,25
+    Q 440,71 481,71
+    Q 440,71 440,117
+    Q 440,71 399,71
+    Q 440,71 440,25
+    Z
+  "/>
+
+</svg>

@@ -190,19 +190,12 @@ export function TechniqueCard({
         {/* Signature (quotidien) */}
         {technique.signature && (
           <div className="flex items-start gap-2">
-            <svg
+            <img
+              src="/pictos/etoile.svg"
+              alt=""
               className="w-4 h-4 flex-shrink-0 mt-0.5"
-              viewBox="0 0 16 16"
-              fill="none"
               aria-hidden="true"
-            >
-              <path
-                d="M8 1l2.2 4.4L15 6.3l-3.5 3.4.8 4.9L8 12.4l-4.3 2.2.8-4.9L1 6.3l4.8-.9z"
-                stroke={categoryColor}
-                strokeWidth="1.2"
-                fill={`${categoryColor}30`}
-              />
-            </svg>
+            />
             <p className="text-sm text-gray-600">{technique.signature}</p>
           </div>
         )}
@@ -210,15 +203,12 @@ export function TechniqueCard({
         {/* Rescue (secours) */}
         {technique.rescue && (
           <div className="flex items-start gap-2">
-            <svg
+            <img
+              src="/pictos/secours.svg"
+              alt=""
               className="w-4 h-4 flex-shrink-0 mt-0.5"
-              viewBox="0 0 16 16"
-              fill="none"
               aria-hidden="true"
-            >
-              <circle cx="8" cy="8" r="6" stroke={categoryColor} strokeWidth="1.2" />
-              <path d="M8 4v5M8 11v1" stroke={categoryColor} strokeWidth="1.5" strokeLinecap="round" />
-            </svg>
+            />
             <p className="text-sm text-gray-600">{technique.rescue}</p>
           </div>
         )}
