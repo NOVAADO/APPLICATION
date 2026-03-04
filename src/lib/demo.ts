@@ -23,32 +23,32 @@
  *
  * Contrainte de diversité : 1 Furtif + 1 Libre par catégorie
  * Total : 12 cartes (2 par catégorie × 6 catégories actives)
- * Note : Combinaison n'a pas de cartes disponibles, Carte blanche est verrouillée
+ * Note : Enchaîne n'a pas de cartes disponibles, Carte blanche est verrouillée
  */
 export const DEMO_CARD_IDS: string[] = [
   // SOUFFLE (2)
   "souffle-478",      // Furtif | 29/30 | Ultra validé, faisable en classe sans qu'on te remarque
   "souffle-soupir",   // Libre  | 28/30 | Effet immédiat, un seul geste, pas de compte à faire
 
-  // DÉCHARGE (2)
-  "decharge-croises", // Furtif | 27/30 | Discret (assis), réveille sans faire de bruit
-  "decharge-secoue",  // Libre  | 28/30 | Validé TRE, libère la frustration, fun à faire
+  // DÉFOULE (2)
+  "defoule-croises",  // Furtif | 27/30 | Discret (assis), réveille sans faire de bruit
+  "defoule-secoue",   // Libre  | 28/30 | Validé TRE, libère la frustration, fun à faire
 
-  // ANCRAGE (2)
-  "ancrage-54321",    // Furtif | 30/30 | Anti-panique classique, faisable discrètement partout
-  "ancrage-glacons",  // Libre  | 27/30 | Sensation forte pour moments intenses, mémorable
+  // ATTERRIS (2)
+  "atterris-54321",   // Furtif | 30/30 | Anti-panique classique, faisable discrètement partout
+  "atterris-glacons", // Libre  | 27/30 | Sensation forte pour moments intenses, mémorable
 
-  // FAIRE LE POINT (2)
-  "faire-le-point-echelle", // Furtif | 28/30 | Simple, concret, "petit pas" parlant pour les ados
-  "faire-le-point-ecrire",  // Libre  | 29/30 | Journaling validé, "cell ou papier", libératoire
+  // REPÈRE (2)
+  "repere-echelle",   // Furtif | 28/30 | Simple, concret, "petit pas" parlant pour les ados
+  "repere-ecrire",    // Libre  | 29/30 | Journaling validé, "cell ou papier", libératoire
 
-  // PAROLES FORTES (2)
-  "paroles-encore-la", // Furtif | 29/30 | Phrase puissante, pas moralisatrice, touche direct
-  "paroles-ami",       // Libre  | 28/30 | Auto-compassion, validé scientifiquement, introspection
+  // ACCROCHE (2)
+  "accroche-encore-la", // Furtif | 29/30 | Phrase puissante, pas moralisatrice, touche direct
+  "accroche-ami",       // Libre  | 28/30 | Auto-compassion, validé scientifiquement, introspection
 
-  // CHAOS (2)
-  "chaos-mode-pnj",        // Furtif | 29/30 | Gaming, humour, ultra discret en public
-  "chaos-ninja-silencieux", // Libre  | 28/30 | Jeu de rôle fun, mouvement, "mission" engageante
+  // DÉCROCHE (2)
+  "decroche-mode-pnj",        // Furtif | 29/30 | Gaming, humour, ultra discret en public
+  "decroche-ninja-silencieux", // Libre  | 28/30 | Jeu de rôle fun, mouvement, "mission" engageante
 ];
 
 /**
@@ -104,19 +104,19 @@ export const DEMO_MICROCOPY = {
  * Statistiques DÉMO par catégorie
  *
  * 6 catégories actives × 2 cartes = 12 cartes total
- * Combinaison : 0 cartes disponibles
+ * Enchaîne : 0 cartes disponibles
  * Carte blanche : verrouillée (jeu physique uniquement)
  */
 export const DEMO_STATS = {
   totalCards: 12,
   byCategory: {
     souffle: 2,
-    decharge: 2,
-    ancrage: 2,
-    "faire-le-point": 2,
-    "paroles-fortes": 2,
-    chaos: 2,
-    combinaison: 0,
+    defoule: 2,
+    atterris: 2,
+    repere: 2,
+    accroche: 2,
+    decroche: 2,
+    enchaine: 0,
   },
   byMode: {
     furtif: 7,

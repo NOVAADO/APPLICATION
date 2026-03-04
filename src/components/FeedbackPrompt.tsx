@@ -74,7 +74,7 @@ export function FeedbackPrompt({ onFeedback, onSkip }: FeedbackPromptProps) {
         {/* Pas pour moi */}
         <button
           onClick={() => onFeedback("nope")}
-          className="flex flex-col items-center gap-2 p-4 rounded-xl border border-eclipse-muted/30 hover:border-decharge/50 hover:bg-decharge/10 transition-all touch-feedback min-w-[80px]"
+          className="flex flex-col items-center gap-2 p-4 rounded-xl border border-eclipse-muted/30 hover:border-defoule/50 hover:bg-defoule/10 transition-all touch-feedback min-w-[80px]"
           aria-label="Pas pour moi"
         >
           <svg

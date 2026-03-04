@@ -108,7 +108,7 @@ export function TechniqueCard({
                 }`}
                 aria-pressed={isSelected}
               >
-                <span className="text-2xl block mb-1">{phase.emoji}</span>
+                <img src={phase.icon} alt={phase.label} className="w-7 h-7 mx-auto mb-1" />
                 <span className="text-sm font-medium block">{phase.label}</span>
                 <span className="text-xs text-eclipse-muted block">
                   {formatDurationSeconds(levelData.durationSeconds)}
@@ -131,7 +131,7 @@ export function TechniqueCard({
       {currentLevel && currentLevel.instructions.length > 0 && (
         <div className="mb-6 flex-1">
           <p className="text-eclipse-muted text-sm mb-3">
-            {MOON_PHASES[selectedLevel!].emoji} Niveau {MOON_PHASES[selectedLevel!].label} :
+            <img src={MOON_PHASES[selectedLevel!].icon} alt="" className="w-5 h-5 inline-block mr-1 align-text-bottom" /> Niveau {MOON_PHASES[selectedLevel!].label} :
           </p>
           <ol className="space-y-4" aria-label="Instructions">
             {currentLevel.instructions.map((instruction, index) => (
@@ -174,7 +174,7 @@ export function TechniqueCard({
         {onStartTimer && selectedLevel && (
           <button
             onClick={onStartTimer}
-            className="w-full py-3.5 rounded-xl bg-gradient-to-r from-souffle to-ancrage text-eclipse-bg font-semibold text-lg touch-feedback hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
+            className="w-full py-3.5 rounded-xl bg-gradient-to-r from-souffle to-atterris text-eclipse-bg font-semibold text-lg touch-feedback hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
             aria-label={`Lancer le timer pour ${technique.title}`}
           >
             <span aria-hidden="true">▶</span>
@@ -189,7 +189,7 @@ export function TechniqueCard({
             className={`w-full py-3.5 rounded-xl font-semibold text-lg touch-feedback hover:opacity-90 transition-opacity ${
               onStartTimer
                 ? "bg-eclipse-card border border-eclipse-muted/30 text-eclipse-text"
-                : "bg-gradient-to-r from-ancrage to-souffle text-eclipse-bg"
+                : "bg-gradient-to-r from-atterris to-souffle text-eclipse-bg"
             }`}
             aria-label={`Marquer ${technique.title} comme fait`}
           >

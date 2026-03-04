@@ -47,7 +47,31 @@ export default function TechniquePage({ params }: TechniquePageProps) {
     }
   }, []);
 
-  const technique = getTechniqueById(id);
+  // Compatibilité anciens IDs — remap préfixe v1 → v2.4
+  const OLD_PREFIX_MAP: Record<string, string> = {
+    "decharge-": "defoule-",
+    "ancrage-": "atterris-",
+    "faire-le-point-": "repere-",
+    "paroles-": "accroche-",
+    "chaos-": "decroche-",
+    "combinaison-": "enchaine-",
+  };
+
+  let resolvedId = id;
+  for (const [oldPrefix, newPrefix] of Object.entries(OLD_PREFIX_MAP)) {
+    if (id.startsWith(oldPrefix)) {
+      resolvedId = id.replace(oldPrefix, newPrefix);
+      break;
+    }
+  }
+
+  // Redirect si l'ID a été remappé
+  if (resolvedId !== id) {
+    router.replace(`/technique/${resolvedId}`);
+    return null;
+  }
+
+  const technique = getTechniqueById(resolvedId);
   const category = technique ? getCategoryById(technique.category) : undefined;
 
   // Technique non trouvée
@@ -209,7 +233,7 @@ export default function TechniquePage({ params }: TechniquePageProps) {
       {showFeedback ? (
         <div className="flex-1 flex flex-col items-center justify-center">
           <h2 className="text-xl font-bold mb-2">{technique.title}</h2>
-          <p className="text-ancrage font-medium mb-8">C&apos;est fait.</p>
+          <p className="text-atterris font-medium mb-8">C&apos;est fait.</p>
           <FeedbackPrompt
             onFeedback={handleFeedback}
             onSkip={handleSkipFeedback}

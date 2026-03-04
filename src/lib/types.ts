@@ -121,18 +121,21 @@ export const MOON_PHASES = {
   croissant: {
     label: "Croissant",
     emoji: "🌒",
+    icon: "/pictos/premier-croissant.png",
     durationRange: "10-30s",
     description: "Léger, rapide, discret"
   },
   quartier: {
     label: "Quartier",
     emoji: "🌓",
+    icon: "/pictos/demi-lune.png",
     durationRange: "30-90s",
     description: "Pause moyenne"
   },
   "pleine-lune": {
     label: "Pleine lune",
     emoji: "🌕",
+    icon: "/pictos/pleine-lune.png",
     durationRange: "1-3 min",
     description: "Reset plus marqué"
   }
