@@ -49,7 +49,7 @@ export default function JeuPhysiquePage() {
         </header>
 
         {/* Illustration */}
-        <div className="mx-auto mb-8 w-48 h-32 rounded-xl bg-gradient-to-br from-souffle/20 to-ancrage/20 border border-eclipse-muted/20 flex items-center justify-center">
+        <div className="mx-auto mb-8 w-48 h-32 rounded-xl bg-gradient-to-br from-souffle/20 to-atterris/20 border border-eclipse-muted/20 flex items-center justify-center">
           <div className="text-center">
             <Image
               src="/pictos/pige-carte.svg"
@@ -87,7 +87,7 @@ export default function JeuPhysiquePage() {
               <p className="text-xs text-eclipse-muted mt-1">cartes</p>
             </div>
             <div className="p-4 rounded-xl bg-eclipse-card border border-eclipse-muted/20 text-center">
-              <p className="text-2xl font-bold text-ancrage">8</p>
+              <p className="text-2xl font-bold text-atterris">8</p>
               <p className="text-xs text-eclipse-muted mt-1">catégories</p>
             </div>
             <div className="p-4 rounded-xl bg-eclipse-card border border-eclipse-muted/20 text-center">
@@ -131,7 +131,7 @@ export default function JeuPhysiquePage() {
             href="https://novaado.ca/eclipse"
             target="_blank"
             rel="noopener noreferrer"
-            className="block w-full py-3.5 rounded-xl bg-gradient-to-r from-souffle to-ancrage text-eclipse-bg font-semibold text-center touch-feedback hover:opacity-90 transition-opacity"
+            className="block w-full py-3.5 rounded-xl bg-gradient-to-r from-souffle to-atterris text-eclipse-bg font-semibold text-center touch-feedback hover:opacity-90 transition-opacity"
           >
             Voir sur novaado.ca
           </a>

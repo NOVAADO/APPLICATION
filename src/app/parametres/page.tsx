@@ -260,7 +260,7 @@ export default function ParametresPage() {
               </p>
 
               {resetDone ? (
-                <p className="text-ancrage font-medium text-center py-2.5">
+                <p className="text-atterris font-medium text-center py-2.5">
                   Données réinitialisées.
                 </p>
               ) : !showResetConfirm ? (

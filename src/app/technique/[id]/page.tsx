@@ -4,10 +4,8 @@ import { use, useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { TechniqueCard } from "@/components/TechniqueCard";
-import { Timer } from "@/components/Timer";
 import { FeedbackPrompt } from "@/components/FeedbackPrompt";
-import type { Feedback, MoonPhase } from "@/lib/types";
-import { MOON_PHASES } from "@/lib/types";
+import type { Feedback } from "@/lib/types";
 import {
   getTechniqueById,
   getCategoryById,
@@ -19,19 +17,16 @@ interface TechniquePageProps {
 }
 
 /**
- * Page Fiche Technique - Version 2.0.0
+ * Page Fiche Technique — Version 2.5.0
  *
- * Affiche une technique avec sélection du niveau (phase de lune)
- * Permet : choisir le niveau, marquer comme fait, ajouter aux favoris, tirer une autre
- * Timer guidé si la technique le supporte
+ * Simplifié : le timer et l'accordéon sont intégrés dans TechniqueCard.
+ * Cette page gère : favoris, partage, "Autre carte", feedback, historique.
  */
 export default function TechniquePage({ params }: TechniquePageProps) {
   const { id } = use(params);
   const router = useRouter();
 
   const [favorites, setFavorites] = useState<string[]>([]);
-  const [selectedLevel, setSelectedLevel] = useState<MoonPhase | null>(null);
-  const [showTimer, setShowTimer] = useState(false);
   const [showFeedback, setShowFeedback] = useState(false);
   const feedbackCount = useRef(0);
 
@@ -91,14 +86,6 @@ export default function TechniquePage({ params }: TechniquePageProps) {
 
   const isFavorite = favorites.includes(technique.id);
 
-  // Récupérer le niveau sélectionné
-  const currentLevel = selectedLevel ? technique.levels[selectedLevel] : null;
-
-  // Calculer la durée du timer en secondes pour le niveau sélectionné
-  const timerDuration = currentLevel?.timerConfig?.totalDuration
-    ?? currentLevel?.durationSeconds
-    ?? 60;
-
   const handleFavorite = () => {
     let newFavorites: string[];
 
@@ -118,7 +105,6 @@ export default function TechniquePage({ params }: TechniquePageProps) {
   const saveToHistory = (feedback?: Feedback) => {
     const historyEntry = {
       techniqueId: technique.id,
-      level: selectedLevel || "croissant",
       timestamp: Date.now(),
       feedback,
     };
@@ -165,10 +151,6 @@ export default function TechniquePage({ params }: TechniquePageProps) {
   };
 
   const handleAnother = () => {
-    // Fermer le timer si ouvert et réinitialiser le niveau
-    setShowTimer(false);
-    setSelectedLevel(null);
-
     // Tirer une autre technique (même catégorie si possible)
     const newTechnique = drawTechnique({
       category: technique.category,
@@ -185,32 +167,13 @@ export default function TechniquePage({ params }: TechniquePageProps) {
     }
   };
 
-  const handleStartTimer = () => {
-    setShowTimer(true);
-  };
-
-  const handleTimerComplete = () => {
-    // Timer terminé = technique faite
-    handleDone();
-  };
-
-  const handleTimerCancel = () => {
-    setShowTimer(false);
-  };
-
   return (
     <div className="flex-1 flex flex-col px-6 py-8 pb-safe">
       {/* Bouton retour */}
       <button
-        onClick={() => {
-          if (showTimer) {
-            setShowTimer(false);
-          } else {
-            router.back();
-          }
-        }}
+        onClick={() => router.back()}
         className="self-start mb-6 text-eclipse-muted hover:text-eclipse-text transition-colors flex items-center gap-2"
-        aria-label={showTimer ? "Fermer le timer" : "Retour"}
+        aria-label="Retour"
       >
         <svg
           className="w-5 h-5"
@@ -226,7 +189,7 @@ export default function TechniquePage({ params }: TechniquePageProps) {
             d="M15 19l-7-7 7-7"
           />
         </svg>
-        {showTimer ? "Fermer le timer" : "Retour"}
+        Retour
       </button>
 
       {/* Mode Feedback */}
@@ -239,57 +202,15 @@ export default function TechniquePage({ params }: TechniquePageProps) {
             onSkip={handleSkipFeedback}
           />
         </div>
-      ) : showTimer && currentLevel ? (
-        <div className="flex-1 flex flex-col">
-          {/* Titre de la technique */}
-          <h1 className="text-xl font-bold text-center mb-2">
-            {technique.title}
-          </h1>
-          <p className="text-eclipse-muted text-center text-sm mb-6">
-            {category?.name}
-          </p>
-
-          {/* Timer */}
-          <Timer
-            duration={timerDuration}
-            techniqueName={technique.title}
-            onComplete={handleTimerComplete}
-            onCancel={handleTimerCancel}
-          />
-
-          {/* Instructions en mode compact */}
-          {currentLevel && (
-            <div className="mt-auto pt-6 border-t border-eclipse-muted/20">
-              <p className="text-eclipse-muted text-sm mb-3">Instructions :</p>
-              <ol className="space-y-2 text-sm text-eclipse-text/80">
-                {currentLevel.instructions.slice(0, 3).map((instruction, index) => (
-                  <li key={index} className="flex gap-2">
-                    <span className="text-eclipse-muted">{index + 1}.</span>
-                    <span>{instruction}</span>
-                  </li>
-                ))}
-                {currentLevel.instructions.length > 3 && (
-                  <li className="text-eclipse-muted">
-                    + {currentLevel.instructions.length - 3} autres étapes...
-                  </li>
-                )}
-              </ol>
-            </div>
-          )}
-        </div>
       ) : (
         <>
-          {/* Fiche technique avec sélection de niveau */}
+          {/* Fiche technique — accordéon + timer intégrés */}
           <TechniqueCard
             technique={technique}
             category={category}
-            selectedLevel={selectedLevel}
-            onSelectLevel={setSelectedLevel}
             onFavorite={handleFavorite}
             isFavorite={isFavorite}
-            onDone={selectedLevel ? handleDone : undefined}
             onAnother={handleAnother}
-            onStartTimer={selectedLevel && currentLevel?.timer ? handleStartTimer : undefined}
           />
 
           {/* Disclaimer légal discret */}

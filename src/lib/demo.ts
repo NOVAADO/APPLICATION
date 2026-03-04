@@ -1,54 +1,43 @@
 /**
  * Mode DÉMO - Configuration de l'aperçu gratuit
+ * Version 2.5.0
  *
  * L'app est un tunnel de vente doux pour le jeu physique.
  * Cette sélection montre les meilleures cartes pour donner envie.
  *
- * Agents consultés :
+ * Références :
  * - NOVAADO_ADN.md : "jeu" pas "outil", tunnel doux
- * - novaado-antilope-gardien-adn.md : ton direct, pas commercial
- * - novaado-antilope-agent-microcopy-ton.md : microcopy sans pression
+ * - AGENT_ECLIPSE.md : structure cartes, signature/secours
  */
 
 /**
  * IDs des cartes sélectionnées pour la DÉMO
  *
- * Critères de scoring "13+" (0-5 par critère) :
- * 1. Impact immédiat (aide vite)
- * 2. Simplicité (compréhensible en 10 secondes)
- * 3. Faible gêne sociale (faisable en mode Furtif)
- * 4. Pertinence ado 13+ (stress scolaire, pression sociale)
- * 5. Ton ADN (pas infantilisant, pas moralisateur)
- * 6. Sécurité (aucune instruction risquée)
- *
- * Contrainte de diversité : 1 Furtif + 1 Libre par catégorie
- * Total : 12 cartes (2 par catégorie × 6 catégories actives)
- * Note : Enchaîne n'a pas de cartes disponibles, Carte blanche est verrouillée
+ * Objectif : 18 cartes à terme (2-3 par catégorie)
+ * Actuellement : toutes les cartes disponibles (7)
+ * À compléter quand plus de techniques seront ajoutées
  */
 export const DEMO_CARD_IDS: string[] = [
-  // SOUFFLE (2)
-  "souffle-478",      // Furtif | 29/30 | Ultra validé, faisable en classe sans qu'on te remarque
-  "souffle-soupir",   // Libre  | 28/30 | Effet immédiat, un seul geste, pas de compte à faire
+  // SOUFFLE — S01
+  "souffle-001",
 
-  // DÉFOULE (2)
-  "defoule-croises",  // Furtif | 27/30 | Discret (assis), réveille sans faire de bruit
-  "defoule-secoue",   // Libre  | 28/30 | Validé TRE, libère la frustration, fun à faire
+  // DÉFOULE — D01
+  "defoule-001",
 
-  // ATTERRIS (2)
-  "atterris-54321",   // Furtif | 30/30 | Anti-panique classique, faisable discrètement partout
-  "atterris-glacons", // Libre  | 27/30 | Sensation forte pour moments intenses, mémorable
+  // ATTERRIS — A01
+  "atterris-001",
 
-  // REPÈRE (2)
-  "repere-echelle",   // Furtif | 28/30 | Simple, concret, "petit pas" parlant pour les ados
-  "repere-ecrire",    // Libre  | 29/30 | Journaling validé, "cell ou papier", libératoire
+  // REPÈRE — F01
+  "repere-001",
 
-  // ACCROCHE (2)
-  "accroche-encore-la", // Furtif | 29/30 | Phrase puissante, pas moralisatrice, touche direct
-  "accroche-ami",       // Libre  | 28/30 | Auto-compassion, validé scientifiquement, introspection
+  // ENCHAÎNE — C01
+  "enchaine-001",
 
-  // DÉCROCHE (2)
-  "decroche-mode-pnj",        // Furtif | 29/30 | Gaming, humour, ultra discret en public
-  "decroche-ninja-silencieux", // Libre  | 28/30 | Jeu de rôle fun, mouvement, "mission" engageante
+  // ACCROCHE — P01 (format: phrase unique)
+  "accroche-001",
+
+  // DÉCROCHE — X01 (format: absurde)
+  "decroche-001",
 ];
 
 /**
@@ -69,21 +58,19 @@ export function isDemoCard(techniqueId: string): boolean {
 /**
  * Nombre de cartes dans la DÉMO
  */
-export const DEMO_CARD_COUNT = DEMO_CARD_IDS.length; // 12
+export const DEMO_CARD_COUNT = DEMO_CARD_IDS.length;
 
 /**
  * Microcopy pour le tunnel de vente doux
  *
- * Agent : novaado-antilope-agent-microcopy-ton.md
- * - Pas de "premium" ou "payant"
- * - Ton informatif, pas commercial
- * - Respecte l'ADN : "jeu" pas "outil"
+ * Vocabulaire : "Dans le jeu complet" (pas "premium", pas "verrouillé")
+ * Ton : informatif, pas commercial, respecte l'ADN
  */
 export const DEMO_MICROCOPY = {
   // Message sur les cartes non disponibles
   cardLocked: "Dans le jeu complet",
 
-  // Message pour catégorie avec cartes limitées
+  // Message pour catégorie hors démo
   categoryLimited: "Ici, c'est un aperçu. Le jeu complet est dans la boîte.",
 
   // Message pour la promo du jeu physique (après 5 techniques)
@@ -95,31 +82,28 @@ export const DEMO_MICROCOPY = {
   // CTA doux (pas "Acheter maintenant")
   gamePromoCTA: "Découvrir le jeu",
 
-  // Message état vide (aucune carte dispo avec filtres)
+  // Message état vide
   emptyStateDemo: "Pas de carte avec ces filtres dans l'aperçu.",
   emptyStateHint: "Le jeu complet a plus de choix.",
 } as const;
 
 /**
+ * Nombre d'exercices avant le tunnel doux vers le jeu physique
+ */
+export const PROMO_THRESHOLD = 5;
+
+/**
  * Statistiques DÉMO par catégorie
- *
- * 6 catégories actives × 2 cartes = 12 cartes total
- * Enchaîne : 0 cartes disponibles
- * Carte blanche : verrouillée (jeu physique uniquement)
  */
 export const DEMO_STATS = {
-  totalCards: 12,
+  totalCards: DEMO_CARD_IDS.length,
   byCategory: {
-    souffle: 2,
-    defoule: 2,
-    atterris: 2,
-    repere: 2,
-    accroche: 2,
-    decroche: 2,
-    enchaine: 0,
-  },
-  byMode: {
-    furtif: 7,
-    libre: 7,
+    souffle: 1,
+    defoule: 1,
+    atterris: 1,
+    repere: 1,
+    enchaine: 1,
+    accroche: 1,
+    decroche: 1,
   },
 } as const;

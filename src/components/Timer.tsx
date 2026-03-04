@@ -188,9 +188,9 @@ export function Timer({
       case "technique":
         return "text-souffle";
       case "cooldown":
-        return "text-ancrage";
+        return "text-atterris";
       case "done":
-        return "text-ancrage";
+        return "text-atterris";
       default:
         return "text-eclipse-text";
     }
@@ -261,7 +261,7 @@ export function Timer({
                 ? "bg-yellow-400"
                 : phase === "technique"
                 ? "bg-souffle"
-                : "bg-ancrage"
+                : "bg-atterris"
             }`}
             style={{ width: `${getProgress()}%` }}
           />
@@ -281,7 +281,7 @@ export function Timer({
         {phase === "idle" && (
           <button
             onClick={handleStart}
-            className="px-8 py-3 rounded-xl bg-gradient-to-r from-souffle to-ancrage text-eclipse-bg font-semibold text-lg touch-feedback hover:opacity-90 transition-opacity"
+            className="px-8 py-3 rounded-xl bg-gradient-to-r from-souffle to-atterris text-eclipse-bg font-semibold text-lg touch-feedback hover:opacity-90 transition-opacity"
             aria-label="Démarrer le timer"
           >
             Démarrer
@@ -339,7 +339,7 @@ export function Timer({
           />
           <span
             className={`w-2 h-2 rounded-full ${
-              phase === "cooldown" ? "bg-ancrage" : "bg-eclipse-muted/30"
+              phase === "cooldown" ? "bg-atterris" : "bg-eclipse-muted/30"
             }`}
             aria-hidden="true"
           />

@@ -1,44 +1,52 @@
 "use client";
 
+import { useState, useCallback } from "react";
 import { toast } from "sonner";
 import type { Technique, Category, MoonPhase } from "@/lib/types";
 import { MOON_PHASES } from "@/lib/types";
-import { formatDurationSeconds } from "@/lib/techniques";
+import { LevelAccordion } from "./LevelAccordion";
+import { WaveSeparator } from "./WaveSeparator";
 
 interface TechniqueCardProps {
   technique: Technique;
   category?: Category;
-  selectedLevel: MoonPhase | null;
-  onSelectLevel: (level: MoonPhase) => void;
   onFavorite?: () => void;
   isFavorite?: boolean;
-  onDone?: () => void;
   onAnother?: () => void;
-  onStartTimer?: () => void;
 }
 
 /**
- * Fiche complète d'une technique - Version 2.0.0
- * Affiche : titre, sélection de niveau (phases de lune), instructions du niveau choisi
+ * Fiche complète d'une technique — Version 2.5.0
+ *
+ * Layout fond clair sur fond sombre :
+ * - En-tête : picto catégorie + nom + code
+ * - Titre + phrase d'ouverture (si format "levels")
+ * - Accordéon 3 niveaux (si format "levels")
+ * - Phrase unique (si format "accroche")
+ * - Format absurde (si format "decroche")
+ * - Footer : Signature + Rescue
+ *
+ * Règles ADN :
+ * - Pas d'emoji en UI (pictos internes uniquement)
+ * - Ton ado 13+, non clinique, autonomie totale
+ * - Boutons min 44px, accessible
  */
 export function TechniqueCard({
   technique,
   category,
-  selectedLevel,
-  onSelectLevel,
   onFavorite,
   isFavorite = false,
-  onDone,
   onAnother,
-  onStartTimer,
 }: TechniqueCardProps) {
   const categoryColor = category?.color || "#7DD3FC";
+  const [openLevel, setOpenLevel] = useState<MoonPhase | null>(null);
 
-  // Récupérer le niveau actuellement sélectionné
-  const currentLevel = selectedLevel ? technique.levels[selectedLevel] : null;
+  const handleToggleLevel = useCallback((phase: MoonPhase) => {
+    setOpenLevel((current) => (current === phase ? null : phase));
+  }, []);
 
   const handleShare = async () => {
-    const shareText = `J'ai essayé "${technique.title}" avec Éclipse. Une technique rapide pour gérer le stress.`;
+    const shareText = `J'ai essayé "${technique.title}" avec Éclipse. Une technique rapide pour faire pause.`;
     const shareUrl = "https://eclipse.novaado.ca";
 
     if (navigator.share) {
@@ -49,202 +57,232 @@ export function TechniqueCard({
           url: shareUrl,
         });
       } catch (err) {
-        // Utilisateur a annulé le partage
         if ((err as Error).name !== "AbortError") {
-          // Fallback copie
           await navigator.clipboard.writeText(`${shareText}\n${shareUrl}`);
           toast("Lien copié");
         }
       }
     } else {
-      // Fallback pour desktop
       await navigator.clipboard.writeText(`${shareText}\n${shareUrl}`);
       toast("Lien copié");
     }
   };
 
+  const isLevelsFormat = technique.format === "levels";
+  const isAccrocheFormat = technique.format === "accroche";
+  const isDecrocheFormat = technique.format === "decroche";
+
+  const moonPhases: MoonPhase[] = ["croissant", "quartier", "pleine-lune"];
+
   return (
-    <article className="flex flex-col h-full">
-      {/* En-tête avec titre et catégorie */}
-      <header className="mb-6">
-        <h1 className="text-2xl sm:text-3xl font-bold mb-3">
+    <article className="bg-white/95 rounded-2xl shadow-lg overflow-hidden">
+      {/* ── En-tête catégorie ── */}
+      <header
+        className="px-5 pt-5 pb-3 flex items-center gap-3"
+        style={{ borderBottom: `2px solid ${categoryColor}20` }}
+      >
+        {/* Picto catégorie */}
+        {category && (
+          <img
+            src={`/pictos/${category.icon}`}
+            alt=""
+            className="w-8 h-8 flex-shrink-0"
+            style={{ filter: `drop-shadow(0 0 1px ${categoryColor})` }}
+          />
+        )}
+
+        <div className="flex-1 min-w-0">
+          {/* Nom catégorie */}
+          <h2
+            className="text-sm font-semibold truncate"
+            style={{ color: categoryColor }}
+          >
+            {category?.name}
+          </h2>
+          {/* Micro-description */}
+          <p className="text-xs text-gray-500 truncate">
+            {category?.description}
+          </p>
+        </div>
+
+        {/* Code carte */}
+        <span className="text-xs font-mono text-gray-400 bg-gray-100 px-2 py-0.5 rounded flex-shrink-0">
+          {technique.code}
+        </span>
+      </header>
+
+      {/* ── Corps de la carte ── */}
+      <div className="px-5 py-4">
+        {/* Titre */}
+        <h1 className="text-xl font-bold text-gray-900 mb-1">
           {technique.title}
         </h1>
 
-        {/* Tag catégorie */}
-        {category && (
-          <span
-            className="px-3 py-1 rounded-full text-sm"
-            style={{ backgroundColor: `${categoryColor}20`, color: categoryColor }}
-          >
-            {category.name}
-          </span>
+        {/* Phrase d'ouverture (si format levels + phrase non vide) */}
+        {isLevelsFormat && technique.openingPhrase && (
+          <p className="text-sm text-gray-600 leading-relaxed mb-4">
+            {technique.openingPhrase}
+          </p>
         )}
-      </header>
 
-      {/* Phrase d'ouverture */}
-      {technique.openingPhrase && (
-        <p className="text-eclipse-muted text-lg leading-relaxed mb-6 px-1">
-          {technique.openingPhrase}
-        </p>
-      )}
+        {/* ── FORMAT: LEVELS (accordéon 3 niveaux) ── */}
+        {isLevelsFormat && (
+          <div className="space-y-0">
+            {moonPhases.map((phase, index) => (
+              <div key={phase}>
+                <LevelAccordion
+                  phase={phase}
+                  level={technique.levels[phase]}
+                  isOpen={openLevel === phase}
+                  onToggle={() => handleToggleLevel(phase)}
+                  categoryColor={categoryColor}
+                />
+                {/* Vague entre les niveaux (sauf après le dernier) */}
+                {index < moonPhases.length - 1 && (
+                  <WaveSeparator color={categoryColor} />
+                )}
+              </div>
+            ))}
+          </div>
+        )}
 
-      {/* Sélection du niveau (phases de lune) */}
-      <div className="mb-6">
-        <p className="text-eclipse-muted text-sm mb-3">Choisis ton intensité :</p>
-        <div className="grid grid-cols-3 gap-2">
-          {(Object.entries(MOON_PHASES) as [MoonPhase, typeof MOON_PHASES[MoonPhase]][]).map(([key, phase]) => {
-            const levelData = technique.levels[key];
-            const isSelected = selectedLevel === key;
+        {/* ── FORMAT: ACCROCHE (phrase unique) ── */}
+        {isAccrocheFormat && (
+          <div className="py-6">
+            <div className="space-y-4">
+              {technique.levels.croissant.instructions.map((phrase, i) => (
+                <p key={i} className="text-lg text-gray-800 font-medium text-center leading-relaxed">
+                  {phrase}
+                </p>
+              ))}
+            </div>
+          </div>
+        )}
 
-            return (
-              <button
-                key={key}
-                onClick={() => onSelectLevel(key)}
-                className={`p-3 rounded-xl border text-center transition-all ${
-                  isSelected
-                    ? "border-eclipse-accent bg-eclipse-accent/10"
-                    : "border-eclipse-muted/30 hover:border-eclipse-accent/50"
-                }`}
-                aria-pressed={isSelected}
-              >
-                <img src={phase.icon} alt={phase.label} className="w-7 h-7 mx-auto mb-1" />
-                <span className="text-sm font-medium block">{phase.label}</span>
-                <span className="text-xs text-eclipse-muted block">
-                  {formatDurationSeconds(levelData.durationSeconds)}
-                </span>
-              </button>
-            );
-          })}
-        </div>
+        {/* ── FORMAT: DÉCROCHE (absurde unique) ── */}
+        {isDecrocheFormat && (
+          <div className="py-4">
+            <div className="space-y-4">
+              {moonPhases.map((phase) => {
+                const levelData = technique.levels[phase];
+                return (
+                  <div key={phase} className="p-3 bg-gray-50 rounded-xl">
+                    <div className="flex items-start gap-3">
+                      <img
+                        src={MOON_PHASES[phase].icon}
+                        alt=""
+                        className="w-8 h-4 flex-shrink-0 mt-0.5 object-contain"
+                      />
+                      <div className="space-y-1">
+                        {levelData.instructions.map((instruction, i) => (
+                          <p key={i} className="text-sm text-gray-700 leading-relaxed">
+                            {instruction}
+                          </p>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+            {technique.note && (
+              <p className="text-xs text-gray-400 italic mt-3 text-center">
+                {technique.note}
+              </p>
+            )}
+          </div>
+        )}
       </div>
 
-      {/* Matériel requis */}
-      {technique.material && (
-        <div className="mb-4 p-3 rounded-lg bg-eclipse-card/50 border border-eclipse-muted/20">
-          <span className="text-eclipse-muted text-sm">Besoin : </span>
-          <span className="text-eclipse-text">{technique.material}</span>
-        </div>
-      )}
-
-      {/* Instructions du niveau sélectionné */}
-      {currentLevel && currentLevel.instructions.length > 0 && (
-        <div className="mb-6 flex-1">
-          <p className="text-eclipse-muted text-sm mb-3">
-            <img src={MOON_PHASES[selectedLevel!].icon} alt="" className="w-5 h-5 inline-block mr-1 align-text-bottom" /> Niveau {MOON_PHASES[selectedLevel!].label} :
-          </p>
-          <ol className="space-y-4" aria-label="Instructions">
-            {currentLevel.instructions.map((instruction, index) => (
-              <li key={index} className="flex gap-4">
-                <span
-                  className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-sm font-medium"
-                  style={{ backgroundColor: `${categoryColor}30`, color: categoryColor }}
-                  aria-hidden="true"
-                >
-                  {index + 1}
-                </span>
-                <span className="text-eclipse-text leading-relaxed pt-0.5">
-                  {instruction}
-                </span>
-              </li>
-            ))}
-          </ol>
-        </div>
-      )}
-
-      {/* Message si aucun niveau sélectionné */}
-      {!selectedLevel && (
-        <div className="mb-6 flex-1 flex items-center justify-center">
-          <p className="text-eclipse-muted text-center">
-            Choisis un niveau pour voir les instructions.
-          </p>
-        </div>
-      )}
-
-      {/* Note contextuelle */}
-      {technique.note && selectedLevel && (
-        <p className="text-eclipse-muted text-sm italic mb-6 px-4 py-3 bg-eclipse-card/30 rounded-lg">
-          {technique.note}
-        </p>
-      )}
-
-      {/* Actions */}
-      <div className="mt-auto space-y-3">
-        {/* Bouton Timer (si la technique a un timer pour ce niveau) */}
-        {onStartTimer && selectedLevel && (
-          <button
-            onClick={onStartTimer}
-            className="w-full py-3.5 rounded-xl bg-gradient-to-r from-souffle to-atterris text-eclipse-bg font-semibold text-lg touch-feedback hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
-            aria-label={`Lancer le timer pour ${technique.title}`}
-          >
-            <span aria-hidden="true">▶</span>
-            Lancer le timer
-          </button>
-        )}
-
-        {/* Bouton principal */}
-        {onDone && selectedLevel && (
-          <button
-            onClick={onDone}
-            className={`w-full py-3.5 rounded-xl font-semibold text-lg touch-feedback hover:opacity-90 transition-opacity ${
-              onStartTimer
-                ? "bg-eclipse-card border border-eclipse-muted/30 text-eclipse-text"
-                : "bg-gradient-to-r from-atterris to-souffle text-eclipse-bg"
-            }`}
-            aria-label={`Marquer ${technique.title} comme fait`}
-          >
-            C&apos;est fait
-          </button>
-        )}
-
-        {/* Actions secondaires */}
-        <div className="flex gap-2">
-          {onFavorite && (
-            <button
-              onClick={onFavorite}
-              className={`flex-1 py-3 rounded-xl border font-medium touch-feedback transition-all ${
-                isFavorite
-                  ? "border-yellow-400 text-yellow-400 bg-yellow-400/10"
-                  : "border-eclipse-muted/30 text-eclipse-muted hover:border-yellow-400/50 hover:text-yellow-400"
-              }`}
-              aria-pressed={isFavorite}
-              aria-label={isFavorite ? "Retirer des favoris" : "Ajouter aux favoris"}
-            >
-              {isFavorite ? "★ Favori" : "☆ Favori"}
-            </button>
-          )}
-
-          {onAnother && (
-            <button
-              onClick={onAnother}
-              className="flex-1 py-3 rounded-xl border border-eclipse-muted/30 text-eclipse-muted font-medium touch-feedback hover:border-eclipse-accent/50 hover:text-eclipse-accent transition-all"
-              aria-label="Tirer une autre technique"
-            >
-              Autre
-            </button>
-          )}
-
-          <button
-            onClick={handleShare}
-            className="px-4 py-3 rounded-xl border border-eclipse-muted/30 text-eclipse-muted font-medium touch-feedback hover:border-souffle/50 hover:text-souffle transition-all"
-            aria-label="Partager cette technique"
-          >
+      {/* ── Footer : Signature + Rescue ── */}
+      <footer
+        className="px-5 py-4 space-y-2"
+        style={{ borderTop: `1px solid ${categoryColor}15` }}
+      >
+        {/* Signature (quotidien) */}
+        {technique.signature && (
+          <div className="flex items-start gap-2">
             <svg
-              className="w-5 h-5"
+              className="w-4 h-4 flex-shrink-0 mt-0.5"
+              viewBox="0 0 16 16"
               fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
               aria-hidden="true"
             >
               <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"
+                d="M8 1l2.2 4.4L15 6.3l-3.5 3.4.8 4.9L8 12.4l-4.3 2.2.8-4.9L1 6.3l4.8-.9z"
+                stroke={categoryColor}
+                strokeWidth="1.2"
+                fill={`${categoryColor}30`}
               />
             </svg>
+            <p className="text-sm text-gray-600">{technique.signature}</p>
+          </div>
+        )}
+
+        {/* Rescue (secours) */}
+        {technique.rescue && (
+          <div className="flex items-start gap-2">
+            <svg
+              className="w-4 h-4 flex-shrink-0 mt-0.5"
+              viewBox="0 0 16 16"
+              fill="none"
+              aria-hidden="true"
+            >
+              <circle cx="8" cy="8" r="6" stroke={categoryColor} strokeWidth="1.2" />
+              <path d="M8 4v5M8 11v1" stroke={categoryColor} strokeWidth="1.5" strokeLinecap="round" />
+            </svg>
+            <p className="text-sm text-gray-600">{technique.rescue}</p>
+          </div>
+        )}
+      </footer>
+
+      {/* ── Actions ── */}
+      <div className="px-5 pb-5 flex gap-2">
+        {onFavorite && (
+          <button
+            onClick={onFavorite}
+            className={`min-h-[44px] flex-1 py-3 rounded-xl border font-medium text-sm transition-all ${
+              isFavorite
+                ? "border-amber-400 text-amber-500 bg-amber-50"
+                : "border-gray-200 text-gray-500 hover:border-amber-300 hover:text-amber-500"
+            }`}
+            aria-pressed={isFavorite}
+            aria-label={isFavorite ? "Retirer des favoris" : "Ajouter aux favoris"}
+          >
+            Favori
           </button>
-        </div>
+        )}
+
+        {onAnother && (
+          <button
+            onClick={onAnother}
+            className="min-h-[44px] flex-1 py-3 rounded-xl border border-gray-200 text-gray-500 font-medium text-sm hover:border-gray-300 transition-all"
+            aria-label="Tirer une autre technique"
+          >
+            Autre
+          </button>
+        )}
+
+        <button
+          onClick={handleShare}
+          className="min-h-[44px] px-4 py-3 rounded-xl border border-gray-200 text-gray-400 hover:text-gray-600 transition-all"
+          aria-label="Partager cette technique"
+        >
+          <svg
+            className="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"
+            />
+          </svg>
+        </button>
       </div>
     </article>
   );

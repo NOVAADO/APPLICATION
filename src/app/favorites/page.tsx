@@ -173,7 +173,7 @@ export default function FavoritesPage() {
           <div className="flex flex-col gap-3 w-full max-w-xs">
             <button
               onClick={() => router.push("/")}
-              className="w-full py-3.5 rounded-xl bg-gradient-to-r from-souffle to-ancrage text-eclipse-bg font-semibold text-lg touch-feedback hover:opacity-90 transition-opacity"
+              className="w-full py-3.5 rounded-xl bg-gradient-to-r from-souffle to-atterris text-eclipse-bg font-semibold text-lg touch-feedback hover:opacity-90 transition-opacity"
             >
               Tirer une technique
             </button>
@@ -233,8 +233,8 @@ export default function FavoritesPage() {
                       </div>
                       <div className="flex gap-1 mt-1">
                         {Object.entries(MOON_PHASES).map(([key, phase]) => (
-                          <span key={key} className="text-xs" title={phase.label}>
-                            <img src={phase.icon} alt={phase.label} className="w-5 h-5 inline-block" />
+                          <span key={key} className="text-xs" title={phase.description}>
+                            <img src={phase.icon} alt={phase.description} className="w-5 h-5 inline-block" />
                           </span>
                         ))}
                       </div>

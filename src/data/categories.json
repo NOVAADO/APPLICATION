@@ -1,5 +1,5 @@
 {
-  "version": "2.4.0",
+  "version": "2.5.0",
   "categories": [
     {
       "id": "souffle",
@@ -72,15 +72,6 @@
       "color": "#94A3B8",
       "premium": true,
       "order": 8
-    },
-    {
-      "id": "licorne",
-      "name": "Licorne",
-      "description": "Carte rare. Interrompt doucement le rythme.",
-      "icon": "licorne.svg",
-      "color": "#E879F9",
-      "premium": false,
-      "order": 9
     }
   ]
 }

@@ -1,11 +1,12 @@
 /**
  * Types pour l'application Éclipse - NOVA ADO
- * Version 2.0.0 - Structure 3 niveaux par carte (Croissant / Quartier / Pleine lune)
+ * Version 2.5.0 - Accordéon + Minuterie intégrée
  */
 
 // === TYPES DE BASE ===
 
 export type MoonPhase = "croissant" | "quartier" | "pleine-lune";
+export type CardFormat = "levels" | "accroche" | "decroche";
 export type DiscretionLevel = "public_ok" | "discret" | "prive";
 export type EvidenceLevel = "A" | "B" | "C";
 
@@ -50,7 +51,9 @@ export interface Evidence {
 
 export interface TechniqueLevel {
   instructions: string[];
-  durationSeconds: number;
+  shortInstruction: string;    // résumé 1 ligne (accordéon replié)
+  durationLabel: string;       // "10–30 sec", "30–60 sec", "1–2 min" (affichage)
+  durationSeconds: number;     // borne haute en secondes (minuterie)
   timer: boolean;
   timerConfig: TimerConfig | null;
 }
@@ -59,19 +62,27 @@ export interface TechniqueLevel {
 
 export interface Technique {
   id: string;
+  code: string;              // Code officiel : S01, D01, A01, F01, C01, P01, X01, CB01
   title: string;
   category: string;
+  format: CardFormat;        // "levels" | "accroche" | "decroche"
 
   // Phrase d'ouverture (constat / permission / invitation)
-  // Doit fonctionner même si l'ado ne fait rien
+  // Présente pour : Souffle, Défoule, Atterris, Repère, Enchaîne, Carte blanche
+  // Absente pour : Accroche, Décroche
   openingPhrase: string;
 
   // 3 niveaux indépendants (l'ado choisit UN seul niveau)
+  // Non utilisé si format === "accroche" ou "decroche"
   levels: {
-    croissant: TechniqueLevel;    // 🌒 10-30s - léger, rapide, discret
-    quartier: TechniqueLevel;     // 🌓 30-90s - pause moyenne
-    "pleine-lune": TechniqueLevel; // 🌕 1-3 min - reset plus marqué
+    croissant: TechniqueLevel;
+    quartier: TechniqueLevel;
+    "pleine-lune": TechniqueLevel;
   };
+
+  // Phrases de clôture (uniques par carte, v2.4)
+  signature: string;         // ✦ quotidien, préventif
+  rescue: string;            // ⚡ urgence, quand ça déborde
 
   // Métadonnées
   note: string | null;
@@ -119,24 +130,21 @@ export interface EclipseStore {
 
 export const MOON_PHASES = {
   croissant: {
-    label: "Croissant",
-    emoji: "🌒",
     icon: "/pictos/premier-croissant.png",
-    durationRange: "10-30s",
+    defaultDurationLabel: "10–30 sec",
+    defaultDurationSeconds: 30,
     description: "Léger, rapide, discret"
   },
   quartier: {
-    label: "Quartier",
-    emoji: "🌓",
     icon: "/pictos/demi-lune.png",
-    durationRange: "30-90s",
+    defaultDurationLabel: "30–60 sec",
+    defaultDurationSeconds: 60,
     description: "Pause moyenne"
   },
   "pleine-lune": {
-    label: "Pleine lune",
-    emoji: "🌕",
     icon: "/pictos/pleine-lune.png",
-    durationRange: "1-3 min",
+    defaultDurationLabel: "1–2 min",
+    defaultDurationSeconds: 120,
     description: "Reset plus marqué"
   }
 } as const;

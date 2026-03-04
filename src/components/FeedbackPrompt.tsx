@@ -28,7 +28,7 @@ export function FeedbackPrompt({ onFeedback, onSkip }: FeedbackPromptProps) {
         {/* Ça a aidé */}
         <button
           onClick={() => onFeedback("helped")}
-          className="flex flex-col items-center gap-2 p-4 rounded-xl border border-eclipse-muted/30 hover:border-ancrage/50 hover:bg-ancrage/10 transition-all touch-feedback min-w-[80px]"
+          className="flex flex-col items-center gap-2 p-4 rounded-xl border border-eclipse-muted/30 hover:border-atterris/50 hover:bg-atterris/10 transition-all touch-feedback min-w-[80px]"
           aria-label="Ça a aidé"
         >
           <svg

@@ -18,7 +18,6 @@ const config: Config = {
         accroche: "#EF4444",
         decroche: "#FBBF24",
         "carte-blanche": "#94A3B8",
-        licorne: "#E879F9",
         // UI colors
         eclipse: {
           bg: "#0F172A",

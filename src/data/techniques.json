@@ -1,17 +1,21 @@
 {
-  "version": "2.4.0",
+  "version": "2.5.0",
   "techniques": [
     {
       "id": "souffle-001",
+      "code": "S01",
       "title": "Respire, c'est tout",
       "category": "souffle",
+      "format": "levels",
       "openingPhrase": "Ton souffle est déjà là. Tu n'as rien à forcer.",
       "levels": {
         "croissant": {
           "instructions": [
             "Expire un grand coup, comme un soupir."
           ],
-          "durationSeconds": 15,
+          "shortInstruction": "Un soupir. Mâchoire relâchée. C'est fait.",
+          "durationLabel": "10–30 sec",
+          "durationSeconds": 30,
           "timer": false,
           "timerConfig": null
         },
@@ -21,6 +25,8 @@
             "Expire par la bouche en comptant jusqu'à 6.",
             "Recommence 3 fois."
           ],
+          "shortInstruction": "Inspire 4 sec, expire 6 sec. (x3)",
+          "durationLabel": "30–60 sec",
           "durationSeconds": 60,
           "timer": true,
           "timerConfig": {
@@ -40,6 +46,8 @@
             "Continue à ton rythme pendant 2 minutes.",
             "Si ton esprit s'échappe, ramène juste ton attention sur ta main."
           ],
+          "shortInstruction": "Respiration ventrale, 2 min, à ton rythme.",
+          "durationLabel": "1–2 min",
           "durationSeconds": 120,
           "timer": true,
           "timerConfig": {
@@ -51,6 +59,8 @@
           }
         }
       },
+      "signature": "Je ralentis juste un peu.",
+      "rescue": "C'est une vague, pas un danger.",
       "note": "Faisable assis, debout, couché, dans le bus, avant un exam, n'importe quand.",
       "material": null,
       "tags": ["express", "discret", "partout", "stress", "retour-au-calme"],
@@ -73,8 +83,10 @@
     },
     {
       "id": "defoule-001",
+      "code": "D01",
       "title": "Laisser sortir",
       "category": "defoule",
+      "format": "levels",
       "openingPhrase": "Ton corps retient peut-être quelque chose. Tu peux lui donner une sortie, si ça te dit.",
       "levels": {
         "croissant": {
@@ -83,7 +95,9 @@
             "10-15 secondes, pas plus.",
             "Arrête et observe."
           ],
-          "durationSeconds": 15,
+          "shortInstruction": "Secoue tes mains 15 sec. Observe.",
+          "durationLabel": "10–30 sec",
+          "durationSeconds": 30,
           "timer": true,
           "timerConfig": {
             "phases": [
@@ -101,6 +115,8 @@
             "Alterne, trouve ton rythme.",
             "Continue pendant 1 minute."
           ],
+          "shortInstruction": "Tapes croisées genoux, 1 min.",
+          "durationLabel": "30–60 sec",
           "durationSeconds": 60,
           "timer": true,
           "timerConfig": {
@@ -119,6 +135,8 @@
             "Relâche et respire.",
             "Répète 5 fois."
           ],
+          "shortInstruction": "Pousse un mur 10 sec, relâche. (x5)",
+          "durationLabel": "1–2 min",
           "durationSeconds": 120,
           "timer": true,
           "timerConfig": {
@@ -131,6 +149,8 @@
           }
         }
       },
+      "signature": "Mon corps sait quoi faire.",
+      "rescue": "Ça va redescendre.",
       "note": "C'est normal si ça paraît bizarre. C'est pas un spectacle, c'est pour toi.",
       "material": null,
       "tags": ["tension", "énergie", "corps", "mouvement", "évacuer"],
@@ -153,8 +173,10 @@
     },
     {
       "id": "atterris-001",
+      "code": "A01",
       "title": "Contact sol",
       "category": "atterris",
+      "format": "levels",
       "openingPhrase": "On dirait que ça tourne beaucoup. Tu peux revenir au sol quand tu veux.",
       "levels": {
         "croissant": {
@@ -162,7 +184,9 @@
             "Sens tes pieds au sol.",
             "Appuie 5 secondes. Relâche."
           ],
-          "durationSeconds": 15,
+          "shortInstruction": "Pieds au sol, appuie 5 sec. Relâche.",
+          "durationLabel": "10–30 sec",
+          "durationSeconds": 30,
           "timer": false,
           "timerConfig": null
         },
@@ -172,7 +196,9 @@
             "Appuie fort 5 secondes. Relâche.",
             "Répète 3 fois en notant ce qui change."
           ],
-          "durationSeconds": 45,
+          "shortInstruction": "Appuie fort, relâche. (x3) Note ce qui change.",
+          "durationLabel": "30–60 sec",
+          "durationSeconds": 60,
           "timer": true,
           "timerConfig": {
             "phases": [
@@ -191,7 +217,9 @@
             "Appuie fort 5 secondes. Relâche.",
             "Répète 5 fois. Entre chaque, une respiration lente."
           ],
-          "durationSeconds": 90,
+          "shortInstruction": "Scan pieds + appui/relâche. (x5)",
+          "durationLabel": "1–2 min",
+          "durationSeconds": 120,
           "timer": true,
           "timerConfig": {
             "phases": [
@@ -203,6 +231,8 @@
           }
         }
       },
+      "signature": "Je pose mes pieds au sol.",
+      "rescue": "Je suis là. Ici. Maintenant.",
       "note": "Fonctionne partout. Même en classe.",
       "material": null,
       "tags": ["atterris", "présent", "calme", "discret", "pieds"],
@@ -224,16 +254,20 @@
     },
     {
       "id": "repere-001",
+      "code": "F01",
       "title": "Où t'en es ?",
       "category": "repere",
-      "openingPhrase": "Des fois on avance sans trop savoir où on en est — c'est normal, et c'est peut-être le bon moment pour regarder.",
+      "format": "levels",
+      "openingPhrase": "Des fois on avance sans trop savoir où on en est — c'est normal.",
       "levels": {
         "croissant": {
           "instructions": [
             "Sur une échelle de 1 à 10, t'es à combien là, maintenant ?",
             "Pas besoin de justifier. Juste un chiffre."
           ],
-          "durationSeconds": 15,
+          "shortInstruction": "Échelle de 1 à 10. Juste un chiffre.",
+          "durationLabel": "10–30 sec",
+          "durationSeconds": 30,
           "timer": false,
           "timerConfig": null
         },
@@ -244,6 +278,8 @@
             "Qu'est-ce qui roule plutôt bien ?",
             "Qu'est-ce que t'aimerais changer si tu pouvais ?"
           ],
+          "shortInstruction": "3 questions : place, bien, changer.",
+          "durationLabel": "30–60 sec",
           "durationSeconds": 60,
           "timer": false,
           "timerConfig": null
@@ -256,11 +292,15 @@
             "Note juste deux ou trois scènes qui te reviennent.",
             "Ce qui t'a fait sourire, ce qui t'a pesé, ce qui t'a surpris."
           ],
-          "durationSeconds": 180,
+          "shortInstruction": "Rewind de ta semaine. 2-3 scènes.",
+          "durationLabel": "1–2 min",
+          "durationSeconds": 120,
           "timer": false,
           "timerConfig": null
         }
       },
+      "signature": "Là, je sais où j'en suis.",
+      "rescue": "Ça ne va pas durer pour toujours.",
       "note": null,
       "material": null,
       "tags": ["recul", "clarté", "évaluation", "présent"],
@@ -280,8 +320,10 @@
     },
     {
       "id": "enchaine-001",
+      "code": "C01",
       "title": "Reset express",
       "category": "enchaine",
+      "format": "levels",
       "openingPhrase": "Quand tout se bouscule, ton corps a parfois juste besoin d'un signal clair pour se recalibrer.",
       "levels": {
         "croissant": {
@@ -290,6 +332,8 @@
             "Relâche d'un coup en soufflant par la bouche.",
             "Répète une fois si t'en as envie."
           ],
+          "shortInstruction": "Poings serrés 3 sec, relâche d'un coup.",
+          "durationLabel": "10–30 sec",
           "durationSeconds": 30,
           "timer": false,
           "timerConfig": null
@@ -301,7 +345,9 @@
             "Puis secoue tes mains 10 secondes comme si tu les égouttais.",
             "Pose-les à plat sur tes cuisses."
           ],
-          "durationSeconds": 90,
+          "shortInstruction": "Respire + secoue + pose. Séquence complète.",
+          "durationLabel": "30–60 sec",
+          "durationSeconds": 60,
           "timer": true,
           "timerConfig": {
             "phases": [
@@ -320,7 +366,9 @@
             "Termine en pressant tes pieds dans le sol pendant 10 secondes.",
             "Comme si tu voulais laisser une empreinte."
           ],
-          "durationSeconds": 180,
+          "shortInstruction": "Respire + épaules + ancrage pieds.",
+          "durationLabel": "1–2 min",
+          "durationSeconds": 120,
           "timer": true,
           "timerConfig": {
             "phases": [
@@ -333,6 +381,8 @@
           }
         }
       },
+      "signature": "Un geste à la fois, c'est assez.",
+      "rescue": "Je peux tenir encore un peu.",
       "note": "Tu peux t'arrêter quand tu veux, chaque geste compte déjà.",
       "material": null,
       "tags": ["souffle", "mouvement", "atterris", "tension", "combo"],
@@ -353,38 +403,39 @@
     },
     {
       "id": "accroche-001",
+      "code": "P01",
       "title": "Pas seul",
       "category": "accroche",
+      "format": "accroche",
       "openingPhrase": "",
       "levels": {
         "croissant": {
-          "instructions": [
-            "Ce que tu vis, d'autres l'ont vécu aussi."
-          ],
-          "durationSeconds": 10,
+          "instructions": ["Ce que tu vis, d'autres l'ont vécu aussi."],
+          "shortInstruction": "",
+          "durationLabel": "",
+          "durationSeconds": 0,
           "timer": false,
           "timerConfig": null
         },
         "quartier": {
-          "instructions": [
-            "Ce que tu vis, d'autres l'ont vécu aussi.",
-            "Ça veut pas dire que c'est moins dur pour toi."
-          ],
-          "durationSeconds": 20,
+          "instructions": ["Ce que tu vis, d'autres l'ont vécu aussi.", "Ça veut pas dire que c'est moins dur pour toi."],
+          "shortInstruction": "",
+          "durationLabel": "",
+          "durationSeconds": 0,
           "timer": false,
           "timerConfig": null
         },
         "pleine-lune": {
-          "instructions": [
-            "Ce que tu vis, c'est réel.",
-            "Ça compte.",
-            "T'as pas besoin de le justifier."
-          ],
-          "durationSeconds": 30,
+          "instructions": ["Ce que tu vis, c'est réel.", "Ça compte.", "T'as pas besoin de le justifier."],
+          "shortInstruction": "",
+          "durationLabel": "",
+          "durationSeconds": 0,
           "timer": false,
           "timerConfig": null
         }
       },
+      "signature": "Ce que je vis compte.",
+      "rescue": "Je suis pas obligé·e de tout porter.",
       "note": null,
       "material": null,
       "tags": ["validation", "solitude", "légitimité", "soutien"],
@@ -403,15 +454,19 @@
     },
     {
       "id": "decroche-001",
+      "code": "X01",
       "title": "L'interview imaginaire",
       "category": "decroche",
+      "format": "decroche",
       "openingPhrase": "",
       "levels": {
         "croissant": {
           "instructions": [
             "Dans ta tête, réponds à une question de journaliste sur ton talent secret de champion du monde de rangement de chaussettes."
           ],
-          "durationSeconds": 15,
+          "shortInstruction": "",
+          "durationLabel": "",
+          "durationSeconds": 0,
           "timer": false,
           "timerConfig": null
         },
@@ -421,7 +476,9 @@
             "Tu es le journaliste ET la célébrité.",
             "Change de voix entre les deux."
           ],
-          "durationSeconds": 45,
+          "shortInstruction": "",
+          "durationLabel": "",
+          "durationSeconds": 0,
           "timer": false,
           "timerConfig": null
         },
@@ -430,11 +487,15 @@
             "Mène une conférence de presse où tu annonces ta retraite d'un sport qui n'existe pas.",
             "Accepte 3 questions imaginaires avec émotion."
           ],
-          "durationSeconds": 90,
+          "shortInstruction": "",
+          "durationLabel": "",
+          "durationSeconds": 0,
           "timer": false,
           "timerConfig": null
         }
       },
+      "signature": "Là, j'ai décroché.",
+      "rescue": "Mon cerveau exagère un peu.",
       "note": "Adapte le volume à ton environnement. Personne n'a besoin de comprendre.",
       "material": null,
       "tags": ["absurde", "roleplay", "imagination", "décrochage"],
