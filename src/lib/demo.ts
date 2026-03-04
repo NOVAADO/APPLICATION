@@ -1,44 +1,22 @@
 /**
- * Mode DÉMO - Configuration de l'aperçu gratuit
- * Version 2.5.0
+ * Mode DÉMO - Whitelist stricte des cartes accessibles
+ * Version 2.6.0
  *
- * L'app est un tunnel de vente doux pour le jeu physique.
- * Cette sélection montre les meilleures cartes pour donner envie.
+ * Source de vérité unique : demo-cards.json → allowedCodes
+ * Toute l'app filtre via getAvailableTechniques() définie dans techniques.ts.
  *
  * Références :
  * - NOVAADO_ADN.md : "jeu" pas "outil", tunnel doux
  * - AGENT_ECLIPSE.md : structure cartes, signature/secours
  */
 
+import demoCardsData from "@/data/demo-cards.json";
+
 /**
- * IDs des cartes sélectionnées pour la DÉMO
- *
- * Objectif : 18 cartes à terme (2-3 par catégorie)
- * Actuellement : toutes les cartes disponibles (7)
- * À compléter quand plus de techniques seront ajoutées
+ * Codes whitelistés — source de vérité unique.
+ * Pour changer le set démo, éditer demo-cards.json.
  */
-export const DEMO_CARD_IDS: string[] = [
-  // SOUFFLE — S01
-  "souffle-001",
-
-  // DÉFOULE — D01
-  "defoule-001",
-
-  // ATTERRIS — A01
-  "atterris-001",
-
-  // REPÈRE — F01
-  "repere-001",
-
-  // ENCHAÎNE — C01
-  "enchaine-001",
-
-  // ACCROCHE — P01 (format: phrase unique)
-  "accroche-001",
-
-  // DÉCROCHE — X01 (format: absurde)
-  "decroche-001",
-];
+export const ALLOWED_CODES: string[] = demoCardsData.allowedCodes;
 
 /**
  * Vérifie si l'app est en mode DÉMO
@@ -49,16 +27,16 @@ export function isDemoMode(): boolean {
 }
 
 /**
- * Vérifie si une technique fait partie de la DÉMO
+ * Vérifie si un code fait partie de la whitelist démo
  */
-export function isDemoCard(techniqueId: string): boolean {
-  return DEMO_CARD_IDS.includes(techniqueId);
+export function isAllowedCode(code: string): boolean {
+  return ALLOWED_CODES.includes(code);
 }
 
 /**
- * Nombre de cartes dans la DÉMO
+ * Nombre de cartes dans la whitelist
  */
-export const DEMO_CARD_COUNT = DEMO_CARD_IDS.length;
+export const DEMO_CARD_COUNT = ALLOWED_CODES.length;
 
 /**
  * Microcopy pour le tunnel de vente doux
@@ -69,6 +47,10 @@ export const DEMO_CARD_COUNT = DEMO_CARD_IDS.length;
 export const DEMO_MICROCOPY = {
   // Message sur les cartes non disponibles
   cardLocked: "Dans le jeu complet",
+
+  // Message page bloquée (technique hors whitelist)
+  cardBlockedTitle: "Cette carte fait partie du jeu complet.",
+  cardBlockedSubtitle: "52 cartes physiques, même esprit.",
 
   // Message pour catégorie hors démo
   categoryLimited: "Ici, c'est un aperçu. Le jeu complet est dans la boîte.",
@@ -91,19 +73,3 @@ export const DEMO_MICROCOPY = {
  * Nombre d'exercices avant le tunnel doux vers le jeu physique
  */
 export const PROMO_THRESHOLD = 5;
-
-/**
- * Statistiques DÉMO par catégorie
- */
-export const DEMO_STATS = {
-  totalCards: DEMO_CARD_IDS.length,
-  byCategory: {
-    souffle: 1,
-    defoule: 1,
-    atterris: 1,
-    repere: 1,
-    enchaine: 1,
-    accroche: 1,
-    decroche: 1,
-  },
-} as const;

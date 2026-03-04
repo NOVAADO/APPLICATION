@@ -4,17 +4,18 @@
     {
       "id": "souffle-001",
       "code": "S01",
-      "title": "Respire, c'est tout",
+      "title": "Soupir qui descend",
       "category": "souffle",
       "format": "levels",
-      "openingPhrase": "Ton souffle est déjà là. Tu n'as rien à forcer.",
+      "openingPhrase": "Ok... là, c'est beaucoup.",
       "levels": {
         "croissant": {
           "instructions": [
-            "Expire un grand coup, comme un soupir."
+            "Expire un grand coup, comme un soupir.",
+            "Mâchoire relâchée. C'est fait."
           ],
           "shortInstruction": "Un soupir. Mâchoire relâchée. C'est fait.",
-          "durationLabel": "10–30 sec",
+          "durationLabel": "10-30 sec",
           "durationSeconds": 30,
           "timer": false,
           "timerConfig": null
@@ -23,59 +24,88 @@
           "instructions": [
             "Inspire par le nez en comptant jusqu'à 4.",
             "Expire par la bouche en comptant jusqu'à 6.",
-            "Recommence 3 fois."
+            "Recommence 4 fois."
           ],
-          "shortInstruction": "Inspire 4 sec, expire 6 sec. (x3)",
-          "durationLabel": "30–60 sec",
+          "shortInstruction": "Inspire 4 sec, expire 6 sec. (x4)",
+          "durationLabel": "30-60 sec",
           "durationSeconds": 60,
           "timer": true,
           "timerConfig": {
             "phases": [
-              { "name": "Inspire", "duration": 4 },
-              { "name": "Expire", "duration": 6 }
+              {
+                "name": "Inspire",
+                "duration": 4
+              },
+              {
+                "name": "Expire",
+                "duration": 6
+              }
             ],
-            "cycles": 3,
-            "totalDuration": 30
+            "cycles": 4,
+            "totalDuration": 40
           }
         },
         "pleine-lune": {
           "instructions": [
-            "Pose une main sur ton ventre.",
-            "Inspire lentement, sens ton ventre se gonfler.",
-            "Expire doucement, sens ton ventre redescendre.",
-            "Continue à ton rythme pendant 2 minutes.",
-            "Si ton esprit s'échappe, ramène juste ton attention sur ta main."
+            "Inspire par le nez en comptant jusqu'à 4.",
+            "Expire par la bouche en comptant jusqu'à 8.",
+            "Recommence 6 fois, sans forcer."
           ],
-          "shortInstruction": "Respiration ventrale, 2 min, à ton rythme.",
-          "durationLabel": "1–2 min",
+          "shortInstruction": "Inspire 4 sec, expire 8 sec. (x6, sans forcer).",
+          "durationLabel": "1-2 min",
           "durationSeconds": 120,
           "timer": true,
           "timerConfig": {
             "phases": [
-              { "name": "Respire", "duration": 120 }
+              {
+                "name": "Inspire",
+                "duration": 4
+              },
+              {
+                "name": "Expire",
+                "duration": 8
+              }
             ],
-            "cycles": 1,
-            "totalDuration": 120
+            "cycles": 6,
+            "totalDuration": 72
           }
         }
       },
       "signature": "Je ralentis juste un peu.",
-      "rescue": "C'est une vague, pas un danger.",
-      "note": "Faisable assis, debout, couché, dans le bus, avant un exam, n'importe quand.",
+      "rescue": "J'expire plus long que j'inspire.",
+      "note": null,
       "material": null,
-      "tags": ["express", "discret", "partout", "stress", "retour-au-calme"],
+      "tags": [
+        "express",
+        "discret",
+        "partout",
+        "stress",
+        "retour-au-calme"
+      ],
       "premium": false,
       "discretionLevel": "public_ok",
       "evidence": {
         "isCanadaValidated": true,
         "level": "A",
         "canadaSources": [
-          { "org": "CISSS/CIUSSS", "title": "Guides de gestion du stress" },
-          { "org": "Université Laval", "title": "Mon équilibre UL - Cohérence cardiaque", "url": "https://www.ulaval.ca/mon-equilibre-ul/mes-habitudes-de-vie/coherence-cardiaque" }
+          {
+            "org": "CISSS/CIUSSS",
+            "title": "Guides de gestion du stress"
+          },
+          {
+            "org": "Université Laval",
+            "title": "Mon équilibre UL - Cohérence cardiaque",
+            "url": "https://www.ulaval.ca/mon-equilibre-ul/mes-habitudes-de-vie/coherence-cardiaque"
+          }
         ],
         "scientificSources": [
-          { "title": "Stanford 2023 - Soupir physiologique", "year": 2023 },
-          { "title": "Cohérence cardiaque - activation parasympathique" }
+          {
+            "title": "Stanford 2023 - Soupir physiologique",
+            "year": 2023
+          },
+          {
+            "title": "Cohérence cardiaque - activation parasympathique"
+          }
         ],
         "notes": "L'expiration prolongée active le système parasympathique. Effets immédiats.",
         "needsReview": false
@@ -101,7 +131,10 @@
           "timer": true,
           "timerConfig": {
             "phases": [
-              { "name": "Secoue", "duration": 15 }
+              {
+                "name": "Secoue",
+                "duration": 15
+              }
             ],
             "cycles": 1,
             "totalDuration": 15
@@ -121,7 +154,10 @@
           "timer": true,
           "timerConfig": {
             "phases": [
-              { "name": "Croisés", "duration": 60 }
+              {
+                "name": "Croisés",
+                "duration": 60
+              }
             ],
             "cycles": 1,
             "totalDuration": 60
@@ -141,8 +177,14 @@
           "timer": true,
           "timerConfig": {
             "phases": [
-              { "name": "Pousse", "duration": 10 },
-              { "name": "Relâche", "duration": 14 }
+              {
+                "name": "Pousse",
+                "duration": 10
+              },
+              {
+                "name": "Relâche",
+                "duration": 14
+              }
             ],
             "cycles": 5,
             "totalDuration": 120
@@ -153,19 +195,37 @@
       "rescue": "Ça va redescendre.",
       "note": "C'est normal si ça paraît bizarre. C'est pas un spectacle, c'est pour toi.",
       "material": null,
-      "tags": ["tension", "énergie", "corps", "mouvement", "évacuer"],
+      "tags": [
+        "tension",
+        "énergie",
+        "corps",
+        "mouvement",
+        "évacuer"
+      ],
       "premium": false,
       "discretionLevel": "discret",
       "evidence": {
         "isCanadaValidated": true,
         "level": "A",
         "canadaSources": [
-          { "org": "Santé Montérégie", "title": "Fiches exercice et santé mentale", "url": "https://www.santemonteregie.qc.ca/sites/default/files/2022/06/e8.pdf" },
-          { "org": "Commission de la santé mentale du Canada", "title": "Relaxation et étirements", "url": "https://commissionsantementale.ca/mhcc-glossary/relaxation-musculaire-progressive/" }
+          {
+            "org": "Santé Montérégie",
+            "title": "Fiches exercice et santé mentale",
+            "url": "https://www.santemonteregie.qc.ca/sites/default/files/2022/06/e8.pdf"
+          },
+          {
+            "org": "Commission de la santé mentale du Canada",
+            "title": "Relaxation et étirements",
+            "url": "https://commissionsantementale.ca/mhcc-glossary/relaxation-musculaire-progressive/"
+          }
         ],
         "scientificSources": [
-          { "title": "TRE - Tension & Trauma Releasing Exercises (David Berceli)" },
-          { "title": "Mouvements bilatéraux et coordination inter-hémisphérique" }
+          {
+            "title": "TRE - Tension & Trauma Releasing Exercises (David Berceli)"
+          },
+          {
+            "title": "Mouvements bilatéraux et coordination inter-hémisphérique"
+          }
         ],
         "notes": "Combine secouement (TRE), mouvements croisés, exercices isométriques.",
         "needsReview": false
@@ -174,81 +234,78 @@
     {
       "id": "atterris-001",
       "code": "A01",
-      "title": "Contact sol",
+      "title": "Scanner rapide",
       "category": "atterris",
       "format": "levels",
-      "openingPhrase": "On dirait que ça tourne beaucoup. Tu peux revenir au sol quand tu veux.",
+      "openingPhrase": "Tu peux te reconnecter à ce qui t'entoure.",
       "levels": {
         "croissant": {
           "instructions": [
-            "Sens tes pieds au sol.",
-            "Appuie 5 secondes. Relâche."
+            "3 trucs que tu vois.",
+            "Dans ta tête, c'est assez."
           ],
-          "shortInstruction": "Pieds au sol, appuie 5 sec. Relâche.",
-          "durationLabel": "10–30 sec",
-          "durationSeconds": 30,
+          "shortInstruction": "3 trucs que tu vois. Dans ta tête, c'est assez.",
+          "durationLabel": "5-10 s",
+          "durationSeconds": 10,
           "timer": false,
           "timerConfig": null
         },
         "quartier": {
           "instructions": [
-            "Pieds à plat. Sens le poids de ton corps.",
-            "Appuie fort 5 secondes. Relâche.",
-            "Répète 3 fois en notant ce qui change."
+            "3 trucs que tu vois.",
+            "2 trucs que tu touches.",
+            "1 truc que tu entends."
           ],
-          "shortInstruction": "Appuie fort, relâche. (x3) Note ce qui change.",
-          "durationLabel": "30–60 sec",
+          "shortInstruction": "3 trucs que tu vois, 2 que tu touches, 1 que tu entends.",
+          "durationLabel": "30-60 s",
           "durationSeconds": 60,
-          "timer": true,
-          "timerConfig": {
-            "phases": [
-              { "name": "Appuie", "duration": 5 },
-              { "name": "Relâche", "duration": 10 }
-            ],
-            "cycles": 3,
-            "totalDuration": 45
-          }
+          "timer": false,
+          "timerConfig": null
         },
         "pleine-lune": {
           "instructions": [
-            "Assis ou debout, pieds bien à plat.",
-            "Ferme les yeux si ça te va.",
-            "Sens le sol sous chaque pied. Le talon. La plante. Les orteils.",
-            "Appuie fort 5 secondes. Relâche.",
-            "Répète 5 fois. Entre chaque, une respiration lente."
+            "Un truc par sens : vue, toucher, son, odeur, goût.",
+            "Prends ton temps."
           ],
-          "shortInstruction": "Scan pieds + appui/relâche. (x5)",
-          "durationLabel": "1–2 min",
+          "shortInstruction": "Un truc par sens : vue, toucher, son, odeur, goût. Prends ton temps..",
+          "durationLabel": "1-2 min.",
           "durationSeconds": 120,
-          "timer": true,
-          "timerConfig": {
-            "phases": [
-              { "name": "Appuie", "duration": 5 },
-              { "name": "Respire", "duration": 8 }
-            ],
-            "cycles": 5,
-            "totalDuration": 90
-          }
+          "timer": false,
+          "timerConfig": null
         }
       },
       "signature": "Je pose mes pieds au sol.",
-      "rescue": "Je suis là. Ici. Maintenant.",
-      "note": "Fonctionne partout. Même en classe.",
+      "rescue": "Je suis en sécurité en ce moment.",
+      "note": null,
       "material": null,
-      "tags": ["atterris", "présent", "calme", "discret", "pieds"],
+      "tags": [
+        "atterris",
+        "présent",
+        "calme",
+        "discret",
+        "sens"
+      ],
       "premium": false,
       "discretionLevel": "public_ok",
       "evidence": {
         "isCanadaValidated": true,
         "level": "A",
         "canadaSources": [
-          { "org": "Anxiety Canada", "title": "Techniques de grounding", "url": "https://www.anxietycanada.com/" }
+          {
+            "org": "Anxiety Canada",
+            "title": "Techniques de grounding",
+            "url": "https://www.anxietycanada.com/"
+          }
         ],
         "scientificSources": [
-          { "title": "TCC et thérapies trauma-informed - Grounding techniques" },
-          { "title": "Proprioception et régulation du système nerveux" }
+          {
+            "title": "5-4-3-2-1 Grounding technique"
+          },
+          {
+            "title": "Proprioception et régulation du système nerveux"
+          }
         ],
-        "notes": "Activation proprioceptive via pression des pieds. Ramène l'attention au corps présent.",
+        "notes": "Technique sensorielle classique. Ramène l'attention au moment présent via les 5 sens.",
         "needsReview": false
       }
     },
@@ -303,7 +360,12 @@
       "rescue": "Ça ne va pas durer pour toujours.",
       "note": null,
       "material": null,
-      "tags": ["recul", "clarté", "évaluation", "présent"],
+      "tags": [
+        "recul",
+        "clarté",
+        "évaluation",
+        "présent"
+      ],
       "premium": false,
       "discretionLevel": "public_ok",
       "evidence": {
@@ -311,8 +373,12 @@
         "level": "B",
         "canadaSources": [],
         "scientificSources": [
-          { "title": "TCC - Auto-évaluation et petits pas" },
-          { "title": "Journaling et prise de recul" }
+          {
+            "title": "TCC - Auto-évaluation et petits pas"
+          },
+          {
+            "title": "Journaling et prise de recul"
+          }
         ],
         "notes": "Techniques de coaching et thérapie cognitive.",
         "needsReview": false
@@ -351,9 +417,18 @@
           "timer": true,
           "timerConfig": {
             "phases": [
-              { "name": "Respire", "duration": 60 },
-              { "name": "Secoue", "duration": 10 },
-              { "name": "Pose", "duration": 20 }
+              {
+                "name": "Respire",
+                "duration": 60
+              },
+              {
+                "name": "Secoue",
+                "duration": 10
+              },
+              {
+                "name": "Pose",
+                "duration": 20
+              }
             ],
             "cycles": 1,
             "totalDuration": 90
@@ -372,9 +447,18 @@
           "timer": true,
           "timerConfig": {
             "phases": [
-              { "name": "Respire", "duration": 60 },
-              { "name": "Épaules", "duration": 60 },
-              { "name": "Ancrage", "duration": 60 }
+              {
+                "name": "Respire",
+                "duration": 60
+              },
+              {
+                "name": "Épaules",
+                "duration": 60
+              },
+              {
+                "name": "Ancrage",
+                "duration": 60
+              }
             ],
             "cycles": 1,
             "totalDuration": 180
@@ -385,17 +469,28 @@
       "rescue": "Je peux tenir encore un peu.",
       "note": "Tu peux t'arrêter quand tu veux, chaque geste compte déjà.",
       "material": null,
-      "tags": ["souffle", "mouvement", "atterris", "tension", "combo"],
+      "tags": [
+        "souffle",
+        "mouvement",
+        "atterris",
+        "tension",
+        "combo"
+      ],
       "premium": false,
       "discretionLevel": "discret",
       "evidence": {
         "isCanadaValidated": true,
         "level": "A",
         "canadaSources": [
-          { "org": "Anxiety Canada", "title": "Techniques combinées de régulation" }
+          {
+            "org": "Anxiety Canada",
+            "title": "Techniques combinées de régulation"
+          }
         ],
         "scientificSources": [
-          { "title": "Approche multimodale - souffle + mouvement + atterrissage" }
+          {
+            "title": "Approche multimodale - souffle + mouvement + atterrissage"
+          }
         ],
         "notes": "Combinaison de trois approches validées pour effet synergique.",
         "needsReview": false
@@ -410,7 +505,9 @@
       "openingPhrase": "",
       "levels": {
         "croissant": {
-          "instructions": ["Ce que tu vis, d'autres l'ont vécu aussi."],
+          "instructions": [
+            "Ce que tu vis, d'autres l'ont vécu aussi."
+          ],
           "shortInstruction": "",
           "durationLabel": "",
           "durationSeconds": 0,
@@ -418,7 +515,10 @@
           "timerConfig": null
         },
         "quartier": {
-          "instructions": ["Ce que tu vis, d'autres l'ont vécu aussi.", "Ça veut pas dire que c'est moins dur pour toi."],
+          "instructions": [
+            "Ce que tu vis, d'autres l'ont vécu aussi.",
+            "Ça veut pas dire que c'est moins dur pour toi."
+          ],
           "shortInstruction": "",
           "durationLabel": "",
           "durationSeconds": 0,
@@ -426,7 +526,11 @@
           "timerConfig": null
         },
         "pleine-lune": {
-          "instructions": ["Ce que tu vis, c'est réel.", "Ça compte.", "T'as pas besoin de le justifier."],
+          "instructions": [
+            "Ce que tu vis, c'est réel.",
+            "Ça compte.",
+            "T'as pas besoin de le justifier."
+          ],
           "shortInstruction": "",
           "durationLabel": "",
           "durationSeconds": 0,
@@ -438,7 +542,12 @@
       "rescue": "Je suis pas obligé·e de tout porter.",
       "note": null,
       "material": null,
-      "tags": ["validation", "solitude", "légitimité", "soutien"],
+      "tags": [
+        "validation",
+        "solitude",
+        "légitimité",
+        "soutien"
+      ],
       "premium": false,
       "discretionLevel": "public_ok",
       "evidence": {
@@ -446,7 +555,9 @@
         "level": "B",
         "canadaSources": [],
         "scientificSources": [
-          { "title": "Validation émotionnelle - DBT (Marsha Linehan)" }
+          {
+            "title": "Validation émotionnelle - DBT (Marsha Linehan)"
+          }
         ],
         "notes": "La validation réduit l'intensité émotionnelle et le sentiment d'isolement.",
         "needsReview": false
@@ -498,7 +609,12 @@
       "rescue": "Mon cerveau exagère un peu.",
       "note": "Adapte le volume à ton environnement. Personne n'a besoin de comprendre.",
       "material": null,
-      "tags": ["absurde", "roleplay", "imagination", "décrochage"],
+      "tags": [
+        "absurde",
+        "roleplay",
+        "imagination",
+        "décrochage"
+      ],
       "premium": false,
       "discretionLevel": "discret",
       "evidence": {
@@ -506,10 +622,84 @@
         "level": "C",
         "canadaSources": [],
         "scientificSources": [
-          { "title": "Distraction cognitive - interruption des ruminations" },
-          { "title": "Humour et régulation émotionnelle" }
+          {
+            "title": "Distraction cognitive - interruption des ruminations"
+          },
+          {
+            "title": "Humour et régulation émotionnelle"
+          }
         ],
         "notes": "L'absurde crée une distance avec le stress et interrompt les boucles mentales.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "decroche-009",
+      "code": "X09",
+      "title": "Agent secret",
+      "category": "decroche",
+      "format": "decroche",
+      "openingPhrase": "",
+      "levels": {
+        "croissant": {
+          "instructions": [
+            "Choisis un objet autour de toi. Dans ta tête, décris-le comme si tu devais l'expliquer à un extraterrestre.",
+            "Nomme 3 détails bizarres et arrête."
+          ],
+          "shortInstruction": "",
+          "durationLabel": "",
+          "durationSeconds": 0,
+          "timer": false,
+          "timerConfig": null
+        },
+        "quartier": {
+          "instructions": [
+            "Choisis un objet autour de toi. Dans ta tête, décris-le comme si tu devais l'expliquer à un extraterrestre.",
+            "Nomme 3 détails bizarres et arrête."
+          ],
+          "shortInstruction": "",
+          "durationLabel": "",
+          "durationSeconds": 0,
+          "timer": false,
+          "timerConfig": null
+        },
+        "pleine-lune": {
+          "instructions": [
+            "Choisis un objet autour de toi. Dans ta tête, décris-le comme si tu devais l'expliquer à un extraterrestre.",
+            "Nomme 3 détails bizarres et arrête."
+          ],
+          "shortInstruction": "",
+          "durationLabel": "",
+          "durationSeconds": 0,
+          "timer": false,
+          "timerConfig": null
+        }
+      },
+      "signature": "Ce que je ressens est valide.",
+      "rescue": "Bizarre validé.",
+      "note": null,
+      "material": null,
+      "tags": [
+        "absurde",
+        "observation",
+        "imagination",
+        "décrochage"
+      ],
+      "premium": false,
+      "discretionLevel": "public_ok",
+      "evidence": {
+        "isCanadaValidated": false,
+        "level": "C",
+        "canadaSources": [],
+        "scientificSources": [
+          {
+            "title": "Distraction cognitive - interruption des ruminations"
+          },
+          {
+            "title": "Defamiliarisation et attention sensorielle"
+          }
+        ],
+        "notes": "Forcer un regard neuf sur le quotidien interrompt les boucles anxieuses.",
         "needsReview": false
       }
     }

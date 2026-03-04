@@ -3,7 +3,6 @@
 import { useState, useCallback } from "react";
 import { toast } from "sonner";
 import type { Technique, Category, MoonPhase } from "@/lib/types";
-import { MOON_PHASES } from "@/lib/types";
 import { LevelAccordion } from "./LevelAccordion";
 import { WaveSeparator } from "./WaveSeparator";
 
@@ -159,31 +158,20 @@ export function TechniqueCard({
           </div>
         )}
 
-        {/* ── FORMAT: DÉCROCHE (absurde unique) ── */}
+        {/* ── FORMAT: DÉCROCHE (format unique, PAS de phases de lune) ── */}
         {isDecrocheFormat && (
           <div className="py-4">
-            <div className="space-y-4">
-              {moonPhases.map((phase) => {
-                const levelData = technique.levels[phase];
-                return (
-                  <div key={phase} className="p-3 bg-gray-50 rounded-xl">
-                    <div className="flex items-start gap-3">
-                      <img
-                        src={MOON_PHASES[phase].icon}
-                        alt=""
-                        className="w-8 h-4 flex-shrink-0 mt-0.5 object-contain"
-                      />
-                      <div className="space-y-1">
-                        {levelData.instructions.map((instruction, i) => (
-                          <p key={i} className="text-sm text-gray-700 leading-relaxed">
-                            {instruction}
-                          </p>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
+            <div
+              className="p-4 rounded-2xl"
+              style={{ backgroundColor: `${categoryColor}15` }}
+            >
+              <div className="space-y-2">
+                {technique.levels.croissant.instructions.map((instruction, i) => (
+                  <p key={i} className="text-sm text-gray-800 leading-relaxed">
+                    {instruction}
+                  </p>
+                ))}
+              </div>
             </div>
             {technique.note && (
               <p className="text-xs text-gray-400 italic mt-3 text-center">

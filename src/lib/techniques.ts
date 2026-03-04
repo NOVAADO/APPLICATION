@@ -1,33 +1,59 @@
 /**
  * Gestion des techniques - Application Éclipse
- * Version 2.0.0 - Modèle 3 niveaux par carte (phases de lune)
+ * Version 2.6.0 - Filtrage centralisé via whitelist démo
  *
- * Mode DÉMO : L'app peut fonctionner en mode aperçu (cartes sélectionnées)
- * pour servir de tunnel de vente doux vers le jeu physique.
+ * RÈGLE : toutes les pages consomment getAvailableTechniques()
+ * et getAvailableCategories(). Jamais techniques.json directement.
  */
 
-import type { Technique, Category, MoonPhase, DiscretionLevel, MOON_PHASES } from "./types";
+import type { Technique, Category, DiscretionLevel } from "./types";
 import techniquesData from "@/data/techniques.json";
 import categoriesData from "@/data/categories.json";
-import { isDemoMode, DEMO_CARD_IDS } from "./demo";
+import { isDemoMode, ALLOWED_CODES } from "./demo";
 
-// Données typées
+// ── Données brutes (complètes) ──
 const allTechniques: Technique[] = techniquesData.techniques as Technique[];
-export const categories: Category[] = categoriesData.categories as Category[];
+const allCategories: Category[] = categoriesData.categories as Category[];
+
+// ── FONCTION CENTRALE : getAvailableTechniques ──
+// C'est LA source de vérité pour toute l'app.
 
 /**
- * Techniques disponibles selon le mode (DÉMO ou complet)
- * En mode DÉMO : uniquement les cartes sélectionnées
+ * Retourne les techniques accessibles.
+ * En mode DÉMO : uniquement celles dont code ∈ ALLOWED_CODES.
+ * En mode complet : toutes.
  */
-export const techniques: Technique[] = isDemoMode()
-  ? allTechniques.filter((t) => DEMO_CARD_IDS.includes(t.id))
-  : allTechniques;
+export function getAvailableTechniques(): Technique[] {
+  if (isDemoMode()) {
+    return allTechniques.filter((t) => ALLOWED_CODES.includes(t.code));
+  }
+  return allTechniques;
+}
 
 /**
- * Récupère toutes les techniques gratuites (non-premium)
+ * Retourne les catégories qui ont ≥1 technique disponible.
+ * En mode DÉMO, les catégories vides sont exclues.
+ */
+export function getAvailableCategories(): Category[] {
+  const available = getAvailableTechniques();
+  const activeCategoryIds = new Set(available.map((t) => t.category));
+
+  return allCategories.filter((c) => activeCategoryIds.has(c.id));
+}
+
+/**
+ * Raccourci : techniques disponibles (legacy compat)
+ */
+export const techniques: Technique[] = getAvailableTechniques();
+export const categories: Category[] = allCategories;
+
+// ── Fonctions de filtrage ──
+
+/**
+ * Récupère les techniques gratuites parmi les disponibles
  */
 export function getFreeTechniques(): Technique[] {
-  return techniques.filter((t) => !t.premium);
+  return getAvailableTechniques().filter((t) => !t.premium);
 }
 
 /**
@@ -52,6 +78,8 @@ export function filterByDiscretion(
   return techs.filter((t) => t.discretionLevel === level);
 }
 
+// ── Tirage aléatoire (toujours dans le set disponible) ──
+
 /**
  * Tire une technique au hasard parmi une liste
  */
@@ -62,15 +90,16 @@ export function drawRandomTechnique(techs: Technique[]): Technique | null {
 }
 
 /**
- * Tire une technique au hasard avec filtres optionnels
- * Ne retourne que des techniques gratuites par défaut
+ * Tire une technique au hasard dans le set disponible (whitelist en démo)
  */
 export function drawTechnique(options?: {
   category?: string | null;
   discretionLevel?: DiscretionLevel | null;
   includePremium?: boolean;
 }): Technique | null {
-  let filtered = options?.includePremium ? techniques : getFreeTechniques();
+  let filtered = options?.includePremium
+    ? getAvailableTechniques()
+    : getFreeTechniques();
 
   if (options?.category) {
     filtered = filterByCategory(filtered, options.category);
@@ -82,33 +111,47 @@ export function drawTechnique(options?: {
   return drawRandomTechnique(filtered);
 }
 
+// ── Lookups ──
+
 /**
- * Récupère une technique par son ID
+ * Récupère une technique par son ID.
+ * En mode DÉMO, retourne undefined si la technique est hors whitelist.
  */
 export function getTechniqueById(id: string): Technique | undefined {
-  return techniques.find((t) => t.id === id);
+  return getAvailableTechniques().find((t) => t.id === id);
+}
+
+/**
+ * Récupère une technique par son ID SANS filtre whitelist.
+ * Utilisé uniquement pour vérifier si l'ID existe dans la base complète
+ * (pour distinguer "carte hors démo" vs "carte inexistante").
+ */
+export function getTechniqueByIdUnfiltered(id: string): Technique | undefined {
+  return allTechniques.find((t) => t.id === id);
 }
 
 /**
  * Récupère une catégorie par son ID
  */
 export function getCategoryById(id: string): Category | undefined {
-  return categories.find((c) => c.id === id);
+  return allCategories.find((c) => c.id === id);
 }
 
 /**
- * Récupère les catégories triées par ordre
+ * Récupère les catégories triées par ordre (seulement celles avec cartes disponibles)
  */
 export function getSortedCategories(): Category[] {
-  return [...categories].sort((a, b) => a.order - b.order);
+  return [...getAvailableCategories()].sort((a, b) => a.order - b.order);
 }
 
 /**
  * Récupère les catégories gratuites
  */
 export function getFreeCategories(): Category[] {
-  return categories.filter((c) => !c.premium);
+  return getAvailableCategories().filter((c) => !c.premium);
 }
+
+// ── Formatage ──
 
 /**
  * Formate la durée en secondes pour l'affichage
@@ -126,40 +169,6 @@ export function formatDurationSeconds(seconds: number): string {
 }
 
 /**
- * Récupère les techniques validées au Canada
- */
-export function getCanadaValidatedTechniques(): Technique[] {
-  return techniques.filter((t) => t.evidence.isCanadaValidated);
-}
-
-/**
- * Récupère les techniques par niveau de preuve
- */
-export function getTechniquesByEvidenceLevel(level: "A" | "B" | "C"): Technique[] {
-  return techniques.filter((t) => t.evidence.level === level);
-}
-
-/**
- * Compte les techniques disponibles selon les filtres
- */
-export function countAvailableTechniques(options?: {
-  category?: string | null;
-  discretionLevel?: DiscretionLevel | null;
-  includePremium?: boolean;
-}): number {
-  let filtered = options?.includePremium ? techniques : getFreeTechniques();
-
-  if (options?.category) {
-    filtered = filterByCategory(filtered, options.category);
-  }
-  if (options?.discretionLevel) {
-    filtered = filterByDiscretion(filtered, options.discretionLevel);
-  }
-
-  return filtered.length;
-}
-
-/**
  * Récupère la plage de durées pour une technique (min-max des 3 niveaux)
  */
 export function getTechniqueDurationRange(technique: Technique): string {
@@ -171,4 +180,42 @@ export function getTechniqueDurationRange(technique: Technique): string {
   const min = Math.min(...durations);
   const max = Math.max(...durations);
   return `${formatDurationSeconds(min)} - ${formatDurationSeconds(max)}`;
+}
+
+// ── Evidence ──
+
+/**
+ * Récupère les techniques validées au Canada
+ */
+export function getCanadaValidatedTechniques(): Technique[] {
+  return getAvailableTechniques().filter((t) => t.evidence.isCanadaValidated);
+}
+
+/**
+ * Récupère les techniques par niveau de preuve
+ */
+export function getTechniquesByEvidenceLevel(level: "A" | "B" | "C"): Technique[] {
+  return getAvailableTechniques().filter((t) => t.evidence.level === level);
+}
+
+/**
+ * Compte les techniques disponibles selon les filtres
+ */
+export function countAvailableTechniques(options?: {
+  category?: string | null;
+  discretionLevel?: DiscretionLevel | null;
+  includePremium?: boolean;
+}): number {
+  let filtered = options?.includePremium
+    ? getAvailableTechniques()
+    : getFreeTechniques();
+
+  if (options?.category) {
+    filtered = filterByCategory(filtered, options.category);
+  }
+  if (options?.discretionLevel) {
+    filtered = filterByDiscretion(filtered, options.discretionLevel);
+  }
+
+  return filtered.length;
 }

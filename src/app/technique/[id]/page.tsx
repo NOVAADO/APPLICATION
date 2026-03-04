@@ -8,9 +8,11 @@ import { FeedbackPrompt } from "@/components/FeedbackPrompt";
 import type { Feedback } from "@/lib/types";
 import {
   getTechniqueById,
+  getTechniqueByIdUnfiltered,
   getCategoryById,
   drawTechnique,
 } from "@/lib/techniques";
+import { isDemoMode, DEMO_MICROCOPY } from "@/lib/demo";
 
 interface TechniquePageProps {
   params: Promise<{ id: string }>;
@@ -69,7 +71,39 @@ export default function TechniquePage({ params }: TechniquePageProps) {
   const technique = getTechniqueById(resolvedId);
   const category = technique ? getCategoryById(technique.category) : undefined;
 
-  // Technique non trouvée
+  // Technique hors whitelist en mode démo → page soft "Dans le jeu complet"
+  if (!technique && isDemoMode()) {
+    const existsInFull = getTechniqueByIdUnfiltered(resolvedId);
+    if (existsInFull) {
+      return (
+        <div className="flex-1 flex flex-col items-center justify-center px-6 py-12 text-center">
+          <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-eclipse-card flex items-center justify-center">
+            <svg className="w-8 h-8 text-eclipse-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+          </div>
+          <p className="text-lg font-medium mb-2">{DEMO_MICROCOPY.cardBlockedTitle}</p>
+          <p className="text-eclipse-muted mb-8">{DEMO_MICROCOPY.cardBlockedSubtitle}</p>
+          <div className="flex flex-col gap-3 w-full max-w-xs">
+            <button
+              onClick={() => router.push("/jeu-physique")}
+              className="w-full py-3.5 rounded-xl bg-gradient-to-r from-souffle to-atterris text-eclipse-bg font-semibold touch-feedback hover:opacity-90 transition-opacity"
+            >
+              Voir le jeu
+            </button>
+            <button
+              onClick={() => router.push("/")}
+              className="w-full py-3 text-eclipse-muted hover:text-eclipse-text transition-colors"
+            >
+              Retour à l&apos;accueil
+            </button>
+          </div>
+        </div>
+      );
+    }
+  }
+
+  // Technique non trouvée (n'existe pas du tout)
   if (!technique) {
     return (
       <div className="flex-1 flex flex-col items-center justify-center px-6 py-12">
