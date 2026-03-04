@@ -160,7 +160,7 @@ export default function AidePage() {
 
       {/* Section Pensées difficiles */}
       <section className="mb-8">
-        <h2 className="text-lg font-semibold mb-4 text-ancrage">
+        <h2 className="text-lg font-semibold mb-4 text-atterris">
           Pensées difficiles
         </h2>
         <p className="text-eclipse-muted text-sm mb-4">
@@ -171,13 +171,13 @@ export default function AidePage() {
           {/* 988 */}
           <a
             href="tel:988"
-            className="flex items-center gap-4 p-4 rounded-xl bg-eclipse-card border border-eclipse-muted/20 hover:border-ancrage/50 transition-all touch-feedback"
+            className="flex items-center gap-4 p-4 rounded-xl bg-eclipse-card border border-eclipse-muted/20 hover:border-atterris/50 transition-all touch-feedback"
           >
             <div
-              className="w-10 h-10 rounded-full bg-ancrage/20 flex items-center justify-center flex-shrink-0"
+              className="w-10 h-10 rounded-full bg-atterris/20 flex items-center justify-center flex-shrink-0"
               aria-hidden="true"
             >
-              <span className="text-ancrage font-bold text-lg">988</span>
+              <span className="text-atterris font-bold text-lg">988</span>
             </div>
             <div className="flex-1">
               <p className="font-medium text-eclipse-text">
@@ -188,7 +188,7 @@ export default function AidePage() {
               </p>
               <p className="text-eclipse-muted/60 text-xs mt-1">24h/24, 7j/7</p>
             </div>
-            <span className="text-ancrage text-sm font-medium">Appeler</span>
+            <span className="text-atterris text-sm font-medium">Appeler</span>
           </a>
 
           {/* suicide.ca */}
@@ -196,14 +196,14 @@ export default function AidePage() {
             href="https://suicide.ca"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-4 p-4 rounded-xl bg-eclipse-card border border-eclipse-muted/20 hover:border-ancrage/50 transition-all touch-feedback"
+            className="flex items-center gap-4 p-4 rounded-xl bg-eclipse-card border border-eclipse-muted/20 hover:border-atterris/50 transition-all touch-feedback"
           >
             <div
-              className="w-10 h-10 rounded-full bg-ancrage/20 flex items-center justify-center flex-shrink-0"
+              className="w-10 h-10 rounded-full bg-atterris/20 flex items-center justify-center flex-shrink-0"
               aria-hidden="true"
             >
               <svg
-                className="w-5 h-5 text-ancrage"
+                className="w-5 h-5 text-atterris"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -221,14 +221,14 @@ export default function AidePage() {
               <p className="text-eclipse-muted text-sm">Clavardage en direct</p>
               <p className="text-eclipse-muted/60 text-xs mt-1">24h/24, 7j/7</p>
             </div>
-            <span className="text-ancrage text-sm font-medium">Ouvrir</span>
+            <span className="text-atterris text-sm font-medium">Ouvrir</span>
           </a>
         </div>
       </section>
 
       {/* Section Autres ressources */}
       <section className="mb-8">
-        <h2 className="text-lg font-semibold mb-4 text-faire-le-point">
+        <h2 className="text-lg font-semibold mb-4 text-repere">
           Autres ressources
         </h2>
 
@@ -236,14 +236,14 @@ export default function AidePage() {
           {/* Jeunesse, J'écoute */}
           <a
             href="sms:686868&body=PARLER"
-            className="flex items-center gap-4 p-4 rounded-xl bg-eclipse-card border border-eclipse-muted/20 hover:border-faire-le-point/50 transition-all touch-feedback"
+            className="flex items-center gap-4 p-4 rounded-xl bg-eclipse-card border border-eclipse-muted/20 hover:border-repere/50 transition-all touch-feedback"
           >
             <div
-              className="w-10 h-10 rounded-full bg-faire-le-point/20 flex items-center justify-center flex-shrink-0"
+              className="w-10 h-10 rounded-full bg-repere/20 flex items-center justify-center flex-shrink-0"
               aria-hidden="true"
             >
               <svg
-                className="w-5 h-5 text-faire-le-point"
+                className="w-5 h-5 text-repere"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -265,7 +265,7 @@ export default function AidePage() {
               </p>
               <p className="text-eclipse-muted/60 text-xs mt-1">24h/24, 7j/7</p>
             </div>
-            <span className="text-faire-le-point text-sm font-medium">
+            <span className="text-repere text-sm font-medium">
               Écrire
             </span>
           </a>
@@ -273,20 +273,20 @@ export default function AidePage() {
           {/* Info-Social 811 */}
           <a
             href="tel:811"
-            className="flex items-center gap-4 p-4 rounded-xl bg-eclipse-card border border-eclipse-muted/20 hover:border-faire-le-point/50 transition-all touch-feedback"
+            className="flex items-center gap-4 p-4 rounded-xl bg-eclipse-card border border-eclipse-muted/20 hover:border-repere/50 transition-all touch-feedback"
           >
             <div
-              className="w-10 h-10 rounded-full bg-faire-le-point/20 flex items-center justify-center flex-shrink-0"
+              className="w-10 h-10 rounded-full bg-repere/20 flex items-center justify-center flex-shrink-0"
               aria-hidden="true"
             >
-              <span className="text-faire-le-point font-bold text-lg">811</span>
+              <span className="text-repere font-bold text-lg">811</span>
             </div>
             <div className="flex-1">
               <p className="font-medium text-eclipse-text">Info-Social 811</p>
               <p className="text-eclipse-muted text-sm">Option 2</p>
               <p className="text-eclipse-muted/60 text-xs mt-1">24h/24, 7j/7</p>
             </div>
-            <span className="text-faire-le-point text-sm font-medium">
+            <span className="text-repere text-sm font-medium">
               Appeler
             </span>
           </a>
@@ -296,14 +296,14 @@ export default function AidePage() {
             href="https://www.quebec.ca/sante/trouver-une-ressource/aire-ouverte"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-4 p-4 rounded-xl bg-eclipse-card border border-eclipse-muted/20 hover:border-faire-le-point/50 transition-all touch-feedback"
+            className="flex items-center gap-4 p-4 rounded-xl bg-eclipse-card border border-eclipse-muted/20 hover:border-repere/50 transition-all touch-feedback"
           >
             <div
-              className="w-10 h-10 rounded-full bg-faire-le-point/20 flex items-center justify-center flex-shrink-0"
+              className="w-10 h-10 rounded-full bg-repere/20 flex items-center justify-center flex-shrink-0"
               aria-hidden="true"
             >
               <svg
-                className="w-5 h-5 text-faire-le-point"
+                className="w-5 h-5 text-repere"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -331,7 +331,7 @@ export default function AidePage() {
                 En personne, sans rendez-vous
               </p>
             </div>
-            <span className="text-faire-le-point text-sm font-medium">
+            <span className="text-repere text-sm font-medium">
               Trouver
             </span>
           </a>

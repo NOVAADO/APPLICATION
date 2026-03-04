@@ -1,5 +1,5 @@
 {
-  "version": "2.0.0",
+  "version": "2.4.0",
   "techniques": [
     {
       "id": "souffle-001",
@@ -72,9 +72,9 @@
       }
     },
     {
-      "id": "decharge-001",
+      "id": "defoule-001",
       "title": "Laisser sortir",
-      "category": "decharge",
+      "category": "defoule",
       "openingPhrase": "Ton corps retient peut-être quelque chose. Tu peux lui donner une sortie, si ça te dit.",
       "levels": {
         "croissant": {
@@ -152,9 +152,9 @@
       }
     },
     {
-      "id": "ancrage-001",
+      "id": "atterris-001",
       "title": "Contact sol",
-      "category": "ancrage",
+      "category": "atterris",
       "openingPhrase": "On dirait que ça tourne beaucoup. Tu peux revenir au sol quand tu veux.",
       "levels": {
         "croissant": {
@@ -205,7 +205,7 @@
       },
       "note": "Fonctionne partout. Même en classe.",
       "material": null,
-      "tags": ["ancrage", "présent", "calme", "discret", "pieds"],
+      "tags": ["atterris", "présent", "calme", "discret", "pieds"],
       "premium": false,
       "discretionLevel": "public_ok",
       "evidence": {
@@ -223,9 +223,9 @@
       }
     },
     {
-      "id": "faire-le-point-001",
+      "id": "repere-001",
       "title": "Où t'en es ?",
-      "category": "faire-le-point",
+      "category": "repere",
       "openingPhrase": "Des fois on avance sans trop savoir où on en est — c'est normal, et c'est peut-être le bon moment pour regarder.",
       "levels": {
         "croissant": {
@@ -279,9 +279,9 @@
       }
     },
     {
-      "id": "combinaison-001",
+      "id": "enchaine-001",
       "title": "Reset express",
-      "category": "combinaison",
+      "category": "enchaine",
       "openingPhrase": "Quand tout se bouscule, ton corps a parfois juste besoin d'un signal clair pour se recalibrer.",
       "levels": {
         "croissant": {
@@ -335,7 +335,7 @@
       },
       "note": "Tu peux t'arrêter quand tu veux, chaque geste compte déjà.",
       "material": null,
-      "tags": ["souffle", "mouvement", "ancrage", "tension", "combo"],
+      "tags": ["souffle", "mouvement", "atterris", "tension", "combo"],
       "premium": false,
       "discretionLevel": "discret",
       "evidence": {
@@ -345,16 +345,16 @@
           { "org": "Anxiety Canada", "title": "Techniques combinées de régulation" }
         ],
         "scientificSources": [
-          { "title": "Approche multimodale - souffle + mouvement + ancrage" }
+          { "title": "Approche multimodale - souffle + mouvement + atterrissage" }
         ],
         "notes": "Combinaison de trois approches validées pour effet synergique.",
         "needsReview": false
       }
     },
     {
-      "id": "paroles-fortes-001",
+      "id": "accroche-001",
       "title": "Pas seul",
-      "category": "paroles-fortes",
+      "category": "accroche",
       "openingPhrase": "",
       "levels": {
         "croissant": {
@@ -402,9 +402,9 @@
       }
     },
     {
-      "id": "chaos-001",
+      "id": "decroche-001",
       "title": "L'interview imaginaire",
-      "category": "chaos",
+      "category": "decroche",
       "openingPhrase": "",
       "levels": {
         "croissant": {

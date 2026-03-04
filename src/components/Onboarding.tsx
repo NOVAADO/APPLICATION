@@ -87,7 +87,7 @@ export function Onboarding() {
         className="w-full max-w-sm bg-eclipse-card rounded-2xl p-6 border border-eclipse-muted/20 shadow-xl text-center"
       >
         {/* Icône */}
-        <div className="w-16 h-16 mx-auto mb-5 rounded-full bg-gradient-to-br from-souffle/20 to-ancrage/20 flex items-center justify-center">
+        <div className="w-16 h-16 mx-auto mb-5 rounded-full bg-gradient-to-br from-souffle/20 to-atterris/20 flex items-center justify-center">
           <Image
             src="/pictos/pige-carte.svg"
             alt=""
@@ -118,7 +118,7 @@ export function Onboarding() {
         {/* CTA unique */}
         <button
           onClick={handleClose}
-          className="w-full py-3 rounded-xl bg-gradient-to-r from-souffle to-ancrage text-eclipse-bg font-semibold hover:opacity-90 transition-opacity"
+          className="w-full py-3 rounded-xl bg-gradient-to-r from-souffle to-atterris text-eclipse-bg font-semibold hover:opacity-90 transition-opacity"
         >
           C&apos;est parti
         </button>

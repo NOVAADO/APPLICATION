@@ -121,7 +121,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
                 <div className="flex gap-1 mt-1">
                   {Object.entries(MOON_PHASES).map(([key, phase]) => (
                     <span key={key} className="text-xs" title={phase.description}>
-                      {phase.emoji}
+                      <img src={phase.icon} alt={phase.label} className="w-5 h-5 inline-block" />
                     </span>
                   ))}
                 </div>

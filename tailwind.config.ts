@@ -9,12 +9,16 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // NOVA ADO brand colors based on categories
+        // NOVA ADO brand colors based on categories (v2.4)
         souffle: "#7DD3FC",
-        decharge: "#FB923C",
-        ancrage: "#4ADE80",
-        "faire-le-point": "#A78BFA",
-        "paroles-fortes": "#EF4444",
+        defoule: "#FB923C",
+        atterris: "#4ADE80",
+        repere: "#A78BFA",
+        enchaine: "#2DD4BF",
+        accroche: "#EF4444",
+        decroche: "#FBBF24",
+        "carte-blanche": "#94A3B8",
+        licorne: "#E879F9",
         // UI colors
         eclipse: {
           bg: "#0F172A",

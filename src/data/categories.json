@@ -1,77 +1,86 @@
 {
-  "version": "1.1.1",
+  "version": "2.4.0",
   "categories": [
     {
       "id": "souffle",
       "name": "Souffle",
-      "description": "Respire. Calme ton système.",
+      "description": "Respire. La pression redescend.",
       "icon": "souffle.svg",
       "color": "#7DD3FC",
       "premium": false,
       "order": 1
     },
     {
-      "id": "decharge",
-      "name": "Décharge",
-      "description": "Bouge. Évacue l'énergie.",
-      "icon": "decharge.svg",
+      "id": "defoule",
+      "name": "Défoule",
+      "description": "Bouge. Sors le trop-plein.",
+      "icon": "defoule.svg",
       "color": "#FB923C",
       "premium": false,
       "order": 2
     },
     {
-      "id": "ancrage",
-      "name": "Ancrage",
-      "description": "Reviens au présent.",
-      "icon": "ancrage.svg",
+      "id": "atterris",
+      "name": "Atterris",
+      "description": "Reviens ici. Maintenant.",
+      "icon": "atterris.svg",
       "color": "#4ADE80",
       "premium": false,
       "order": 3
     },
     {
-      "id": "faire-le-point",
-      "name": "Faire le point",
-      "description": "Casse la spirale.",
-      "icon": "faire-le-point.svg",
+      "id": "repere",
+      "name": "Repère",
+      "description": "Juste voir où t'en es.",
+      "icon": "repere.svg",
       "color": "#A78BFA",
       "premium": false,
       "order": 4
     },
     {
-      "id": "paroles-fortes",
-      "name": "Paroles fortes",
-      "description": "Ton boost.",
-      "icon": "paroles-fortes.svg",
-      "color": "#EF4444",
+      "id": "enchaine",
+      "name": "Enchaîne",
+      "description": "Ça se suit. Une étape à la fois.",
+      "icon": "enchaine.svg",
+      "color": "#2DD4BF",
       "premium": false,
       "order": 5
     },
     {
-      "id": "chaos",
-      "name": "Chaos",
-      "description": "Accepte le désordre.",
-      "icon": "chaos.svg",
-      "color": "#FBBF24",
+      "id": "accroche",
+      "name": "Accroche",
+      "description": "Une phrase vraie quand ça brasse.",
+      "icon": "accroche.svg",
+      "color": "#EF4444",
       "premium": false,
       "order": 6
     },
     {
-      "id": "combinaison",
-      "name": "Combinaison",
-      "description": "Plusieurs techniques. Un moment.",
-      "icon": "combinaison.svg",
-      "color": "#2DD4BF",
+      "id": "decroche",
+      "name": "Décroche",
+      "description": "Un mini-défi absurde. Ça relâche.",
+      "icon": "decroche.svg",
+      "color": "#FBBF24",
       "premium": false,
       "order": 7
     },
     {
       "id": "carte-blanche",
       "name": "Carte blanche",
-      "description": "Crée ta propre technique.",
+      "description": "Ta façon à toi. Aucune règle.",
       "icon": "carte-blanche.svg",
       "color": "#94A3B8",
       "premium": true,
       "order": 8
+    },
+    {
+      "id": "licorne",
+      "name": "Licorne",
+      "description": "Carte rare. Interrompt doucement le rythme.",
+      "icon": "licorne.svg",
+      "color": "#E879F9",
+      "premium": false,
+      "order": 9
     }
   ]
 }

@@ -21,7 +21,7 @@ export function DrawButton({ onClick, disabled = false }: DrawButtonProps) {
         w-full max-w-xs mx-auto
         py-4 px-8 rounded-2xl
         text-lg font-semibold
-        bg-gradient-to-r from-souffle to-ancrage
+        bg-gradient-to-r from-souffle to-atterris
         text-eclipse-bg
         shadow-lg shadow-souffle/20
         transition-all duration-200
