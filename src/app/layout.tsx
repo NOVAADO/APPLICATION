@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     siteName: "Éclipse – NOVA ADO",
     images: [
       {
-        url: "/og-eclipse.png",
+        url: "/og-eclipse-v2.png",
         width: 1200,
         height: 630,
         alt: "Le jeu Éclipse par NOVA ADO — 52 cartes pour faire pause",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     title: "NOVA ADO – Le jeu Éclipse",
     description:
       "52 cartes pour faire pause quand les émotions débordent.",
-    images: ["/og-eclipse.png"],
+    images: ["/og-eclipse-v2.png"],
   },
   appleWebApp: {
     capable: true,
