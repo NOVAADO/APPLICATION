@@ -50,7 +50,7 @@ export const DEMO_MICROCOPY = {
 
   // Message page bloquée (technique hors whitelist)
   cardBlockedTitle: "Cette carte fait partie du jeu complet.",
-  cardBlockedSubtitle: "52 cartes physiques, même esprit.",
+  cardBlockedSubtitle: "49 cartes physiques, même esprit.",
 
   // Message pour catégorie hors démo
   categoryLimited: "Ici, c'est un aperçu. Le jeu complet est dans la boîte.",
@@ -59,7 +59,7 @@ export const DEMO_MICROCOPY = {
   gamePromo: "Éclipse existe aussi en version cartes",
 
   // Sous-titre promo
-  gamePromoSubtitle: "52 cartes physiques pour les moments sans écran",
+  gamePromoSubtitle: "49 cartes physiques pour les moments sans écran",
 
   // CTA doux (pas "Acheter maintenant")
   gamePromoCTA: "Découvrir le jeu",

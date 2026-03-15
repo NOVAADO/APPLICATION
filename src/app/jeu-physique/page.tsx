@@ -44,7 +44,7 @@ export default function JeuPhysiquePage() {
         <header className="text-center mb-8">
           <h1 className="text-2xl font-bold mb-2">Le jeu Éclipse</h1>
           <p className="text-eclipse-muted">
-            52 cartes physiques pour les moments sans écran
+            49 cartes physiques pour les moments sans écran
           </p>
         </header>
 
@@ -59,7 +59,7 @@ export default function JeuPhysiquePage() {
               className="mx-auto mb-1 brightness-0 invert"
               aria-hidden="true"
             />
-            <p className="text-xs text-eclipse-muted">52 cartes</p>
+            <p className="text-xs text-eclipse-muted">49 cartes</p>
           </div>
         </div>
 
@@ -83,16 +83,16 @@ export default function JeuPhysiquePage() {
           </h2>
           <div className="grid grid-cols-3 gap-3">
             <div className="p-4 rounded-xl bg-eclipse-card border border-eclipse-muted/20 text-center">
-              <p className="text-2xl font-bold text-souffle">52</p>
+              <p className="text-2xl font-bold text-souffle">49</p>
               <p className="text-xs text-eclipse-muted mt-1">cartes</p>
             </div>
             <div className="p-4 rounded-xl bg-eclipse-card border border-eclipse-muted/20 text-center">
-              <p className="text-2xl font-bold text-atterris">8</p>
+              <p className="text-2xl font-bold text-atterris">7</p>
               <p className="text-xs text-eclipse-muted mt-1">catégories</p>
             </div>
             <div className="p-4 rounded-xl bg-eclipse-card border border-eclipse-muted/20 text-center">
               <p className="text-2xl font-bold text-eclipse-accent">1</p>
-              <p className="text-xs text-eclipse-muted mt-1">code app</p>
+              <p className="text-xs text-eclipse-muted mt-1">Pass Éclipse</p>
             </div>
           </div>
         </section>

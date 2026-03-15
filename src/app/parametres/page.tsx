@@ -225,7 +225,7 @@ export default function ParametresPage() {
               <div className="flex-1">
                 <p className="font-medium">Le jeu Éclipse</p>
                 <p className="text-sm text-eclipse-muted mt-0.5">
-                  52 cartes physiques pour les moments sans écran
+                  49 cartes physiques pour les moments sans écran
                 </p>
               </div>
               <svg

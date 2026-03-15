@@ -113,7 +113,7 @@ export function GamePromoCard() {
             Éclipse existe aussi en version cartes.
           </p>
           <p className="text-eclipse-muted text-sm mb-6">
-            52 cartes physiques, mêmes techniques.
+            49 cartes physiques, mêmes techniques.
             <br />
             Pour les moments sans écran.
           </p>
