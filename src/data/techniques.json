@@ -7,27 +7,26 @@
       "title": "Soupir qui descend",
       "category": "souffle",
       "format": "levels",
-      "openingPhrase": "Ok... là, c'est beaucoup.",
+      "openingPhrase": "Ok... là, c'est beaucoup. On ralentit.",
       "levels": {
         "croissant": {
           "instructions": [
-            "Expire un grand coup, comme un soupir.",
-            "Mâchoire relâchée. C'est fait."
+            "Un long soupir.",
+            "Laisse tomber la mâchoire."
           ],
-          "shortInstruction": "Un soupir. Mâchoire relâchée. C'est fait.",
-          "durationLabel": "10-30 sec",
-          "durationSeconds": 30,
+          "shortInstruction": "Un long soupir. Laisse tomber la mâchoire.",
+          "durationLabel": "5-10 s",
+          "durationSeconds": 10,
           "timer": false,
           "timerConfig": null
         },
         "quartier": {
           "instructions": [
-            "Inspire par le nez en comptant jusqu'à 4.",
-            "Expire par la bouche en comptant jusqu'à 6.",
-            "Recommence 4 fois."
+            "Inspire 4 s.",
+            "Expire 6 s. ×4"
           ],
-          "shortInstruction": "Inspire 4 sec, expire 6 sec. (x4)",
-          "durationLabel": "30-60 sec",
+          "shortInstruction": "Inspire 4 s. Expire 6 s. ×4",
+          "durationLabel": "30-60 s",
           "durationSeconds": 60,
           "timer": true,
           "timerConfig": {
@@ -47,12 +46,12 @@
         },
         "pleine-lune": {
           "instructions": [
-            "Inspire par le nez en comptant jusqu'à 4.",
-            "Expire par la bouche en comptant jusqu'à 8.",
-            "Recommence 6 fois, sans forcer."
+            "Inspire 4 s.",
+            "Expire 8 s. ×6",
+            "Sans forcer."
           ],
-          "shortInstruction": "Inspire 4 sec, expire 8 sec. (x6, sans forcer).",
-          "durationLabel": "1-2 min",
+          "shortInstruction": "Inspire 4 s. Expire 8 s. ×6. Sans forcer.",
+          "durationLabel": "1-2 min.",
           "durationSeconds": 120,
           "timer": true,
           "timerConfig": {
@@ -72,7 +71,7 @@
         }
       },
       "signature": "Je ralentis juste un peu.",
-      "rescue": "J'expire plus long que j'inspire.",
+      "rescue": "Je souffle plus long que j'inspire. Et ça ralentit.",
       "note": null,
       "material": null,
       "tags": [
