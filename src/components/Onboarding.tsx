@@ -98,21 +98,21 @@ export function Onboarding() {
           />
         </div>
 
-        {/* Message principal - ADN compliant */}
+        {/* Message principal - ton ado, direct */}
         <h2 id="onboarding-title" className="text-xl font-bold mb-3">
           Éclipse
         </h2>
         <p id="onboarding-desc" className="text-eclipse-muted mb-4">
-          Des techniques pour faire pause.
+          49 cartes pour faire pause.
           <br />
-          Tu tires, tu testes, c&apos;est tout.
+          Quand ça monte, tu piges une carte et tu fais ce qu&apos;elle dit.
         </p>
 
-        {/* Explication des modes - ultra court */}
+        {/* Comment ça marche - micro-pauses */}
         <p className="text-eclipse-muted/70 text-sm mb-6">
-          <span className="text-eclipse-text">Furtif</span> = discret, où tu veux.
+          Chaque carte = une micro-pause de moins de 5 minutes.
           <br />
-          <span className="text-eclipse-text">Libre</span> = chez toi, plus de place.
+          Pas besoin de comprendre pourquoi. Juste essayer.
         </p>
 
         {/* CTA unique */}
