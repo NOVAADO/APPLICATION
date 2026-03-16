@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useCallback } from "react";
 import { toast } from "sonner";
 import type { Technique, Category, MoonPhase } from "@/lib/types";
-import { LevelAccordion } from "./LevelAccordion";
+import { MOON_PHASES } from "@/lib/types";
 import { WaveSeparator } from "./WaveSeparator";
 
 interface TechniqueCardProps {
@@ -38,11 +38,6 @@ export function TechniqueCard({
   onAnother,
 }: TechniqueCardProps) {
   const categoryColor = category?.color || "#7DD3FC";
-  const [openLevel, setOpenLevel] = useState<MoonPhase | null>(null);
-
-  const handleToggleLevel = useCallback((phase: MoonPhase) => {
-    setOpenLevel((current) => (current === phase ? null : phase));
-  }, []);
 
   const handleShare = async () => {
     const shareText = `J'ai essayé "${technique.title}" avec Éclipse. Une technique rapide pour faire pause.`;
@@ -124,24 +119,46 @@ export function TechniqueCard({
           </p>
         )}
 
-        {/* ── FORMAT: LEVELS (accordéon 3 niveaux) ── */}
+        {/* ── FORMAT: LEVELS (3 niveaux toujours visibles) ── */}
         {isLevelsFormat && (
           <div className="space-y-0">
-            {moonPhases.map((phase, index) => (
-              <div key={phase}>
-                <LevelAccordion
-                  phase={phase}
-                  level={technique.levels[phase]}
-                  isOpen={openLevel === phase}
-                  onToggle={() => handleToggleLevel(phase)}
-                  categoryColor={categoryColor}
-                />
-                {/* Vague entre les niveaux (sauf après le dernier) */}
-                {index < moonPhases.length - 1 && (
-                  <WaveSeparator color={categoryColor} />
-                )}
-              </div>
-            ))}
+            {moonPhases.map((phase, index) => {
+              const level = technique.levels[phase];
+              const phaseData = MOON_PHASES[phase];
+              const durationLabel = level.durationLabel || phaseData.defaultDurationLabel;
+
+              return (
+                <div key={phase}>
+                  <div className="rounded-xl bg-gray-50 px-4 py-3">
+                    {/* En-tête : icône lune + durée */}
+                    <div className="flex items-center justify-between mb-2">
+                      <img
+                        src={phaseData.icon}
+                        alt={phaseData.description}
+                        className="w-10 h-5 flex-shrink-0 object-contain"
+                      />
+                      <span className="text-sm font-semibold text-gray-800">
+                        {durationLabel}
+                      </span>
+                    </div>
+
+                    {/* Instructions */}
+                    <div className="space-y-1">
+                      {level.instructions.map((instruction, i) => (
+                        <p key={i} className="text-sm text-gray-700 leading-relaxed">
+                          {instruction}
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Vague entre les niveaux (sauf après le dernier) */}
+                  {index < moonPhases.length - 1 && (
+                    <WaveSeparator color={categoryColor} />
+                  )}
+                </div>
+              );
+            })}
           </div>
         )}
 
