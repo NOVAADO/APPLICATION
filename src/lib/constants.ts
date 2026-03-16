@@ -14,6 +14,8 @@ export const STORAGE_KEYS = {
   SETTINGS: "eclipse-settings",
   ONBOARDING: "eclipse-onboarding-done",
   GAME_PROMO_SHOWN: "eclipse-game-promo-shown",
+  VIEWED_CARDS: "eclipse-demo-viewed-cards",
+  DEMO_COMPLETION_DISMISSED: "eclipse-demo-completion-dismissed",
 } as const;
 
 /**

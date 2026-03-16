@@ -10,6 +10,7 @@ import {
   BUY_URL,
   BUY_CTA_LABEL,
 } from "@/lib/demo";
+import { getViewedCards } from "@/components/DemoCompletionCard";
 
 /**
  * Clés localStorage pour la promo multi-affichage
@@ -29,6 +30,13 @@ export function GamePromoCard() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    // Si l'utilisateur a vu assez de cartes pour l'écran de conclusion,
+    // le GamePromoCard n'a plus besoin d'apparaître
+    const viewedCards = getViewedCards();
+    if (viewedCards.length >= 5) {
+      return;
+    }
+
     // Vérifier le nombre d'affichages précédents
     const showCount = parseInt(
       localStorage.getItem(PROMO_COUNT_KEY) || "0",

@@ -4,6 +4,8 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { DrawButton } from "@/components/DrawButton";
 import { GamePromoCard } from "@/components/GamePromoCard";
+import { DemoCompletionCard } from "@/components/DemoCompletionCard";
+import { DemoProgress } from "@/components/DemoProgress";
 import { drawTechnique, countAvailableTechniques } from "@/lib/techniques";
 import { isDemoMode, DEMO_MICROCOPY } from "@/lib/demo";
 
@@ -82,6 +84,16 @@ export default function HomePage() {
       >
         Choisis une catégorie
       </button>
+
+      {/* Indicateur de progression démo */}
+      {isDemoMode() && <DemoProgress />}
+
+      {/* Écran de conclusion démo (après 5+ cartes uniques vues) */}
+      {isDemoMode() && (
+        <div className="mt-8 w-full flex justify-center">
+          <DemoCompletionCard />
+        </div>
+      )}
 
       {/* Footer discret */}
       <footer className="mt-auto pt-12 text-center">

@@ -13,6 +13,7 @@ import {
   drawTechnique,
 } from "@/lib/techniques";
 import { isDemoMode, DEMO_MICROCOPY } from "@/lib/demo";
+import { markCardViewed } from "@/components/DemoCompletionCard";
 
 interface TechniquePageProps {
   params: Promise<{ id: string }>;
@@ -70,6 +71,14 @@ export default function TechniquePage({ params }: TechniquePageProps) {
 
   const technique = getTechniqueById(resolvedId);
   const category = technique ? getCategoryById(technique.category) : undefined;
+
+  // Tracker la carte comme vue pour la progression démo
+  useEffect(() => {
+    if (technique && isDemoMode()) {
+      markCardViewed(technique.code);
+    }
+  }, [technique]);
+
 
   // Technique hors whitelist en mode démo → page soft "Dans le jeu complet"
   if (!technique && isDemoMode()) {
