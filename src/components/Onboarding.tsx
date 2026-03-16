@@ -103,7 +103,7 @@ export function Onboarding() {
           Éclipse
         </h2>
         <p id="onboarding-desc" className="text-eclipse-muted mb-4">
-          49 cartes pour faire pause.
+          Essaie 7 cartes tirées du jeu complet (49 au total).
           <br />
           Quand ça monte, tu piges une carte et tu fais ce qu&apos;elle dit.
         </p>
@@ -111,8 +111,6 @@ export function Onboarding() {
         {/* Comment ça marche - micro-pauses */}
         <p className="text-eclipse-muted/70 text-sm mb-6">
           Chaque carte = une micro-pause de moins de 5 minutes.
-          <br />
-          Pas besoin de comprendre pourquoi. Juste essayer.
         </p>
 
         {/* CTA unique */}

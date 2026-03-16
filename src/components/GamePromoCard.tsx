@@ -2,25 +2,49 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import { STORAGE_KEYS } from "@/lib/constants";
+import {
+  PROMO_THRESHOLD,
+  PROMO_MAX_SHOWS,
+  PROMO_COOLDOWN_MS,
+  BUY_URL,
+  BUY_CTA_LABEL,
+} from "@/lib/demo";
+
+/**
+ * Clés localStorage pour la promo multi-affichage
+ */
+const PROMO_COUNT_KEY = "eclipse-game-promo-count";
+const PROMO_LAST_SHOWN_KEY = "eclipse-game-promo-last-shown";
 
 /**
  * Carte de promotion discrète du jeu physique
  *
- * Affichée UNE SEULE FOIS après 5 techniques complétées
+ * Affichée après PROMO_THRESHOLD techniques complétées
+ * Maximum PROMO_MAX_SHOWS affichages, avec un cooldown de PROMO_COOLDOWN_MS entre chaque
  * Ton informatif, pas commercial
  * Respecte l'ADN : "on propose, on n'impose pas"
  */
 export function GamePromoCard() {
-  const router = useRouter();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Vérifier si déjà affiché
-    const alreadyShown = localStorage.getItem(STORAGE_KEYS.GAME_PROMO_SHOWN);
-    if (alreadyShown) {
+    // Vérifier le nombre d'affichages précédents
+    const showCount = parseInt(
+      localStorage.getItem(PROMO_COUNT_KEY) || "0",
+      10
+    );
+    if (showCount >= PROMO_MAX_SHOWS) {
       return;
+    }
+
+    // Vérifier le cooldown (7 jours entre chaque affichage)
+    const lastShown = localStorage.getItem(PROMO_LAST_SHOWN_KEY);
+    if (lastShown) {
+      const elapsed = Date.now() - parseInt(lastShown, 10);
+      if (elapsed < PROMO_COOLDOWN_MS) {
+        return;
+      }
     }
 
     // Vérifier le nombre de techniques complétées dans l'historique
@@ -31,8 +55,7 @@ export function GamePromoCard() {
 
     try {
       const history = JSON.parse(historyRaw);
-      // Afficher si 5+ techniques complétées
-      if (Array.isArray(history) && history.length >= 5) {
+      if (Array.isArray(history) && history.length >= PROMO_THRESHOLD) {
         setIsVisible(true);
       }
     } catch {
@@ -41,15 +64,22 @@ export function GamePromoCard() {
   }, []);
 
   const handleDismiss = () => {
-    // Marquer comme affiché (ne plus jamais afficher)
+    // Incrémenter le compteur et enregistrer le timestamp
+    const showCount = parseInt(
+      localStorage.getItem(PROMO_COUNT_KEY) || "0",
+      10
+    );
+    localStorage.setItem(PROMO_COUNT_KEY, String(showCount + 1));
+    localStorage.setItem(PROMO_LAST_SHOWN_KEY, String(Date.now()));
+    // Rétrocompat : aussi mettre l'ancien flag
     localStorage.setItem(STORAGE_KEYS.GAME_PROMO_SHOWN, "true");
     setIsVisible(false);
   };
 
   const handleViewGame = () => {
-    // Marquer comme affiché avant navigation
-    localStorage.setItem(STORAGE_KEYS.GAME_PROMO_SHOWN, "true");
-    router.push("/jeu-physique");
+    handleDismiss();
+    // Ouvrir La Ruche dans un nouvel onglet
+    window.open(BUY_URL, "_blank", "noopener,noreferrer");
   };
 
   if (!isVisible) {
@@ -115,7 +145,7 @@ export function GamePromoCard() {
           <p className="text-eclipse-muted text-sm mb-6">
             49 cartes physiques, mêmes techniques.
             <br />
-            Pour les moments sans écran.
+            La campagne est en cours sur La Ruche.
           </p>
 
           {/* Actions */}
@@ -124,7 +154,7 @@ export function GamePromoCard() {
               onClick={handleViewGame}
               className="w-full py-3 rounded-xl bg-gradient-to-r from-souffle to-atterris text-eclipse-bg font-semibold touch-feedback hover:opacity-90 transition-opacity"
             >
-              Voir le jeu
+              {BUY_CTA_LABEL}
             </button>
             <button
               onClick={handleDismiss}
@@ -136,7 +166,7 @@ export function GamePromoCard() {
 
           {/* Note rassurante */}
           <p className="text-eclipse-muted/60 text-xs mt-4">
-            L&apos;app reste gratuite. Pas de pression.
+            L&apos;aperçu reste gratuit. Pas de pression.
           </p>
         </div>
       </div>

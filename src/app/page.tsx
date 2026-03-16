@@ -105,7 +105,7 @@ export default function HomePage() {
         </p>
       </footer>
 
-      {/* Carte promo jeu physique (affichée 1 seule fois après 5 techniques) */}
+      {/* Carte promo jeu physique (max 3 fois, cooldown 7 jours, après 3 techniques) */}
       <GamePromoCard />
     </div>
   );

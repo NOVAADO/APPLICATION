@@ -701,6 +701,147 @@
         "notes": "Forcer un regard neuf sur le quotidien interrompt les boucles anxieuses.",
         "needsReview": false
       }
+    },
+    {
+      "id": "repere-005",
+      "code": "F05",
+      "title": "Une phrase vraie",
+      "category": "repere",
+      "format": "levels",
+      "openingPhrase": "Cherche quelque chose de solide.",
+      "levels": {
+        "croissant": {
+          "instructions": [
+            "« Là, je vis un moment dur. »",
+            "Dis-le dans ta tête. C'est assez."
+          ],
+          "shortInstruction": "« Là, je vis un moment dur. »",
+          "durationLabel": "5-10 s",
+          "durationSeconds": 10,
+          "timer": false,
+          "timerConfig": null
+        },
+        "quartier": {
+          "instructions": [
+            "« Là, c'est dur. Et je passe au travers. »",
+            "Répète-la une ou deux fois, lentement."
+          ],
+          "shortInstruction": "« Là, c'est dur. Et je passe au travers. »",
+          "durationLabel": "30-60 s",
+          "durationSeconds": 60,
+          "timer": false,
+          "timerConfig": null
+        },
+        "pleine-lune": {
+          "instructions": [
+            "Trouve ta propre phrase vraie.",
+            "8 mots max.",
+            "Quelque chose que tu sais, pour vrai."
+          ],
+          "shortInstruction": "Ta phrase vraie. 8 mots max.",
+          "durationLabel": "1-2 min.",
+          "durationSeconds": 120,
+          "timer": false,
+          "timerConfig": null
+        }
+      },
+      "signature": "Je reste moi, même quand c'est dur.",
+      "rescue": "Je peux tenir encore un peu.",
+      "note": null,
+      "material": null,
+      "tags": [
+        "ancrage",
+        "affirmation",
+        "clarté",
+        "résilience"
+      ],
+      "premium": false,
+      "discretionLevel": "public_ok",
+      "evidence": {
+        "isCanadaValidated": false,
+        "level": "B",
+        "canadaSources": [],
+        "scientificSources": [
+          {
+            "title": "ACT - Défusion cognitive et valeurs"
+          },
+          {
+            "title": "Auto-affirmation et régulation émotionnelle"
+          }
+        ],
+        "notes": "L'auto-affirmation réaliste réduit la détresse et renforce le sentiment de compétence.",
+        "needsReview": false
+      }
+    },
+    {
+      "id": "accroche-003",
+      "code": "P03",
+      "title": "Pas de comptes à rendre",
+      "category": "accroche",
+      "format": "accroche",
+      "openingPhrase": "",
+      "levels": {
+        "croissant": {
+          "instructions": [
+            "Je n'ai pas besoin de justifier."
+          ],
+          "shortInstruction": "",
+          "durationLabel": "",
+          "durationSeconds": 0,
+          "timer": false,
+          "timerConfig": null
+        },
+        "quartier": {
+          "instructions": [
+            "Je n'ai pas besoin de justifier.",
+            "Ma réponse, c'est assez."
+          ],
+          "shortInstruction": "",
+          "durationLabel": "",
+          "durationSeconds": 0,
+          "timer": false,
+          "timerConfig": null
+        },
+        "pleine-lune": {
+          "instructions": [
+            "Je n'ai pas besoin de justifier.",
+            "Ma réponse, c'est assez.",
+            "Je peux dire non sans explication."
+          ],
+          "shortInstruction": "",
+          "durationLabel": "",
+          "durationSeconds": 0,
+          "timer": false,
+          "timerConfig": null
+        }
+      },
+      "signature": "Je peux dire non.",
+      "rescue": "Ma réponse, c'est assez.",
+      "note": null,
+      "material": null,
+      "tags": [
+        "limites",
+        "affirmation",
+        "pression",
+        "consentement"
+      ],
+      "premium": false,
+      "discretionLevel": "public_ok",
+      "evidence": {
+        "isCanadaValidated": false,
+        "level": "B",
+        "canadaSources": [],
+        "scientificSources": [
+          {
+            "title": "Affirmation de soi - DBT et TCC"
+          },
+          {
+            "title": "Développement de l'autonomie à l'adolescence"
+          }
+        ],
+        "notes": "Poser ses limites sans culpabilité est un facteur de protection pour la santé mentale.",
+        "needsReview": false
+      }
     }
   ]
 }

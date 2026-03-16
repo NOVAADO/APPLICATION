@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { BUY_URL, BUY_CTA_LABEL } from "@/lib/demo";
 
 /**
  * Page Jeu Physique
@@ -128,12 +129,12 @@ export default function JeuPhysiquePage() {
           </p>
 
           <a
-            href="https://novaado.ca/eclipse"
+            href={BUY_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="block w-full py-3.5 rounded-xl bg-gradient-to-r from-souffle to-atterris text-eclipse-bg font-semibold text-center touch-feedback hover:opacity-90 transition-opacity"
           >
-            Voir sur novaado.ca
+            {BUY_CTA_LABEL}
           </a>
 
           <button
@@ -148,9 +149,7 @@ export default function JeuPhysiquePage() {
       {/* Note légale */}
       <footer className="mt-6 pt-4 border-t border-eclipse-muted/20">
         <p className="text-eclipse-muted/60 text-xs text-center">
-          L&apos;app reste gratuite et complète sans le jeu.
-          <br />
-          Pas de pression.
+          L&apos;aperçu est gratuit. Le jeu physique déverrouille les 49 cartes dans l&apos;app.
         </p>
       </footer>
     </div>

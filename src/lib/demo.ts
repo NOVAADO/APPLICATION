@@ -13,6 +13,20 @@
 import demoCardsData from "@/data/demo-cards.json";
 
 /**
+ * Lien principal vers la page d'achat / campagne.
+ * Pendant la campagne La Ruche, pointe vers la collecte.
+ * Après la campagne, remettre : "https://novaado.ca/eclipse"
+ */
+export const BUY_URL =
+  "https://laruchequebec.com/fr/projets/80cd4414-6656-4da8-8f55-b268f6a1818e";
+
+/**
+ * Label du CTA principal d'achat
+ * Après la campagne, remettre : "Voir sur novaado.ca"
+ */
+export const BUY_CTA_LABEL = "Soutenir sur La Ruche";
+
+/**
  * Codes whitelistés — source de vérité unique.
  * Pour changer le set démo, éditer demo-cards.json.
  */
@@ -72,4 +86,15 @@ export const DEMO_MICROCOPY = {
 /**
  * Nombre d'exercices avant le tunnel doux vers le jeu physique
  */
-export const PROMO_THRESHOLD = 5;
+export const PROMO_THRESHOLD = 3;
+
+/**
+ * Nombre maximum d'affichages de la promo jeu physique
+ */
+export const PROMO_MAX_SHOWS = 3;
+
+/**
+ * Délai minimum entre deux affichages de la promo (en ms)
+ * 7 jours = 7 * 24 * 60 * 60 * 1000
+ */
+export const PROMO_COOLDOWN_MS = 7 * 24 * 60 * 60 * 1000;
